@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Venus----唯品会分布式框架 | 菜菜的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="http://wiki.hexnova.com/display/Venus/HOME
+ HOME
+附件：1被Struct添加，被Struct最后更新于2015-Aug-26  (查看更改)Venus（New Version：3.2.14） 是什么？
+它是由(Venus service framework)+服务路由产品（Venus-Bus）+服务注册中心(Venus-Registry) 组合而成，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Venus----唯品会分布式框架">
+<meta property="og:url" content="http://yoursite.com/2016/04/28/Venus-唯品会分布式框架/index.html">
+<meta property="og:site_name" content="菜菜的博客">
+<meta property="og:description" content="http://wiki.hexnova.com/display/Venus/HOME
+ HOME
+附件：1被Struct添加，被Struct最后更新于2015-Aug-26  (查看更改)Venus（New Version：3.2.14） 是什么？
+它是由(Venus service framework)+服务路由产品（Venus-Bus）+服务注册中心(Venus-Registry) 组合而成，">
+<meta property="og:updated_time" content="2016-06-12T17:13:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Venus----唯品会分布式框架">
+<meta name="twitter:description" content="http://wiki.hexnova.com/display/Venus/HOME
+ HOME
+附件：1被Struct添加，被Struct最后更新于2015-Aug-26  (查看更改)Venus（New Version：3.2.14） 是什么？
+它是由(Venus service framework)+服务路由产品（Venus-Bus）+服务注册中心(Venus-Registry) 组合而成，">
+  
+    <link rel="alternative" href="/atom.xml" title="菜菜的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/ccz.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">菜菜</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">菜菜的博客</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags">标签</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/javascript/" style="font-size: 15px;">javascript</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/memcached/" style="font-size: 10px;">memcached</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/oracle/" style="font-size: 10px;">oracle</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/soa/" style="font-size: 20px;">soa</a> <a href="/tags/solr/" style="font-size: 10px;">solr</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">菜菜</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/ccz.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">菜菜</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">菜菜的博客</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags">标签</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Venus-唯品会分布式框架" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/28/Venus-唯品会分布式框架/" class="article-date">
+  	<time datetime="2016-04-29T00:25:23.000Z" itemprop="datePublished">2016-04-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Venus----唯品会分布式框架
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/soa/">soa</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://wiki.hexnova.com/display/Venus/HOME" target="_blank" rel="external">http://wiki.hexnova.com/display/Venus/HOME</a></p>
+<p> HOME</p>
+<p>附件：1<br>被Struct添加，被Struct最后更新于2015-Aug-26  (查看更改)<br>Venus（New Version：3.2.14） 是什么？</p>
+<p>它是由(Venus service framework)+服务路由产品（Venus-Bus）+服务注册中心(Venus-Registry) 组合而成，提供远程服务。它着 开发简单、高性能、高并发能力 的服务端框架。<br>客户端与服务端之间的通讯对开发人员完全透明<br>他跟目前我们经常用到的框架：axis、CXF、Hessian WebService、Jboss Remoting等框架类似。<br>系统功能目标：<br>提供高性能的服务通讯框架<br>具备性能监控（可以清晰的看到每个服务执行的时间、过长可以通过监控告警出去）<br>具备流量控制（每个服务每个时刻的调用次数、每天的峰值情况、）<br>访问控制（服务的授权控制）<br>提供可选择性服务数据缓存（cache支持，key采用表达式，由框架提供缓存支持，而不需要编写任何cache相关的代码）<br>提供框架进行再次研发能力，提供interceptor、validator等接口。<br>提供高性能的服务总线（Venus-Bus），能够轻易接入高性能的服务总线。（Venus-Bus项目支持，针对该venus的协议，以后接入服务总线轻而易举）<br>开发方面：<br>服务接口定义清晰(接口、参数、校验、以及服务鉴权)<br>自动生成接口文档，以方便阅读接口声明<br>客户端框架快速开发、提供多种语言版本的客户端<br>提供3种服务调用方式（同步、异步、回调）<br>服务端框架提供多种协议提供服务，而不需要做额外的开发<br>    语言支持情况<br>目前客户端SDK暂时只有java、PHP语言版本<br>服务端面向java语言<br>java 语言开发例子<br>演讲稿下载</p>
+<p>Venus演讲稿.pdf<br>开发人员的关注点</p>
+<ol>
+<li>如何服务化</li>
+</ol>
+<p>采用接口与实现分离，服务接口是一种契约，他与我们开发web Service类似。<br>java开发语言：采用对程序员友好的接口申明形式，开发人员不需要关心客户端与服务端之间的传输协议。<br>其他语言：可以通过该框架提供自定义协议或者Http协议（http协议即将在2.1.0版本release出来）进行交互</p>
+<ol>
+<li>服务接口定制</li>
+</ol>
+<p>定义服务接口<br>接口参数命名<br>定义参数校验规则<br>Java语言服务接口尽量不要依赖其他项目. 接口层面只需要接口相关的参数对象类与服务类<br>异常定义</p>
+<ol>
+<li><p>接口参数校验</p>
+</li>
+<li><p>提供3种交互方式</p>
+<p>请求应答模式：普通的request、response，一般用于接口有返回值<br>异步请求模式：通常用于接口无返回值，客户端并不关心服务器的处理结果，也不用关心服务器处理多少时间<br>异步回调模式：接口无返回值，处理通常消化大量时间，需要服务端通知处理结果的业务接口<br>源代码：</p>
+</li>
+</ol>
+<p>demo 的svn 地址：svn://svn.hexnova.com/venus/venus-helloworld/trunk<br>框架svn地址： svn://svn.hexnova.com/venus/venus-framework/trunk<br>svn的用户名：guest<br>svn密码：guest<br>Maven Repository</p>
+<p><repository><id>hexnova-open</id><url><a href="http://maven.hexnova.com/nexus/content/groups/hexnova-open" target="_blank" rel="external">http://maven.hexnova.com/nexus/content/groups/hexnova-open</a></url><releases><enabled>true</enabled><updatepolicy>never</updatepolicy></releases><snapshots><enabled>true</enabled><updatepolicy>always</updatepolicy></snapshots></repository><br>目前版本情况：</p>
+<p>trunk是最新开发版本，会不停有新东西进入<br>稳定版本: 3.2.14<br>最新版本:3.2.14<br>版本发布Blog地址： <a href="http://wiki.hexnova.com/pages/viewrecentblogposts.action?key=Venus" target="_blank" rel="external">http://wiki.hexnova.com/pages/viewrecentblogposts.action?key=Venus</a><br>开发人员与blog</p>
+<p>日志</p>
+<p>日志: Venus 3.2.12 Release 创建：<br>Struct<br>2014-Sep-05<br>Venus<br>日志: Venus 3.2.10 Release 创建：<br>Struct<br>2014-Jun-25<br>Venus<br>日志: Venus 3.2.3 Released 创建：<br>Struct<br>2014-Feb-19<br>Venus<br>日志: Venus 3.0.9 Released 创建：<br>Struct<br>2013-Dec-25<br>Venus<br>日志: Venus 3.0.6 Released 创建：<br>Struct<br>2013-Nov-22<br>Venus<br>日志: Venus 3.0.4 Released 创建：<br>Struct<br>2013-Nov-14<br>Venus<br>日志: Venus 3.0.3 Released 创建：<br>Struct<br>2013-Oct-25<br>Venus<br>日志: Venus 3.0.2 Released 创建：<br>Struct<br>2013-Oct-21<br>Venus<br>日志: Venus 3.0.1 Released 创建：<br>Struct<br>2013-Oct-14<br>Venus<br>日志: Venus 2.3.0 Released 创建：<br>Struct<br>2012-Oct-08<br>Venus<br>日志: Venus 2.2.7 Released 创建：<br>Struct<br>2012-Sep-24<br>Venus<br>日志: Venus 2.2.6 Released 创建：<br>Struct<br>2012-Jun-28<br>Venus<br>日志: Venus 2.2.3 Released 创建：<br>Struct<br>2012-May-21<br>Venus<br>日志: Venus 2.0.4 Released 创建：<br>Struct<br>2012-Mar-31<br>Venus<br>日志: Venus 2.0.3 Released 创建：<br>Struct<br>2012-Mar-23<br>Venus<br>日志: Venus 2.0.1 Released 创建：<br>Struct<br>2012-Jan-02<br>Venus<br>日志: Venus 1.3.0 Released 创建：<br>Struct<br>2011-Dec-07<br>Venus<br>日志: Venus 1.2.0 Released 创建：<br>Struct<br>2011-Dec-01<br>Venus<br>日志: Venus 1.1.0 Released 创建：<br>Struct<br>2011-Nov-28<br>Venus</p>
+<p>研发人员列表</p>
+<p>昵称    角色    职责    开源社区    目前供职于<br>Struct    Member    负责架构设计、通信框架研发、服务框架研发    Hexnova    上海汽车工业集团<br>Daisy    Member    对象数据序列化、服务接口数据校验、服务框架研发    Hexnova    </p>
+<p>Sunng    Member    服务框架研发    Hexnova    </p>
+<p>Yuanjian Yi    Member<br>PHP客户端开发    Hexnova<br>上海由你网络科技有限公司<br>huawei    Member<br>服务注册中心    Hexnova </p>
+<p>样例：</p>
+<p>简单的接口例子：HelloService.java<br>HelloService接口例子<br>package com.meidusa.venus.hello.api;</p>
+<p>import com.meidusa.venus.annotations.Endpoint;<br>import com.meidusa.venus.annotations.Param;<br>import com.meidusa.venus.annotations.Service;<br>import com.meidusa.venus.notify.InvocationListener;</p>
+<p>/**</p>
+<ul>
+<li>Service framework的 HelloService 接口例子.<p></p></li>
+<li>支持3种调用方式：<p></p></li>
+<li></li><li> 请求应答模式：普通的request、response，一般用于接口有返回值</li>
+<li></li><li> 异步请求模式：通常用于接口无返回值，客户端并不关心服务器的处理结果，也不用关心服务器处理多少时间</li>
+<li></li><li> 异步回调模式：接口无返回值，处理通常消化大量时间，需要服务端通知处理结果的业务接口</li><br>*
+<li><p>@author Struct<br><em>
+</em>/<br>@Service(name=”HelloService”,version=1)<br>publicinterface HelloService {</p>
+<p> /**</p>
+<ul>
+<li>无返回结果的服务调用，支持回调方式，该服务在通讯层面上为异步调用</li>
+<li>@param name</li>
+<li>@param invocationListener 客户端的回调接口<br>*/<br>@Endpoint(name=”sayHelloWithCallbak”)<br>publicabstract void sayHello(@Param(name=”name”) String name,<pre><code>@Param(name=&quot;callback&quot;) InvocationListener&lt;Hello&gt; invocationListener);
+</code></pre>/**</li>
+<li>无返回结果的服务调用，支持同步或者异步调用,</li>
+<li>该接口申明：同步，并且接口申明异常</li>
+<li><p>@param name<br>*/<br>@Endpoint(name=”sayHello”,async=false)<br>publicabstract void sayHello(@Param(name=”name”) String name) throws HelloNotFoundException;</p>
+<p>/**</p>
+</li>
+<li>无返回结果的服务调用，支持同步或者异步调用，无异常申明</li>
+<li>@param name<br>*/<br>@Endpoint(name=”sayAsyncHello”,async=true)<br>publicabstract void sayAsyncHello(@Param(name=”name”) String name);</li>
+</ul>
+</li>
+</ul>
+<pre><code>/**
+ * 有返回结果的服务调用，该接口只能支持同步调用
+ * @param name
+ * @return
+ */
+@Endpoint(name=&quot;getHello&quot;,timeWait=10000)
+publicabstract Hello getHello(@Param(name=&quot;name&quot;) String name);
+</code></pre><p>}<br>客户端TestCase编写<br>客户端TestCase<br>package com.meidusa.venus.hello.client;</p>
+<p>import java.util.concurrent.CountDownLatch;</p>
+<p>import org.junit.Test;<br>import org.junit.runner.RunWith;<br>import org.springframework.beans.factory.annotation.Autowired;<br>import org.springframework.test.context.ContextConfiguration;<br>import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;</p>
+<p>import com.meidusa.venus.exception.CodedException;<br>import com.meidusa.venus.hello.api.Hello;<br>import com.meidusa.venus.hello.api.HelloNotFoundException;<br>import com.meidusa.venus.hello.api.HelloService;<br>import com.meidusa.venus.notify.InvocationListener;</p>
+<p>@RunWith(SpringJUnit4ClassRunner.class)<br>@ContextConfiguration(locations=”classpath:/applicationContext-helloworld-client.xml”)<br>public class TestHelloService {</p>
+<pre><code>@Autowired
+private HelloService helloService;
+
+@Test
+public void saySync(){
+    System.out.println(helloService.getHello(&quot;jack&quot;));
+}
+
+@Test
+public void testSyncWithException(){
+    try {
+        helloService.sayHello(&quot;jack&quot;);
+    } catch (HelloNotFoundException e) {
+        System.out.println(&quot;throw an user defined HelloNotFoundException&quot;);
+    }
+}
+
+@Test
+public void testAsync(){
+    helloService.sayAsyncHello(&quot;jack&quot;);
+}
+
+@Test
+public void testCallback() throws Exception{
+    //为了让回调完成，采用countDownLatch计数器方式，避免testcase主线程运行完成而回调未结束的问题
+</code></pre><p>final CountDownLatch latch = new CountDownLatch(1);</p>
+<pre><code>              //在正常的使用的代码中这个类需要单实例，避免过多的callback listener导致内存问题
+                  InvocationListener&lt;Hello&gt; listener = new InvocationListener&lt;Hello&gt;() {
+        public void callback(Hello myobject) {
+            System.out.println(&quot; async call back result=&quot;+myobject);
+            latch.countDown();
+        }
+
+        @Override
+        public void onException(Exception e) {
+            if(e instanceof CodedException){
+                CodedException exception = (CodedException) e;
+                System.out.println(&quot; async call back error:&quot;+exception.getErrorCode()+&quot;,message=&quot;+exception.getMessage());
+            }else{
+                System.out.println(&quot; async call back message=&quot;+e.getMessage());
+            }
+            latch.countDown();
+
+        }
+    };
+
+    helloService.sayHello(&quot;jack&quot;,listener);
+    latch.await();
+}
+</code></pre><p>}<br>服务端的实现<br>服务端对HelloService的简单实现<br>package com.meidusa.venus.hello.impl;</p>
+<p>import java.math.BigDecimal;<br>import java.util.HashMap;<br>import java.util.Map;</p>
+<p>import com.meidusa.venus.hello.api.Hello;<br>import com.meidusa.venus.hello.api.HelloNotFoundException;<br>import com.meidusa.venus.hello.api.HelloService;<br>import com.meidusa.venus.notify.InvocationListener;</p>
+<p>public class DefaultHelloService implements HelloService {<br>    privateString greeting;<br>    publicString getGreeting() {<br>        return greeting;<br>    }</p>
+<pre><code>public void setGreeting(String greeting) {
+    this.greeting = greeting;
+}
+public Hello getHello(String name) {
+    Hello hello = new Hello();
+    hello.setName(name);
+    hello.setGreeting(greeting);
+    Map&lt;String,Object&gt; map = new HashMap&lt;String,Object&gt;();
+    hello.setMap(map);
+    map.put(&quot;1&quot;, 1);
+    map.put(&quot;2&quot;, newLong(2));
+    map.put(&quot;3&quot;, newInteger(3));
+    hello.setBigDecimal(new BigDecimal(&quot;1.341241233412&quot;));
+    return hello;
+}
+
+public void sayHello(String name)  throws HelloNotFoundException {
+    thrownew HelloNotFoundException(name +&quot; not found&quot;);
+}
+
+@Override
+public void sayAsyncHello(String name) {
+    System.out.println(&quot;method sayAsyncHello invoked&quot;);
+}
+
+public void sayHello(String name,
+        InvocationListener&lt;Hello&gt; invocationListener) {
+    Hello hello = new Hello();
+    hello.setName(name);
+    hello.setGreeting(greeting);
+    Map&lt;String,Object&gt; map = new HashMap&lt;String,Object&gt;();
+    hello.setMap(map);
+    map.put(&quot;1&quot;, 1);
+    map.put(&quot;2&quot;, newLong(2));
+    map.put(&quot;3&quot;, newInteger(3));
+
+    if(invocationListener != null){
+        invocationListener.callback(hello);
+    }
+
+}
+</code></pre><p>}<br>最近的更新</p>
+<p>Go语言客户端 go-venus-plugin<br>commented by deephex<br>Jan 22<br>Go语言客户端 go-venus-plugin<br>updated by Struct<br>(view change)<br>Jan 15</p>
+<ol>
+<li>各种客户端简单使用<br>updated by Struct<br>(view change)<br>Jan 15<br>go-venus-plugin.zip<br>attached by Struct<br>Jan 15<br>go-venus-plugin.zip<br>attached by Struct<br>Jan 15<br>JAVA语言客户端<br>commented by 匿名用户<br>2015-Oct-14<br>HOME<br>commented by wangzhenjun<br>2015-Oct-08<br>HOME<br>updated by Struct<br>(view change)<br>2015-Aug-26<br>JAVA语言客户端<br>commented by 匿名用户<br>2015-Aug-10<br>后端处理线程设置<br>updated by Struct<br>(view change)<br>2015-Jul-29<br>. Venus Http协议<br>updated by Struct<br>(view change)<br>2015-Jun-29<br>venus-http-adaptor-3.2.13-distribution.zip<br>attached by Struct<br>2015-Jun-29<br>JAVA语言客户端<br>updated by Struct<br>(view change)<br>2015-Jun-11<br>HOME<br>commented by zhuo<br>2015-Feb-14<br>Venus 3.2.12 Release<br>commented by sunstar_s<br>2015-Jan-14<br>Venus Eclipse Plugin发布<br>commented by 匿名用户<br>2015-Jan-10<br>Venus Eclipse Plugin发布<br>commented by 匿名用户<br>2015-Jan-05<br>HOME<br>commented by 匿名用户<br>2014-Nov-06<br>HOME<br>commented by 匿名用户<br>2014-Nov-05<br>Venus 3.2.12 Release<br>created by Struct<br>2014-Sep-05<br>More </li>
+</ol>
+<p>Navigate space</p>
+<ol>
+<li>各种客户端简单使用</li>
+<li>高级使用指南</li>
+<li>Architecture</li>
+<li>协议以及交互序列图介绍</li>
+<li>性能测试工具–Service-benchmark</li>
+<li>性能测试(单客户端)</li>
+<li><p>极限测试(多客户端)<br>FAQ<br>Venus Eclipse Plugin发布<br>二、其他语言客户端<br>子页面 (10) </p>
+<p>隐藏子页面  |  页面重排<br>页面: 1. 各种客户端简单使用<br>页面: 2. 高级使用指南<br>页面: 3. Architecture<br>页面: 4. 协议以及交互序列图介绍<br>页面: 5. 性能测试工具–Service-benchmark<br>页面: 6. 性能测试(单客户端)<br>页面: 7. 极限测试(多客户端)<br>页面: FAQ<br>页面: Venus Eclipse Plugin发布<br>页面: 二、其他语言客户端 </p>
+</li>
+</ol>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/04/28/dubbox/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          dubbox
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/04/28/新浪开源分布式框架-motan/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">新浪开源分布式框架--motan</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Venus-唯品会分布式框架" data-title="Venus----唯品会分布式框架" data-url="http://yoursite.com/2016/04/28/Venus-唯品会分布式框架/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 菜菜
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

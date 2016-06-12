@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>hexo+github搭建个人博客 | 菜菜的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="hexo+github搭建个人博客
+字数841 阅读543 评论12 喜欢18现在一个程序猿（媛）没有一个自己的博客都不好意思说自己是程序员，哈哈开玩笑的。是否有一个方法，可以让我们自己创建一个属于自己的博客，然后又不用花钱买服务器和域名，也不用自己找人去设计自己的网站呢。这样的好东西还真的存在，而且配置还十分简单，下面我就详细的介绍如何用hexo+github搭建自己的（酷炫）博客。前期准备
+n">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo+github搭建个人博客">
+<meta property="og:url" content="http://yoursite.com/2016/04/28/hexo-github搭建个人博客/index.html">
+<meta property="og:site_name" content="菜菜的博客">
+<meta property="og:description" content="hexo+github搭建个人博客
+字数841 阅读543 评论12 喜欢18现在一个程序猿（媛）没有一个自己的博客都不好意思说自己是程序员，哈哈开玩笑的。是否有一个方法，可以让我们自己创建一个属于自己的博客，然后又不用花钱买服务器和域名，也不用自己找人去设计自己的网站呢。这样的好东西还真的存在，而且配置还十分简单，下面我就详细的介绍如何用hexo+github搭建自己的（酷炫）博客。前期准备
+n">
+<meta property="og:updated_time" content="2016-06-12T17:13:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hexo+github搭建个人博客">
+<meta name="twitter:description" content="hexo+github搭建个人博客
+字数841 阅读543 评论12 喜欢18现在一个程序猿（媛）没有一个自己的博客都不好意思说自己是程序员，哈哈开玩笑的。是否有一个方法，可以让我们自己创建一个属于自己的博客，然后又不用花钱买服务器和域名，也不用自己找人去设计自己的网站呢。这样的好东西还真的存在，而且配置还十分简单，下面我就详细的介绍如何用hexo+github搭建自己的（酷炫）博客。前期准备
+n">
+  
+    <link rel="alternative" href="/atom.xml" title="菜菜的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/ccz.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">菜菜</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">菜菜的博客</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags">标签</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/javascript/" style="font-size: 15px;">javascript</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/memcached/" style="font-size: 10px;">memcached</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/oracle/" style="font-size: 10px;">oracle</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/soa/" style="font-size: 20px;">soa</a> <a href="/tags/solr/" style="font-size: 10px;">solr</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">菜菜</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/ccz.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">菜菜</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">菜菜的博客</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags">标签</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-hexo-github搭建个人博客" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/28/hexo-github搭建个人博客/" class="article-date">
+  	<time datetime="2016-04-29T00:20:21.000Z" itemprop="datePublished">2016-04-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      hexo+github搭建个人博客
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>hexo+github搭建个人博客</p>
+<p>字数841 阅读543 评论12 喜欢18<br>现在一个程序猿（媛）没有一个自己的博客都不好意思说自己是程序员，哈哈开玩笑的。是否有一个方法，可以让我们自己创建一个属于自己的博客，然后又不用花钱买服务器和域名，也不用自己找人去设计自己的网站呢。<br>这样的好东西还真的存在，而且配置还十分简单，下面我就详细的介绍如何用hexo+github搭建自己的（酷炫）博客。<br>前期准备</p>
+<p>node.js<br>如果你是windows,请戳这里<br>如果你是mac,请戳这里<br>git账号<br>如果没有git帐号，请戳这里<br>安装hexo<br>npm install -g hexo<br>初始化hexo<br>hexo init<br>npm install hexo –save<br>生成静态页面至hexo\public\目录。<br>hexo g<br>本地启动服务<br>hexo server<br>这样，我们就可以在浏览器中输入<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a> 访问我们的博客啦（响应式的网站）。</p>
+<p>初始界面-PC.png</p>
+<p>初始界面-移动端.png<br>虽然博客基本的已经搭好了，但是我们只能在本地访问，其他人是看不到的，下面我们通过和git绑定来实现我们想要的效果。</p>
+<p>配置github<br>新建一个仓库名（该仓库名和你的用户名对应），如我的git账户名是：coder-Yin，则我的仓库名为coder-Yin.github.io<br>编辑_config.yml文件，建立与git的关联(在.yml文件的最底部)</p>
+<h1 id="Deployment-Docs-http-hexo-io-docs-deployment-html"><a href="#Deployment-Docs-http-hexo-io-docs-deployment-html" class="headerlink" title="Deployment## Docs: http://hexo.io/docs/deployment.html"></a>Deployment## Docs: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">http://hexo.io/docs/deployment.html</a></h1><p>deploy:<br>  type: git<br>  repository: <a href="https://github.com/coder-Yin/coder-Yin.github.io.git" target="_blank" rel="external">https://github.com/coder-Yin/coder-Yin.github.io.git</a><br>  branch: master<br>然后运行<br>npm install hexo-deployer-git –save<br>hexo g<br>hexo d<br>这样你就可以在你的 coder-Yin.github.io 上看到代码已经同步到git上了。<br>在浏览器中输入你的**.github..io(例如：<a href="http://coder-yin.github.io/）" target="_blank" rel="external">http://coder-yin.github.io/）</a></p>
+<p>访问效果.png<br>每次有新的修改需要部署同步，都可以按照下面的步骤来：<br>hexo clean<br>hexo g<br>hexo d<br>如果你觉得hexo默认的主题不好看，你可以通过以下方法来修改你的主题。</p>
+<p>下面我通过修改一个主题来给大家做个介绍：<br>在git上找到你想要的主题<br>我这随意找了一个，比较适合女孩子（缺点:不是自适应的）<br><a href="https://github.com/daisygao/hexo-themes-cover" target="_blank" rel="external">https://github.com/daisygao/hexo-themes-cover</a><br>进入你的hexo目录，执行命令，拷贝主题<br>git clone <a href="https://github.com/daisygao/hexo-themes-cover.git" target="_blank" rel="external">https://github.com/daisygao/hexo-themes-cover.git</a> themes/cover<br>拷贝完成后，你会发现你的项目下的themes下多了一个cover文件夹<br>我们还需要修改_config.yml文件中的一处来应用新的主题</p>
+<h1 id="Extensions-Plugins-http-hexo-io-plugins-Themes-http-hexo-io-themes"><a href="#Extensions-Plugins-http-hexo-io-plugins-Themes-http-hexo-io-themes" class="headerlink" title="Extensions## Plugins: http://hexo.io/plugins/## Themes: http://hexo.io/themes/"></a>Extensions## Plugins: <a href="http://hexo.io/plugins/##" target="_blank" rel="external">http://hexo.io/plugins/##</a> Themes: <a href="http://hexo.io/themes/" target="_blank" rel="external">http://hexo.io/themes/</a></h1><p>theme: cover<br>然后我们重启服务就可以在本地看到效果了<br>hexo server</p>
+<p>hexo应用新的主题.png</p>
+<p>注意：我们这样只是本地做了修改，git上并没有实现同步，我们需要按照上面所说的，依次执行以下命令实现部署同步：<br>hexo clean<br>hexo g<br>hexo d<br>在刷新你的<a href="http://***.github.io/" target="_blank" rel="external">http://***.github.io/</a> 就可以发现新的主题应用成功了，是不是很简单，快动手建立你自己的博客吧。<br>最后，附上更多的hexo主题，大家可以很戳这里选择你自己喜好的主题。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/04/28/mysql跨数据库操作类似与oracle的dblink/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          mysql跨数据库操作类似与oracle的dblink
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/04/28/nginx内置变量大全/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">nginx内置变量大全</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="hexo-github搭建个人博客" data-title="hexo+github搭建个人博客" data-url="http://yoursite.com/2016/04/28/hexo-github搭建个人博客/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 菜菜
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

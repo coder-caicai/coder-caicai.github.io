@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>如何使用GoEasy实现web实时推送 | 菜菜的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="之前项目需要做一个推送功能，最开始我没有想过用第三方推送服务。想着可以用已知技术方式完成，例如定时到服务器看看是否有新的消息，有的话，就读取下来并显示，但是这种方式很浪费客户以及服务器的资源，当然这种方式在我们项目里是不可取的。再后来我在网上搜了一些，说是可以用web socket实现我的功能，但是我在网上查了一下使用方式，看了一上午一头雾水。即使我可以一周两周内用websocket实现我的推送，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何使用GoEasy实现web实时推送">
+<meta property="og:url" content="http://yoursite.com/2016/06/05/如何使用GoEasy实现web实时推送/index.html">
+<meta property="og:site_name" content="菜菜的博客">
+<meta property="og:description" content="之前项目需要做一个推送功能，最开始我没有想过用第三方推送服务。想着可以用已知技术方式完成，例如定时到服务器看看是否有新的消息，有的话，就读取下来并显示，但是这种方式很浪费客户以及服务器的资源，当然这种方式在我们项目里是不可取的。再后来我在网上搜了一些，说是可以用web socket实现我的功能，但是我在网上查了一下使用方式，看了一上午一头雾水。即使我可以一周两周内用websocket实现我的推送，">
+<meta property="og:updated_time" content="2016-06-12T17:13:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何使用GoEasy实现web实时推送">
+<meta name="twitter:description" content="之前项目需要做一个推送功能，最开始我没有想过用第三方推送服务。想着可以用已知技术方式完成，例如定时到服务器看看是否有新的消息，有的话，就读取下来并显示，但是这种方式很浪费客户以及服务器的资源，当然这种方式在我们项目里是不可取的。再后来我在网上搜了一些，说是可以用web socket实现我的功能，但是我在网上查了一下使用方式，看了一上午一头雾水。即使我可以一周两周内用websocket实现我的推送，">
+  
+    <link rel="alternative" href="/atom.xml" title="菜菜的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/ccz.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">菜菜</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">菜菜的博客</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags">标签</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/javascript/" style="font-size: 15px;">javascript</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/memcached/" style="font-size: 10px;">memcached</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/oracle/" style="font-size: 10px;">oracle</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/soa/" style="font-size: 20px;">soa</a> <a href="/tags/solr/" style="font-size: 10px;">solr</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">菜菜</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/ccz.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">菜菜</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">菜菜的博客</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags">标签</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-如何使用GoEasy实现web实时推送" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/05/如何使用GoEasy实现web实时推送/" class="article-date">
+  	<time datetime="2016-06-05T21:32:58.000Z" itemprop="datePublished">2016-06-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      如何使用GoEasy实现web实时推送
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>之前项目需要做一个推送功能，最开始我没有想过用第三方推送服务。想着可以用已知技术方式完成，例如定时到服务器看看是否有新的消息，有的话，就读取下来并显示，但是这种方式很浪费客户以及服务器的资源，当然这种方式在我们项目里是不可取的。再后来我在网上搜了一些，说是可以用web socket实现我的功能，但是我在网上查了一下使用方式，看了一上午一头雾水。即使我可以一周两周内用websocket实现我的推送，那我又拿什么来保证我自己写的推送程序的到达率和速度呢？维护成本一定也会随着增加！况且我们也不允许花太多开发成本在这个项目上！</p>
+<p>经过上面的一番周折后，我跟项目组提出使用第三方的推送服务，原因很简单，第三方推送服务可以满足我们的需求，缩短我们的开发测试维护成本，术业有专攻，它们在推送方面更有优势，服务质量也有保证！经过几番对比后，我们最终决定使用了GoEasy推送。 它真正的从根本上解决了我们的问题！对于他们的服务质量很满意，注册成功后，你可以获得他们的联系方式，问题处理得很及时，不像有些公司的客服，发封邮件好几天都没有任何信息！从而也解决了我们的后顾之忧！</p>
+<p>GoEasy实现向特定用户群推送的原理:<br>知道了他们的推送原理，可以更加方便我们了解他们的服务，以及理解我们写的代码。其实原理很简单，只需要确定哪些用户需要接收信息，然后让这些用户都订阅一个相同的channel（频道）。 然后再往这个平台上推送消息即可！所有关键在于channel，channel一致，则可以接收到信息，否则收不到！</p>
+<p>对于订阅必须要的信息有：Appkey, channel<br>对于推送必须要的信息有：Appkey, channel, content</p>
+<p>废话不多说，直接进入正题，如何实现：</p>
+<p>从GoEasy获取appkey<br>appkey是验证用户的有效性的唯一标识。<br>注册账号: GoEasy官网：<a href="https://goeasy.io" target="_blank" rel="external">https://goeasy.io</a><br>用注册好的账号登录到GoEasy的后台管理系统，创建您自己应用（application）.<br>Application创建好之后系统会自动为您生成appkey<br>系统会生成两个keys，一个Super key和一个Subscribe key；它们的区别在于前者既可以订阅又可以推送，但后者只能用于订阅。</p>
+<p>用GoEasy实现订阅（接收）的实例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.goeasy.io/goeasy.js&quot;&gt;&lt;/script&gt;     </span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    var goEasy = new GoEasy(&#123;appkey: &apos;your appkey&apos;&#125;);</span><br><span class="line">    goEasy.subscribe(&#123;</span><br><span class="line">        channel: &apos;your_channel&apos;,</span><br><span class="line">        onMessage: function(message)&#123;</span><br><span class="line">            alert(&apos;接收到消息:&apos;+message.content);//拿到了信息之后，你可以做你任何想做的事</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>有了这几行代码后，只要保证网络畅通的情况下，页面会自动弹出你从任何平台上推送的信息。</p>
+<p>用GoEasy的三种方式实现推送及接收<br>目前GoEasy支持三种推送方式： Java后台推送（它们有提供JAVA SDK和 maven远程仓库）， JS推送，RestAPI推送（有了RestAPI，我们就可以用PHP, .NET, Ruby…来推送信息了，很方便）</p>
+<p>说了这么多，来我们看一下怎么用GoEasy的三种方式分别实现推送吧.</p>
+<p>用GoEasy SDK推送<br>引入GoEasy SDK<br>方式一，直接在goeasy的官网上进行下载<br>GoEasy SDK下载链接：<a href="http://maven.goeasy.io/service/local/artifact/maven/redirect?r=releases&amp;g=io.goeasy&amp;a=goeasy-sdk&amp;v=LATEST&amp;e=jar" target="_blank" rel="external">http://maven.goeasy.io/service/local/artifact/maven/redirect?r=releases&amp;g=io.goeasy&amp;a=goeasy-sdk&amp;v=LATEST&amp;e=jar</a><br>方式二，用maven远程库直接导入到项目中，下面是GoEasy远程maven库的配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;repository&gt;</span><br><span class="line">    &lt;id&gt;goeasy&lt;/id&gt;</span><br><span class="line">    &lt;name&gt;goeasy&lt;/name&gt;</span><br><span class="line">    &lt;url&gt;http://maven.goeasy.io/content/repositories/releases/&lt;/url&gt;</span><br><span class="line">&lt;/repository&gt;</span><br><span class="line">…</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;io.goeasy&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;goeasy-sdk&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;0.3.1&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
+<p>实例化GoEasy对象并推送<br>GoEasy goEasy = new GoEasy(“your appkey”);<br>goEasy.publish(‘your_channel’, ‘First message’);<br>JavaScript推送<br>引入goeasy.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.goeasy.io/goeasy.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>实例化Goeasy对象，并用publish函数进行推送<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    var goEasy = new GoEasy(&#123;appkey: &apos;your appkey&apos;&#125;);</span><br><span class="line">    goEasy. publish (&#123;</span><br><span class="line">        channel: &apos;your_channel&apos;, </span><br><span class="line">        message: &apos;Second message！&apos;</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>用RestAPI进行推送<br>URL: <a href="https://goeasy.io/goeasy/publish" target="_blank" rel="external">https://goeasy.io/goeasy/publish</a><br>Method: post<br>参数：appkey, channel, content<br>例如：<a href="https://goeasy.io/goeasy/publish?appkey={your_appkey}&amp;channel={your_channel}&amp;content={your_message}" target="_blank" rel="external">https://goeasy.io/goeasy/publish?appkey={your_appkey}&amp;channel={your_channel}&amp;content={your_message}</a><br>GoEasy官网：<a href="https://goeasy.io" target="_blank" rel="external">https://goeasy.io</a><br>快速入门：<a href="https://goeasy.io/www/started.jsp" target="_blank" rel="external">https://goeasy.io/www/started.jsp</a><br>文档下载：<a href="https://goeasy.io/www/docs.jsp" target="_blank" rel="external">https://goeasy.io/www/docs.jsp</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/12/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/05/03/汽车之家配置管理系统AutoCMS/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">汽车之家配置管理系统AutoCMS</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="如何使用GoEasy实现web实时推送" data-title="如何使用GoEasy实现web实时推送" data-url="http://yoursite.com/2016/06/05/如何使用GoEasy实现web实时推送/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 菜菜
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>memcache安装及配置 | 菜菜的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="CentOS6.4安装Memcached与使用例子
+1、安装libevent    wget http://monkey.org/~provos/libevent-1.4.14b-stable.tar.gz    tar zxvf libevent-1.4.14b-stable.tar.gz    cd libevent-1.4.14b-stable    ./configure –prefix=">
+<meta property="og:type" content="article">
+<meta property="og:title" content="memcache安装及配置">
+<meta property="og:url" content="http://yoursite.com/2016/04/28/memcache安装及配置/index.html">
+<meta property="og:site_name" content="菜菜的博客">
+<meta property="og:description" content="CentOS6.4安装Memcached与使用例子
+1、安装libevent    wget http://monkey.org/~provos/libevent-1.4.14b-stable.tar.gz    tar zxvf libevent-1.4.14b-stable.tar.gz    cd libevent-1.4.14b-stable    ./configure –prefix=">
+<meta property="og:updated_time" content="2016-06-12T17:13:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="memcache安装及配置">
+<meta name="twitter:description" content="CentOS6.4安装Memcached与使用例子
+1、安装libevent    wget http://monkey.org/~provos/libevent-1.4.14b-stable.tar.gz    tar zxvf libevent-1.4.14b-stable.tar.gz    cd libevent-1.4.14b-stable    ./configure –prefix=">
+  
+    <link rel="alternative" href="/atom.xml" title="菜菜的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/ccz.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">菜菜</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">菜菜的博客</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags">标签</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/javascript/" style="font-size: 15px;">javascript</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/memcached/" style="font-size: 10px;">memcached</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/oracle/" style="font-size: 10px;">oracle</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/soa/" style="font-size: 20px;">soa</a> <a href="/tags/solr/" style="font-size: 10px;">solr</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">菜菜</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/ccz.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">菜菜</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">菜菜的博客</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags">标签</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-memcache安装及配置" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/28/memcache安装及配置/" class="article-date">
+  	<time datetime="2016-04-29T00:16:27.000Z" itemprop="datePublished">2016-04-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      memcache安装及配置
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/memcached/">memcached</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>CentOS6.4安装Memcached与使用例子</p>
+<p>1、安装libevent<br>    wget <a href="http://monkey.org/~provos/libevent-1.4.14b-stable.tar.gz" target="_blank" rel="external">http://monkey.org/~provos/libevent-1.4.14b-stable.tar.gz</a><br>    tar zxvf libevent-1.4.14b-stable.tar.gz<br>    cd libevent-1.4.14b-stable<br>    ./configure –prefix=/usr/local/libevent/<br>    make &amp;&amp; make install<br>    ln -s /usr/local/libevent/lib/libevent-1.4.so.2 /lib/libevent-1.4.so.2<br>   /**<br>      1) 如果共享库文件安装到了/lib或/usr/lib目录下, 那么需执行一下ldconfig命令</p>
+<p>ldconfig命令的用途, 主要是在默认搜寻目录(/lib和/usr/lib)以及动态库配置文件/etc/ld.so.conf内所列的目录下, 搜索出可共享的动态链接库(格式如lib<em>.so</em>), 进而创建出动态装入程序(ld.so)所需的连接和缓存文件. 缓存文件默认为/etc/ld.so.cache, 此文件保存已排好序的动态链接库名字列表. </p>
+<p>2) 如果共享库文件安装到了/usr/local/lib(很多开源的共享库都会安装到该目录下)或其它”非/lib或/usr/lib”目录下, 那么在执行ldconfig命令前, 还要把新共享库目录加入到共享库配置文件/etc/ld.so.conf中, 如下:</p>
+<h1 id="cat-etc-ld-so-conf"><a href="#cat-etc-ld-so-conf" class="headerlink" title="cat /etc/ld.so.conf"></a>cat /etc/ld.so.conf</h1><p>include ld.so.conf.d/*.conf</p>
+<h1 id="echo-“-usr-local-lib”-gt-gt-etc-ld-so-conf"><a href="#echo-“-usr-local-lib”-gt-gt-etc-ld-so-conf" class="headerlink" title="echo “/usr/local/lib” &gt;&gt; /etc/ld.so.conf"></a>echo “/usr/local/lib” &gt;&gt; /etc/ld.so.conf</h1><h1 id="ldconfig"><a href="#ldconfig" class="headerlink" title="ldconfig"></a>ldconfig</h1><p>3) 如果共享库文件安装到了其它”非/lib或/usr/lib” 目录下,  但是又不想在/etc/ld.so.conf中加路径(或者是没有权限加路径). 那可以export一个全局变量LD_LIBRARY_PATH, 然后运行程序的时候就会去这个目录中找共享库. </p>
+<p>LD_LIBRARY_PATH的意思是告诉loader在哪些目录中可以找到共享库. 可以设置多个搜索目录, 这些目录之间用冒号分隔开. 比如安装了一个mysql到/usr/local/mysql目录下, 其中有一大堆库文件在/usr/local/mysql/lib下面, 则可以在.bashrc或.bash_profile或shell里加入以下语句即可:</p>
+<p>export LD_LIBRARY_PATH=/usr/local/mysql/lib:$LD_LIBRARY_PATH    </p>
+<p>一般来讲这只是一种临时的解决方案, 在没有权限或临时需要的时候使用.</p>
+<p>4）如果程序需要的库文件比系统目前存在的村文件版本低，可以做一个链接<br>比如：<br>error while loading shared libraries: libncurses.so.4: cannot open shared<br>object file: No such file or directory</p>
+<p>ls /usr/lib/libncu*<br>/usr/lib/libncurses.a   /usr/lib/libncurses.so.5<br>/usr/lib/libncurses.so  /usr/lib/libncurses.so.5.3</p>
+<p>可见虽然没有libncurses.so.4，但有libncurses.so.5，是可以向下兼容的<br>建一个链接就好了<br>ln -s  /usr/lib/libncurses.so.5.3  /usr/lib/libncurses.so.4</p>
+<p>**/</p>
+<p>2、安装Memcached<br>    wget <a href="http://www.danga.com/memcached/dist/memcached-1.2.0.tar.gz" target="_blank" rel="external">http://www.danga.com/memcached/dist/memcached-1.2.0.tar.gz</a><br>    tar zxvf memcached-1.4.15.tar.gz<br>    cd memcached-1.4.15<br>    ./configure –prefix=/usr/local/memcached/ –with-libevent=/usr/local/libevent/<br>    make &amp;&amp; make install<br>3、启动Memcached<br>     /usr/local/memcached/bin/memcached -d -m 64 -u root -l 127.0.0.100 -p 11211 -c 128 -P /tmp/memcached.pid<br>4、为了方便管理，写个SHELL脚本吧。</p>
+<p> vi /etc/rc.d/init.d/memcached</p>
+<pre><code>#!/bin/sh
+#
+# memcached: MemCached Daemon
+#
+# chkconfig: - 90 25
+# description: MemCached Daemon
+#
+# Source function library.
+. /etc/rc.d/init.d/functions
+. /etc/sysconfig/network
+#[ ${NETWORKING} = &quot;no&quot; ] &amp;&amp; exit 0
+#[ -r /etc/sysconfig/dund ] || exit 0
+#. /etc/sysconfig/dund
+#[ -z &quot;$DUNDARGS&quot; ] &amp;&amp; exit 0
+start()
+{
+echo -n $&quot;Starting memcached: &quot;
+daemon $MEMCACHED -u daemon -d -m 64 -l 127.0.0.100 -p 11211 -c 128 -P /tmp/memcached.pid
+echo
+}
+stop()
+{
+echo -n $&quot;Shutting down memcached: &quot;
+killproc memcached
+echo
+}
+MEMCACHED=&quot;/usr/local/memcached/bin/memcached&quot;
+[ -f $MEMCACHED ] || exit 1
+# See how we were called.
+case &quot;$1&quot; in
+start)
+start
+;;
+stop)
+stop
+;;
+restart)
+stop
+sleep 3
+start
+;;
+*)
+echo $&quot;Usage: $0 {start|stop|restart}&quot;
+exit 1
+esac
+exit 0
+</code></pre><p>5、添加Memcached开机启动<br>    cd /etc/rc.d/init.d/<br>    chmod 777 memcached<br>    chkconfig –add memcached<br>    chkconfig –level 235 memcached on<br>    chkconfig –list | grep memcached<br>6、Memcached使用<br>    [root@www.111cn.net] service memcached start<br>    [root@www.111cn.net] service memcached stop<br>    [root@www.111cn.net] service memcached restart</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/04/28/Java操作MongoDB/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Java操作MongoDB
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/04/28/redis的图形化工具/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">redis的图形化工具</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="memcache安装及配置" data-title="memcache安装及配置" data-url="http://yoursite.com/2016/04/28/memcache安装及配置/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 菜菜
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
