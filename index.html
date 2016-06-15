@@ -79,7 +79,7 @@
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -118,7 +118,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/javascript/" style="font-size: 15px;">javascript</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/memcached/" style="font-size: 10px;">memcached</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/oracle/" style="font-size: 10px;">oracle</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/soa/" style="font-size: 20px;">soa</a> <a href="/tags/solr/" style="font-size: 10px;">solr</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+						<a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/javascript/" style="font-size: 13.33px;">javascript</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/memcached/" style="font-size: 10px;">memcached</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/oracle/" style="font-size: 10px;">oracle</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/soa/" style="font-size: 16.67px;">soa</a> <a href="/tags/solr/" style="font-size: 10px;">solr</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
 					</div>
 				</section>
 				
@@ -206,11 +206,11 @@
 
       <div class="body-wrap">
   
-    <article id="post-SpringBoot快速入门" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-SpringBoot中使用JavaMailSender发送邮件" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/06/15/SpringBoot快速入门/" class="article-date">
-  	<time datetime="2016-06-15T09:03:05.000Z" itemprop="datePublished">2016-06-15</time>
+      <a href="/2016/06/15/SpringBoot中使用JavaMailSender发送邮件/" class="article-date">
+  	<time datetime="2016-06-15T09:39:06.000Z" itemprop="datePublished">2016-06-15</time>
 </a>
     </div>
   
@@ -223,7 +223,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/15/SpringBoot快速入门/">SpringBoot快速入门</a>
+      <a class="article-title" href="/2016/06/15/SpringBoot中使用JavaMailSender发送邮件/">SpringBoot中使用JavaMailSender发送邮件</a>
     </h1>
   
 
@@ -232,49 +232,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Spring Boot快速入门<br>2016年02月26日 标签：Spring Boot<br>简介<br>在您第1次接触和学习Spring框架的时候，是否因为其繁杂的配置而退却了？在你第n次使用Spring框架的时候，是否觉得一堆反复黏贴的配置有一些厌烦？那么您就不妨来试试使用Spring Boot来让你更易上手，更简单快捷地构建Spring应用！</p>
-<p>Spring Boot让我们的Spring应用变的更轻量化。比如：你可以仅仅依靠一个Java类来运行一个Spring引用。你也可以打包你的应用为jar并通过使用java -jar来运行你的Spring Web应用。</p>
-<p>Spring Boot的主要优点：</p>
-<p>为所有Spring开发者更快的入门<br>开箱即用，提供各种默认配置来简化项目配置<br>内嵌式容器简化Web项目<br>没有冗余代码生成和XML配置的要求<br>快速入门<br>本章主要目标完成Spring Boot基础项目的构建，并且实现一个简单的Http请求处理，通过这个例子对Spring Boot有一个初步的了解，并体验其结构简单、开发快速的特性。</p>
-<p>系统要求：<br>Java 7及以上<br>Spring Framework 4.1.5及以上<br>本文采用Java 1.8.0_73、Spring Boot 1.3.2调试通过。</p>
-<p>使用Maven构建项目<br>通过SPRING INITIALIZR工具产生基础项目<br>访问：<a href="http://start.spring.io/" target="_blank" rel="external">http://start.spring.io/</a><br>选择构建工具Maven Project、Spring Boot版本1.3.2以及一些工程基本信息，可参考下图所示<br><img src="http://blog.didispace.com/content/images/2016/02/chapter1-1.png"><br>点击Generate Project下载项目压缩包<br>解压项目包，并用IDE以Maven项目导入，以IntelliJ IDEA 14为例：<br>菜单中选择File–&gt;New–&gt;Project from Existing Sources…<br>选择解压后的项目文件夹，点击OK<br>点击Import project from external model并选择Maven，点击Next到底为止。<br>若你的环境有多个版本的JDK，注意到选择Java SDK的时候请选择Java 7以上的版本<br>项目结构解析<br><img src="http://blog.didispace.com/content/images/2016/02/chapter1-2.png"><br>项目结构</p>
-<p>通过上面步骤完成了基础项目的创建，如上图所示，Spring Boot的基础结构共三个文件（具体路径根据用户生成项目时填写的Group所有差异）：</p>
-<p>src/main/java下的程序入口：Chapter1Application<br>src/main/resources下的配置文件：application.properties<br>src/test/下的测试入口：Chapter1ApplicationTests<br>生成的Chapter1Application和Chapter1ApplicationTests类都可以直接运行来启动当前创建的项目，由于目前该项目未配合任何数据访问或Web模块，程序会在加载完Spring之后结束运行。</p>
-<p>引入Web模块<br>当前的pom.xml内容如下，仅引入了两个模块：</p>
-<p>spring-boot-starter：核心模块，包括自动配置支持、日志和YAML<br>spring-boot-starter-test：测试模块，包括JUnit、Hamcrest、Mockito</p>
-<p><dependencies><br>    <dependency><br>        <groupid>org.springframework.boot</groupid><br>        <artifactid>spring-boot-starter</artifactid><br>    </dependency></dependencies></p>
-<pre><code>&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
-    &lt;scope&gt;test&lt;/scope&gt;
-&lt;/dependency&gt;
-</code></pre><p><br>引入Web模块，需添加spring-boot-starter-web模块：</p>
-<pre><code>&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
-&lt;/dependency&gt;
-</code></pre><p>编写HelloWorld服务<br>创建package命名为com.didispace.web（根据实际情况修改）<br>创建HelloController类，内容如下<br>@RestController<br>public class HelloController {</p>
-<pre><code>@RequestMapping(&quot;/hello&quot;)
-public String index() {
-    return &quot;Hello World&quot;;
-}
-</code></pre><p>}<br>启动主程序，打开浏览器访问<a href="http://localhost:8080/hello，可以看到页面输出Hello" target="_blank" rel="external">http://localhost:8080/hello，可以看到页面输出Hello</a> World<br>编写单元测试用例<br>打开的src/test/下的测试入口Chapter1ApplicationTests类。下面编写一个简单的单元测试来模拟http请求，具体如下：</p>
-<p>@RunWith(SpringJUnit4ClassRunner.class)<br>@SpringApplicationConfiguration(classes = MockServletContext.class)<br>@WebAppConfiguration<br>public class Chapter1ApplicationTests {</p>
-<pre><code>private MockMvc mvc;
+        <p>Spring Boot中使用JavaMailSender发送邮件<br>2016年06月14日 标签：Spring Boot<br>相信使用过Spring的众多开发者都知道Spring提供了非常好用的JavaMailSender接口实现邮件发送。在Spring Boot的Starter模块中也为此提供了自动化配置。下面通过实例看看如何在Spring Boot中使用JavaMailSender发送邮件。</p>
+<p>快速入门<br>在Spring Boot的工程中的pom.xml中引入spring-boot-starter-mail依赖：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;  </span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-mail&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt; </span><br><span class="line">``` </span><br><span class="line">如其他自动化配置模块一样，在完成了依赖引入之后，只需要在application.properties中配置相应的属性内容。</span><br><span class="line"></span><br><span class="line">下面我们以QQ邮箱为例，在application.properties中加入如下配置（注意替换自己的用户名和密码）：</span><br><span class="line"></span><br><span class="line">spring.mail.host=smtp.qq.com  </span><br><span class="line">spring.mail.username=用户名  </span><br><span class="line">spring.mail.password=密码  </span><br><span class="line">spring.mail.properties.mail.smtp.auth=true  </span><br><span class="line">spring.mail.properties.mail.smtp.starttls.enable=true  </span><br><span class="line">spring.mail.properties.mail.smtp.starttls.required=true  </span><br><span class="line">通过单元测试来实现一封简单邮件的发送：</span><br><span class="line"></span><br><span class="line">@RunWith(SpringJUnit4ClassRunner.class)</span><br><span class="line">@SpringApplicationConfiguration(classes = Application.class)</span><br><span class="line">public class ApplicationTests &#123;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    private JavaMailSender mailSender;</span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    public void sendSimpleMail() throws Exception &#123;</span><br><span class="line">        SimpleMailMessage message = new SimpleMailMessage();</span><br><span class="line">        message.setFrom(&quot;dyc87112@qq.com&quot;);</span><br><span class="line">        message.setTo(&quot;dyc87112@qq.com&quot;);</span><br><span class="line">        message.setSubject(&quot;主题：简单邮件&quot;);</span><br><span class="line">        message.setText(&quot;测试邮件内容&quot;);</span><br><span class="line"></span><br><span class="line">        mailSender.send(message);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">到这里，一个简单的邮件发送就完成了，运行一下该单元测试，看看效果如何？</span><br><span class="line"></span><br><span class="line">由于Spring Boot的starter模块提供了自动化配置，所以在引入了spring-boot-starter-mail依赖之后，会根据配置文件中的内容去创建JavaMailSender实例，因此我们可以直接在需要使用的地方直接@Autowired来引入邮件发送对象。</span><br><span class="line">进阶使用</span><br><span class="line">在上例中，我们通过使用SimpleMailMessage实现了简单的邮件发送，但是实际使用过程中，我们还可能会带上附件、或是使用邮件模块等。这个时候我们就需要使用MimeMessage来设置复杂一些的邮件内容，下面我们就来依次实现一下。</span><br><span class="line"></span><br><span class="line">发送附件</span><br><span class="line">在上面单元测试中加入如下测试用例（通过MimeMessageHelper来发送一封带有附件的邮件）：</span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    public void sendAttachmentsMail() throws Exception &#123;</span><br><span class="line"></span><br><span class="line">        MimeMessage mimeMessage = mailSender.createMimeMessage();</span><br><span class="line"></span><br><span class="line">        MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);</span><br><span class="line">        helper.setFrom(&quot;dyc87112@qq.com&quot;);</span><br><span class="line">        helper.setTo(&quot;dyc87112@qq.com&quot;);</span><br><span class="line">        helper.setSubject(&quot;主题：有附件&quot;);</span><br><span class="line">        helper.setText(&quot;有附件的邮件&quot;);</span><br><span class="line"></span><br><span class="line">        FileSystemResource file = new FileSystemResource(new File(&quot;weixin.jpg&quot;));</span><br><span class="line">        helper.addAttachment(&quot;附件-1.jpg&quot;, file);</span><br><span class="line">        helper.addAttachment(&quot;附件-2.jpg&quot;, file);</span><br><span class="line"></span><br><span class="line">        mailSender.send(mimeMessage);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">嵌入静态资源</span><br><span class="line">除了发送附件之外，我们在邮件内容中可能希望通过嵌入图片等静态资源，让邮件获得更好的阅读体验，而不是从附件中查看具体图片，下面的测试用例演示了如何通过MimeMessageHelper实现在邮件正文中嵌入静态资源。</span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    public void sendInlineMail() throws Exception &#123;</span><br><span class="line"></span><br><span class="line">        MimeMessage mimeMessage = mailSender.createMimeMessage();</span><br><span class="line"></span><br><span class="line">        MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);</span><br><span class="line">        helper.setFrom(&quot;dyc87112@qq.com&quot;);</span><br><span class="line">        helper.setTo(&quot;dyc87112@qq.com&quot;);</span><br><span class="line">        helper.setSubject(&quot;主题：嵌入静态资源&quot;);</span><br><span class="line">        helper.setText(&quot;&lt;html&gt;&lt;body&gt;&lt;img src=\&quot;cid:weixin\&quot; &gt;&lt;/body&gt;&lt;/html&gt;&quot;, true);</span><br><span class="line"></span><br><span class="line">        FileSystemResource file = new FileSystemResource(new File(&quot;weixin.jpg&quot;));</span><br><span class="line">        helper.addInline(&quot;weixin&quot;, file);</span><br><span class="line"></span><br><span class="line">        mailSender.send(mimeMessage);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">这里需要注意的是addInline函数中资源名称weixin需要与正文中cid:weixin对应起来</span><br><span class="line"></span><br><span class="line">模板邮件</span><br><span class="line">通常我们使用邮件发送服务的时候，都会有一些固定的场景，比如重置密码、注册确认等，给每个用户发送的内容可能只有小部分是变化的。所以，很多时候我们会使用模板引擎来为各类邮件设置成模板，这样我们只需要在发送时去替换变化部分的参数即可。</span><br><span class="line"></span><br><span class="line">在Spring Boot中使用模板引擎来实现模板化的邮件发送也是非常容易的，下面我们以velocity为例实现一下。</span><br><span class="line"></span><br><span class="line">引入velocity模块的依赖：</span><br></pre></td></tr></table></figure></p>
+<p><dependency><br>    <groupid>org.springframework.boot</groupid><br>    <artifactid>spring-boot-starter-velocity</artifactid><br></dependency><br>在resources/templates/下，创建一个模板页面template.vm：</p>
+<p><html>  </html></p>
+<p><body><br>    <h3>你好， ${username}, 这是一封模板邮件!</h3><br></body><br><br>```<br>我们之前在Spring Boot中开发Web应用时，提到过在Spring Boot的自动化配置下，模板默认位于resources/templates/目录下</p>
+<p>最后，我们在单元测试中加入发送模板邮件的测试用例，具体如下：</p>
+<pre><code>@Test
+public void sendTemplateMail() throws Exception {
 
-@Before
-public void setUp() throws Exception {
-    mvc = MockMvcBuilders.standaloneSetup(new HelloController()).build();
-}
+    MimeMessage mimeMessage = mailSender.createMimeMessage();
 
-@Test
-public void getHello() throws Exception {
-    mvc.perform(MockMvcRequestBuilders.get(&quot;/hello&quot;).accept(MediaType.APPLICATION_JSON))
-            .andExpect(status().isOk())
-            .andExpect(content().string(equalTo(&quot;Hello World&quot;)));
+    MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
+    helper.setFrom(&quot;dyc87112@qq.com&quot;);
+    helper.setTo(&quot;dyc87112@qq.com&quot;);
+    helper.setSubject(&quot;主题：模板邮件&quot;);
+
+    Map&lt;String, Object&gt; model = new HashedMap();
+    model.put(&quot;username&quot;, &quot;didi&quot;);
+    String text = VelocityEngineUtils.mergeTemplateIntoString(
+            velocityEngine, &quot;template.vm&quot;, &quot;UTF-8&quot;, model);
+    helper.setText(text, true);
+
+    mailSender.send(mimeMessage);
 }
-</code></pre><p>}<br>使用MockServletContext来构建一个空的WebApplicationContext，这样我们创建的HelloController就可以在@Before函数中创建并传递到MockMvcBuilders.standaloneSetup（）函数中。</p>
-<p>注意引入下面内容，让status、content、equalTo函数可用<br>import static org.hamcrest.Matchers.equalTo;<br>import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;<br>import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;<br>至此已完成目标，通过Maven构建了一个空白Spring Boot项目，再通过引入web模块实现了一个简单的请求处理。</p>
+</code></pre><p>尝试运行一下，就可以收到内容为你好， didi, 这是一封模板邮件!的邮件。这里，我们通过传入username的参数，在邮件内容中替换了模板中的${username}变量。</p>
 
       
     </div>
@@ -305,11 +287,11 @@ public void getHello() throws Exception {
 
 
   
-    <article id="post-各大平台免费接口" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="spring-Cloud构建微服务架构（二）——服务消费者" class="article article-type-spring" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/06/12/各大平台免费接口/" class="article-date">
-  	<time datetime="2016-06-12T02:18:34.000Z" itemprop="datePublished">2016-06-12</time>
+      <a href="/2016/06/15/Cloud构建微服务架构（二）——服务消费者/" class="article-date">
+  	<time datetime="2016-06-15T09:38:31.000Z" itemprop="datePublished">2016-06-15</time>
 </a>
     </div>
   
@@ -322,7 +304,7 @@ public void getHello() throws Exception {
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/12/各大平台免费接口/">各大平台免费接口</a>
+      <a class="article-title" href="/2016/06/15/Cloud构建微服务架构（二）——服务消费者/">Cloud构建微服务架构（二）——服务消费者</a>
     </h1>
   
 
@@ -331,53 +313,13 @@ public void getHello() throws Exception {
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>电商接口</p>
-<p>京东获取单个商品价格接口：<br><a href="http://p.3.cn/prices/mgets?skuIds=J_商品ID&amp;type=1" target="_blank" rel="external">http://p.3.cn/prices/mgets?skuIds=J_商品ID&amp;type=1</a><br>ps:商品ID这么获取:<a href="http://item.jd.com/954086.html" target="_blank" rel="external">http://item.jd.com/954086.html</a></p>
-<p>物流接口</p>
-<p>快递接口：<br><a href="http://www.kuaidi100.com/query?type=快递公司代号&amp;postid=快递单号" target="_blank" rel="external">http://www.kuaidi100.com/query?type=快递公司代号&amp;postid=快递单号</a><br>ps:快递公司编码:申通=”shentong” EMS=”ems” 顺丰=”shunfeng” 圆通=”yuantong” 中通=”zhongtong” 韵达=”yunda” 天天=”tiantian” 汇通=”huitongkuaidi” 全峰=”quanfengkuaidi” 德邦=”debangwuliu” 宅急送=”zhaijisong”</p>
-<p>谷歌接口</p>
-<p>FeedXml转json接口：<br><a href="http://ajax.googleapis.com/ajax/services/feed/load?q=Feed地址&amp;v=1.0" target="_blank" rel="external">http://ajax.googleapis.com/ajax/services/feed/load?q=Feed地址&amp;v=1.0</a><br>备选参数:callback：&amp;callback=foo就会在json外面嵌套foo({})方便做jsonp使用。<br>备选参数:n：返回多少条记录。</p>
-<p>天气接口</p>
-<p>百度接口：<br><a href="http://api.map.baidu.com/telematics/v3/weather?location=嘉兴&amp;output=json&amp;ak=5slgyqGDENN7Sy7pw29IUvrZ" target="_blank" rel="external">http://api.map.baidu.com/telematics/v3/weather?location=嘉兴&amp;output=json&amp;ak=5slgyqGDENN7Sy7pw29IUvrZ</a><br>location:城市名或经纬度 ak:开发者密钥 output:默认xml</p>
-<p>气象局接口：<br><a href="http://m.weather.com.cn/data/101010100.html" target="_blank" rel="external">http://m.weather.com.cn/data/101010100.html</a></p>
-<p>音乐接口</p>
-<p>虾米接口：<br><a href="http://kuang.xiami.com/app/nineteen/search/key/歌曲名称/diandian/1/page/歌曲当前页?_=当前毫秒&amp;callback=getXiamiData" target="_blank" rel="external">http://kuang.xiami.com/app/nineteen/search/key/歌曲名称/diandian/1/page/歌曲当前页?_=当前毫秒&amp;callback=getXiamiData</a></p>
-<p>QQ空间音乐接口：<br><a href="http://qzone-music.qq.com/fcg-bin/cgi_playlist_xml.fcg?uin=QQ号码&amp;json=1&amp;g_tk=1916754934" target="_blank" rel="external">http://qzone-music.qq.com/fcg-bin/cgi_playlist_xml.fcg?uin=QQ号码&amp;json=1&amp;g_tk=1916754934</a></p>
-<p>QQ空间收藏音乐接口：<br><a href="http://qzone-music.qq.com/fcg-bin/fcg_music_fav_getinfo.fcg?dirinfo=0&amp;dirid=1&amp;uin=QQ号&amp;p=0.519638272547262&amp;g_tk=1284234856" target="_blank" rel="external">http://qzone-music.qq.com/fcg-bin/fcg_music_fav_getinfo.fcg?dirinfo=0&amp;dirid=1&amp;uin=QQ号&amp;p=0.519638272547262&amp;g_tk=1284234856</a></p>
-<p>多米音乐接口：<br><a href="http://v5.pc.duomi.com/search-ajaxsearch-searchall?kw=关键字&amp;pi=页码&amp;pz=每页音乐数" target="_blank" rel="external">http://v5.pc.duomi.com/search-ajaxsearch-searchall?kw=关键字&amp;pi=页码&amp;pz=每页音乐数</a></p>
-<p>soso接口：<br><a href="http://cgi.music.soso.com/fcgi-bin/fcg_search_xmldata.q?source=10&amp;w=关键字&amp;perpage=1&amp;ie=utf-8" target="_blank" rel="external">http://cgi.music.soso.com/fcgi-bin/fcg_search_xmldata.q?source=10&amp;w=关键字&amp;perpage=1&amp;ie=utf-8</a></p>
-<p>视频接口</p>
-<p>土豆接口：<br><a href="http://api.tudou.com/v3/gw?method=album.item.get&amp;appKey=Appkey&amp;format=json&amp;albumId=视频剧集ID&amp;pageNo=当前页&amp;pageSize=每页显示" target="_blank" rel="external">http://api.tudou.com/v3/gw?method=album.item.get&amp;appKey=Appkey&amp;format=json&amp;albumId=视频剧集ID&amp;pageNo=当前页&amp;pageSize=每页显示</a></p>
-<p>地图接口</p>
-<p>阿里云根据地区名获取经纬度接口：<br><a href="http://gc.ditu.aliyun.com/geocoding?a=苏州市" target="_blank" rel="external">http://gc.ditu.aliyun.com/geocoding?a=苏州市</a><br>参数解释: 纬度,经度type 001 (100代表道路，010代表POI，001代表门址，111可以同时显示前三项)</p>
-<p>阿里云根据经纬度获取地区名接口：<br><a href="http://gc.ditu.aliyun.com/regeocoding?l=39.938133,116.395739&amp;type=001" target="_blank" rel="external">http://gc.ditu.aliyun.com/regeocoding?l=39.938133,116.395739&amp;type=001</a></p>
-<p>IP接口</p>
-<p>新浪接口（ip值为空的时候 获取本地的）：<br><a href="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json&amp;ip=218.4.255.255" target="_blank" rel="external">http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json&amp;ip=218.4.255.255</a></p>
-<p>淘宝接口：<br><a href="http://ip.taobao.com/service/getIpInfo.php?ip=63.223.108.42" target="_blank" rel="external">http://ip.taobao.com/service/getIpInfo.php?ip=63.223.108.42</a></p>
-<p>手机信息查询接口</p>
-<p>淘宝网接口：<br><a href="http://tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel=手机号" target="_blank" rel="external">http://tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel=手机号</a></p>
-<p>拍拍接口：<br><a href="http://virtual.paipai.com/extinfo/GetMobileProductInfo?mobile=手机号&amp;amount=10000&amp;callname=getPhoneNumInfoExtCallback" target="_blank" rel="external">http://virtual.paipai.com/extinfo/GetMobileProductInfo?mobile=手机号&amp;amount=10000&amp;callname=getPhoneNumInfoExtCallback</a> 用例</p>
-<p>百付宝接口：<br><a href="https://www.baifubao.com/callback?cmd=1059&amp;callback=phone&amp;phone=手机号" target="_blank" rel="external">https://www.baifubao.com/callback?cmd=1059&amp;callback=phone&amp;phone=手机号</a></p>
-<p>115接口：<br><a href="http://cz.115.com/?ct=index&amp;ac=get_mobile_local&amp;callback=jsonp1333962541001&amp;mobile=手机号" target="_blank" rel="external">http://cz.115.com/?ct=index&amp;ac=get_mobile_local&amp;callback=jsonp1333962541001&amp;mobile=手机号</a></p>
-<p>有道接口：<br><a href="http://www.youdao.com/smartresult-xml/search.s?jsFlag=true&amp;type=mobile&amp;q=手机号" target="_blank" rel="external">http://www.youdao.com/smartresult-xml/search.s?jsFlag=true&amp;type=mobile&amp;q=手机号</a></p>
-<p>手机在线接口<br><a href="http://api.showji.com/Locating/www.showji.com.aspx?m=手机号&amp;output=json&amp;callback=querycallback" target="_blank" rel="external">http://api.showji.com/Locating/www.showji.com.aspx?m=手机号&amp;output=json&amp;callback=querycallback</a></p>
-<p>视频信息接口</p>
-<p>优酷：<br><a href="http://v.youku.com/player/getPlayList/VideoIDS/视频ID" target="_blank" rel="external">http://v.youku.com/player/getPlayList/VideoIDS/视频ID</a><br>(比如 <a href="http://v.youku.com/v_show/id_XNTQxNzc4ODg0.html的ID就是XNTQxNzc4ODg0" target="_blank" rel="external">http://v.youku.com/v_show/id_XNTQxNzc4ODg0.html的ID就是XNTQxNzc4ODg0</a>)</p>
-<p>翻译、词典接口</p>
-<p>腾讯：<br><a href="http://dict.qq.com/dict?q=词语" target="_blank" rel="external">http://dict.qq.com/dict?q=词语</a></p>
-<p>腾讯的部分接口</p>
-<p>获取QQ昵称和用户头像：<br><a href="http://r.qzone.qq.com/cgi-bin/user/cgi_personal_card?uin=QQ" target="_blank" rel="external">http://r.qzone.qq.com/cgi-bin/user/cgi_personal_card?uin=QQ</a></p>
-
+        
       
     </div>
     
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-	</div>
-
       
 
       
@@ -397,11 +339,11 @@ public void getHello() throws Exception {
 
 
   
-    <article id="post-如何使用GoEasy实现web实时推送" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-SpringCloud构建微服务架构2——服务消费者" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/06/05/如何使用GoEasy实现web实时推送/" class="article-date">
-  	<time datetime="2016-06-05T06:32:58.000Z" itemprop="datePublished">2016-06-05</time>
+      <a href="/2016/06/15/SpringCloud构建微服务架构2——服务消费者/" class="article-date">
+  	<time datetime="2016-06-15T09:37:37.000Z" itemprop="datePublished">2016-06-15</time>
 </a>
     </div>
   
@@ -414,7 +356,7 @@ public void getHello() throws Exception {
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/05/如何使用GoEasy实现web实时推送/">如何使用GoEasy实现web实时推送</a>
+      <a class="article-title" href="/2016/06/15/SpringCloud构建微服务架构2——服务消费者/">SpringCloud构建微服务架构2——服务消费者</a>
     </h1>
   
 
@@ -423,452 +365,448 @@ public void getHello() throws Exception {
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>之前项目需要做一个推送功能，最开始我没有想过用第三方推送服务。想着可以用已知技术方式完成，例如定时到服务器看看是否有新的消息，有的话，就读取下来并显示，但是这种方式很浪费客户以及服务器的资源，当然这种方式在我们项目里是不可取的。再后来我在网上搜了一些，说是可以用web socket实现我的功能，但是我在网上查了一下使用方式，看了一上午一头雾水。即使我可以一周两周内用websocket实现我的推送，那我又拿什么来保证我自己写的推送程序的到达率和速度呢？维护成本一定也会随着增加！况且我们也不允许花太多开发成本在这个项目上！</p>
-<p>经过上面的一番周折后，我跟项目组提出使用第三方的推送服务，原因很简单，第三方推送服务可以满足我们的需求，缩短我们的开发测试维护成本，术业有专攻，它们在推送方面更有优势，服务质量也有保证！经过几番对比后，我们最终决定使用了GoEasy推送。 它真正的从根本上解决了我们的问题！对于他们的服务质量很满意，注册成功后，你可以获得他们的联系方式，问题处理得很及时，不像有些公司的客服，发封邮件好几天都没有任何信息！从而也解决了我们的后顾之忧！</p>
-<p>GoEasy实现向特定用户群推送的原理:<br>知道了他们的推送原理，可以更加方便我们了解他们的服务，以及理解我们写的代码。其实原理很简单，只需要确定哪些用户需要接收信息，然后让这些用户都订阅一个相同的channel（频道）。 然后再往这个平台上推送消息即可！所有关键在于channel，channel一致，则可以接收到信息，否则收不到！</p>
-<p>对于订阅必须要的信息有：Appkey, channel<br>对于推送必须要的信息有：Appkey, channel, content</p>
-<p>废话不多说，直接进入正题，如何实现：</p>
-<p>从GoEasy获取appkey<br>appkey是验证用户的有效性的唯一标识。<br>注册账号: GoEasy官网：<a href="https://goeasy.io" target="_blank" rel="external">https://goeasy.io</a><br>用注册好的账号登录到GoEasy的后台管理系统，创建您自己应用（application）.<br>Application创建好之后系统会自动为您生成appkey<br>系统会生成两个keys，一个Super key和一个Subscribe key；它们的区别在于前者既可以订阅又可以推送，但后者只能用于订阅。</p>
-<p>用GoEasy实现订阅（接收）的实例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.goeasy.io/goeasy.js&quot;&gt;&lt;/script&gt;     </span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    var goEasy = new GoEasy(&#123;appkey: &apos;your appkey&apos;&#125;);</span><br><span class="line">    goEasy.subscribe(&#123;</span><br><span class="line">        channel: &apos;your_channel&apos;,</span><br><span class="line">        onMessage: function(message)&#123;</span><br><span class="line">            alert(&apos;接收到消息:&apos;+message.content);//拿到了信息之后，你可以做你任何想做的事</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>有了这几行代码后，只要保证网络畅通的情况下，页面会自动弹出你从任何平台上推送的信息。</p>
-<p>用GoEasy的三种方式实现推送及接收<br>目前GoEasy支持三种推送方式： Java后台推送（它们有提供JAVA SDK和 maven远程仓库）， JS推送，RestAPI推送（有了RestAPI，我们就可以用PHP, .NET, Ruby…来推送信息了，很方便）</p>
-<p>说了这么多，来我们看一下怎么用GoEasy的三种方式分别实现推送吧.</p>
-<p>用GoEasy SDK推送<br>引入GoEasy SDK<br>方式一，直接在goeasy的官网上进行下载<br>GoEasy SDK下载链接：<a href="http://maven.goeasy.io/service/local/artifact/maven/redirect?r=releases&amp;g=io.goeasy&amp;a=goeasy-sdk&amp;v=LATEST&amp;e=jar" target="_blank" rel="external">http://maven.goeasy.io/service/local/artifact/maven/redirect?r=releases&amp;g=io.goeasy&amp;a=goeasy-sdk&amp;v=LATEST&amp;e=jar</a><br>方式二，用maven远程库直接导入到项目中，下面是GoEasy远程maven库的配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;repository&gt;</span><br><span class="line">    &lt;id&gt;goeasy&lt;/id&gt;</span><br><span class="line">    &lt;name&gt;goeasy&lt;/name&gt;</span><br><span class="line">    &lt;url&gt;http://maven.goeasy.io/content/repositories/releases/&lt;/url&gt;</span><br><span class="line">&lt;/repository&gt;</span><br><span class="line">…</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;io.goeasy&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;goeasy-sdk&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;0.3.1&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
-<p>实例化GoEasy对象并推送<br>GoEasy goEasy = new GoEasy(“your appkey”);<br>goEasy.publish(‘your_channel’, ‘First message’);<br>JavaScript推送<br>引入goeasy.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.goeasy.io/goeasy.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>实例化Goeasy对象，并用publish函数进行推送<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    var goEasy = new GoEasy(&#123;appkey: &apos;your appkey&apos;&#125;);</span><br><span class="line">    goEasy. publish (&#123;</span><br><span class="line">        channel: &apos;your_channel&apos;, </span><br><span class="line">        message: &apos;Second message！&apos;</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>用RestAPI进行推送<br>URL: <a href="https://goeasy.io/goeasy/publish" target="_blank" rel="external">https://goeasy.io/goeasy/publish</a><br>Method: post<br>参数：appkey, channel, content<br>例如：<a href="https://goeasy.io/goeasy/publish?appkey={your_appkey}&amp;channel={your_channel}&amp;content={your_message}" target="_blank" rel="external">https://goeasy.io/goeasy/publish?appkey={your_appkey}&amp;channel={your_channel}&amp;content={your_message}</a><br>GoEasy官网：<a href="https://goeasy.io" target="_blank" rel="external">https://goeasy.io</a><br>快速入门：<a href="https://goeasy.io/www/started.jsp" target="_blank" rel="external">https://goeasy.io/www/started.jsp</a><br>文档下载：<a href="https://goeasy.io/www/docs.jsp" target="_blank" rel="external">https://goeasy.io/www/docs.jsp</a></p>
+        <p>Spring Cloud构建微服务架构（二）——服务消费者<br>2016年06月02日 标签：Spring Cloud, Spring Boot, Eureka, Netflix, Ribbon, Feign<br>在上一篇《Spring Cloud构建微服务架构（一）服务注册与发现》中，我们已经成功创建了“服务注册中心”，实现并注册了一个“服务提供者：COMPUTE-SERVICE”。那么我们要如何去消费服务提供者的接口内容呢？</p>
+<p>Ribbon<br>Ribbon是一个基于HTTP和TCP客户端的负载均衡器。Feign中也使用Ribbon，后续会介绍Feign的使用。</p>
+<p>Ribbon可以在通过客户端中配置的ribbonServerList服务端列表去轮询访问以达到均衡负载的作用。</p>
+<p>当Ribbon与Eureka联合使用时，ribbonServerList会被DiscoveryEnabledNIWSServerList重写，扩展成从Eureka注册中心中获取服务端列表。同时它也会用NIWSDiscoveryPing来取代IPing，它将职责委托给Eureka来确定服务端是否已经启动。</p>
+<p>下面我们通过实例看看如何使用Ribbon来调用服务，并实现客户端的均衡负载。</p>
+<p>准备工作<br>启动Chapter-9-1-1中的服务注册中心：eureka-server<br>启动Chapter-9-1-1中的服务提供方：compute-service<br>修改compute-service中的server-port为2223，再启动一个服务提供方：compute-service<br>此时访问：<a href="http://localhost:1111/" target="_blank" rel="external">http://localhost:1111/</a></p>
+<p>alt</p>
+<p>可以看到COMPUTE-SERVICE服务有两个单元正在运行：</p>
+<p>192.168.21.101:compute-service:2222<br>192.168.21.101:compute-service:2223<br>使用Ribbon实现客户端负载均衡的消费者<br>构建一个基本Spring Boot项目，并在pom.xml中加入如下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&lt;parent&gt;  </span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.3.5.RELEASE&lt;/version&gt;</span><br><span class="line">    &lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;</span><br><span class="line">&lt;/parent&gt;</span><br><span class="line"></span><br><span class="line">&lt;dependencies&gt;  </span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-cloud-starter-ribbon&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-cloud-starter-eureka&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;</span><br><span class="line">        &lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">&lt;/dependencies&gt;</span><br><span class="line"></span><br><span class="line">&lt;dependencyManagement&gt;  </span><br><span class="line">    &lt;dependencies&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;Brixton.RELEASE&lt;/version&gt;</span><br><span class="line">        &lt;type&gt;pom&lt;/type&gt;</span><br><span class="line">        &lt;scope&gt;import&lt;/scope&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;/dependencies&gt;</span><br><span class="line">&lt;/dependencyManagement&gt;</span><br></pre></td></tr></table></figure></p>
+<p>在应用主类中，通过@EnableDiscoveryClient注解来添加发现服务能力。创建RestTemplate实例，并通过@LoadBalanced注解开启均衡负载能力。</p>
+<p>@SpringBootApplication<br>@EnableDiscoveryClient<br>public class RibbonApplication {</p>
+<pre><code>@Bean
+@LoadBalanced
+RestTemplate restTemplate() {
+    return new RestTemplate();
+}
 
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-汽车之家配置管理系统AutoCMS" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/03/汽车之家配置管理系统AutoCMS/" class="article-date">
-  	<time datetime="2016-05-03T08:49:37.000Z" itemprop="datePublished">2016-05-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/03/汽车之家配置管理系统AutoCMS/">汽车之家配置管理系统AutoCMS</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Break Wang<br>Be slow to promise and quick to perform.</p>
-<p> Email<br> Twitter<br> Google+<br>汽车之家配置管理系统AutoCMS</p>
-<p>介绍</p>
-<p>作者介绍</p>
-<p>本文作者是王显宝wangxianbao@autohome.com.cn,主要负责AutoCMS的开发工作和缓存平台的运维工作，擅长python自动化运维,分布式缓存和分布式文件系统应用管理。</p>
-<p>团队介绍</p>
-<p>我们是汽车之家运维团队，是汽车之家技术部里最为核心的团队，由op和dev共同组成。我们的目标是为汽车之家集团打造一个高性能，高可扩展，低成本，并且稳定可靠的网站基础设施平台。</p>
-<p>团队技术博客地址为 <a href="http://autohomeops.github.io/" target="_blank" rel="external">http://autohomeops.github.io/</a></p>
-<p>联系方式：可以通过邮件或者在官方技术博客留言跟我们交流。</p>
-<p>大纲</p>
-<ol>
-<li>前言</li>
-<li>AutoCMS使用方法介绍</li>
-<li>系统架构说明</li>
-<li>配置案例</li>
-<li>小结<br>1.前言</li>
-</ol>
-<p>AutoCMS 是汽车之家目前正在使用的统一配置管理工具，本文将详细介绍该系统的使用方法和架构实现。 先来回顾下汽车之家软件部署和配置文件管理的经历的几个阶段:</p>
-<p>原始阶段（依靠手工部署，wiki制定规范）<br>最初阶段软件部署和配置文件管理完全依赖人力完成。部署新业务，运维根据研发测试环境的软件版本，去官网下载软件包，在服务器上编译安装，然后根据研发需求，手工配置文件，启动服务。该阶段暴露出诸多问题：<br>软件包的来源没有强制规范，带来了很大的安全隐患。<br>新业务上线或者业务紧急扩容，运维投入大量人力来完成繁重的体力劳动。<br>部署目录标准化依赖wiki规范维护，人力部署的时候经常会出现问题<br>半自动化阶段（依赖人力打包，yum方式部署）<br>随着运维自动化的推行，搭建自己的yum源，自己打包来规范软件版本来源和部署目录。需要批量部署的时候，逐台登录服务器执行yum install 安装相关的软件包即可，该阶段已经节省了很大的人力，不过依然需要逐台登录服务器去修改配置文件才能够满足上线需求。配置文件变更前的备份和故障后的恢复依然需要人力维护。<br>自动化阶段<br>现在正在使用的管理系统AutoCMS，实现页面化管理软件部署和配置文件，实现快速批量管理软件。<br>下面将详细介绍一下我们正在使用的AutoCMS。</p>
-<p>2.AutoCMS使用方法介绍</p>
-<p>AutoCMS 是基于puppet实现的软件部署和配置文件管理的一套系统，避免手动安装部署软件，提供可靠的软件标准化部署，配置文件和基础服务的管理服务。 本系统主要实现以下几点功能：</p>
-<p>批量部署软件包<br>页面管理软件的配置文件变更，支持备份和回滚<br>多环境部署，开发，测试，线上环境相互隔离<br>灰度推送配置<br>远程执行安全的命令<br>基本的统计功能<br>使用者操作流程如下：</p>
-<p>创建主机组</p>
-<p>主机组是需要批量部署同一个软件或者下发相同配置的主机的集合，创建主机组的同时需要关联一下配置模块，该配置模块是提前写好的puppet模块。</p>
-<p>添加主机</p>
-<p>将需要部署该模块的主机加入该组内（本系统中主机的输入源是cmdb接口）</p>
-<p>选择环境</p>
-<p>根据需求选择该主机的环境，各个环境的配置数据独立存储，彼此不受影响。</p>
-<p>配置部署参数</p>
-<p>根据配置模块不同，编写配置文件，生成不同的配置页面，业务运维只要在页面上选择相应的参数，puppet会根据这些参数生成相应的配置文件。</p>
-<p>推送配置</p>
-<p>业务运维再前端页面配置完成后，返回主机组管理页面，选择主机并进行推送配置，便会触发相关主机的puppet agent 运行，部署相应的软件和配置。</p>
-<p>3.系统架构说明</p>
-<p>AutoCMS使用django作为前端框架，后端部署程序主要基于puppet实现，通过puppet的enc和report功能实现完整的部署和配置逻辑，整体架构如下：</p>
-<p>简要分析下：</p>
-<p>前端配置页面<br>由于各个软件配置选项不同，所以前端的软件参数配置页面要采用配置文件动态生成。<br>数据存储<br>设计初期，我们在mysql和MongoDB之间选择了MongoDB，主要出于一下几点考虑：<br>Schema-less,json风格存储：由于配置数据根据软件的不同，其数据不能依靠key-value能够存放的，每个软件的配置项可能会有自定义的结构，所以采用了json格式来处理，而MongoDB的bson恰好能够满足需求，省去了在mysql中频繁使用外键。此外，json格式数据易于掌握和理解，存储的数据一目了然。</p>
-<p>CRUD方便快捷，支持范围查询和正则查询，还支持支持upsert选项（如果不存在则插入）。</p>
-<p>与其他nosql产品相比，我们对mongodb的持久化和高可用方案更加熟悉。</p>
-<p>部署实施层</p>
-<p>该部分是通过puppet模块实现，模块中引用的参数通过自定义facter或者使用enc来读取配置存储的MongoDB获得，</p>
-<p>多实例部署的实现：<br>一台主机的多实例部署通过create_resources函数实现，例如一台主机需要配置多个tomcat实例，数据会是如下结构：  </p>
-<p>多环境分离实现： 本系统中puppet代码部分有git作为版本控制，通过git自身的多分支的特性来做puppet代码层面的环境分离。根据需求来执行不同分支的puppet代码即可。<br>4.配置案例</p>
-<p>下面以tomcat自动部署模块为例，进行详细介绍：</p>
-<p>根据部署需求，设计出配置数参数的存储结构<br>填写前端布局的配置文件，自动生成前端配置页面。 </p>
-<p>编写puppet自动部署模块。</p>
-<p>编写enc转换程序<br>以上准备工作做好之后，系统上线，运维可以创建主机组，关联tomcat模块，将需要批量部署的主机加入该组内，并进行参数配置<br>配置完成后，进行灰度发布验证没问题后，进行全量推送，观察状态，配置完成。 </p>
-<ol>
-<li>小结</li>
-</ol>
-<p>随着云时代的到来，很多服务器可以定制镜像实现所需的运行环境，不过随着业务规模的扩大，服务器的个性化配置会越来越多，镜像的维护工作也会逐步增加，使用AutoCMS可以灵活的解决这个问题。把各自的配置需求写成配置模块，并把服务器分组，批量推送下去，可以节省运维人员很多体力劳动。让运维人员将精力投入到更有价值的工作中。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/soa/">soa</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-dubbox" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/28/dubbox/" class="article-date">
-  	<time datetime="2016-04-28T09:26:34.000Z" itemprop="datePublished">2016-04-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/28/dubbox/">dubbox</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://github.com/dangdangdotcom/dubbox" target="_blank" rel="external">https://github.com/dangdangdotcom/dubbox</a><br>Dubbox now means Dubbo eXtensions. If you know java, javax and dubbo, you know what dubbox is :)<br>Dubbox adds features like RESTful remoting, Kyro/FST serialization, etc to the popular dubbo service framework. It’s been used by several projects of dangdang.com, which is one of the major e-commerce companies in China.<br>主要贡献者</p>
-<p>沈理 当当网 shenli@dangdang.com<br>王宇轩 当当网 wangyuxuan@dangdang.com<br>马金凯 韩都衣舍 majinkai@handu.com<br>Dylan 独立开发者 dinguangx@163.com<br>Kangfoo 独立开发者<br>讨论QQ群：258792161 （不限于dubbox，包括SOA设计、互联网技术等等兴趣交流）<br>Dubbox当前的主要功能</p>
-<p>支持REST风格远程调用（HTTP + JSON/XML)：基于非常成熟的JBoss RestEasy框架，在dubbo中实现了REST风格（HTTP + JSON/XML）的远程调用，以显著简化企业内部的跨语言交互，同时显著简化企业对外的Open API、无线API甚至AJAX服务端等等的开发。事实上，这个REST调用也使得Dubbo可以对当今特别流行的“微服务”架构提供基础性支持。 另外，REST调用也达到了比较高的性能，在基准测试下，HTTP + JSON与Dubbo 2.x默认的RPC协议（即TCP + Hessian2二进制序列化）之间只有1.5倍左右的差距，详见文档中的基准测试报告。<br>支持基于Kryo和FST的Java高效序列化实现：基于当今比较知名的Kryo和FST高性能序列化库，为Dubbo默认的RPC协议添加新的序列化实现，并优化调整了其序列化体系，比较显著的提高了Dubbo RPC的性能，详见文档中的基准测试报告。<br>支持基于Jackson的JSON序列化：基于业界应用最广泛的Jackson序列化库，为Dubbo默认的RPC协议添加新的JSON序列化实现。<br>支持基于嵌入式Tomcat的HTTP remoting体系：基于嵌入式tomcat实现dubbo的HTTP remoting体系（即dubbo-remoting-http），用以逐步取代Dubbo中旧版本的嵌入式Jetty，可以显著的提高REST等的远程调用性能，并将Servlet API的支持从2.5升级到3.1。（注：除了REST，dubbo中的WebServices、Hessian、HTTP Invoker等协议都基于这个HTTP remoting体系）。<br>升级Spring：将dubbo中Spring由2.x升级到目前最常用的3.x版本，减少版本冲突带来的麻烦。<br>升级ZooKeeper客户端：将dubbo中的zookeeper客户端升级到最新的版本，以修正老版本中包含的bug。<br>支持完全基于Java代码的Dubbo配置：基于Spring的Java Config，实现完全无XML的纯Java代码方式来配置dubbo<br>调整Demo应用：暂时将dubbo的demo应用调整并改写以主要演示REST功能、Dubbo协议的新序列化方式、基于Java代码的Spring配置等等。<br>修正了dubbo的bug 包括配置、序列化、管理界面等等的bug。<br>注：dubbox和dubbo 2.x是兼容的，没有改变dubbo的任何已有的功能和配置方式（除了升级了spring之类的版本）<br>文档资料</p>
-<p>在Dubbo中开发REST风格的远程调用（RESTful Remoting）<br>在Dubbo中使用高效的Java序列化（Kryo和FST）<br>使用JavaConfig方式配置dubbox<br>Dubbo Jackson序列化使用说明<br>Demo应用简单运行指南<br>Dubbox@InfoQ<br>Dubbox Wiki （由社区志愿者自由编辑的）<br>版本</p>
-<p>详见：<a href="https://github.com/dangdangdotcom/dubbox/releases" target="_blank" rel="external">https://github.com/dangdangdotcom/dubbox/releases</a><br>dubbox-2.8.0：主要支持REST风格远程调用、支持Kryo和FST序列化、升级了Spring和Zookeeper客户端、调整了demo应用等等<br>dubbox-2.8.1：主要支持基于嵌入式tomcat的http-remoting，优化了REST客户端性能，在REST中支持限制服务端接纳的最大HTTP连接数等等<br>dubbox-2.8.2：<br>支持REST中的HTTP logging，包括HTTP header的字段和HTTP body中的消息体，方便调试、日志纪录等等<br>提供辅助类便于REST的中文处理<br>改变使用@Reference annotation配置时的异常处理方式，即当用annotation配置时，过去dubbo在启动期间不抛出依赖服务找不到的异常，而是在具体调用时抛出NPE，这与用XML配置时的行为不一致。<br>较大的充实了Dubbo REST的文档<br>dubbox-2.8.3：<br>在REST中支持dubbo统一的方式用bean validation annotation作参数校验（沈理）<br>在RpcContext上支持获取底层协议的Request/Response（沈理）<br>支持采用Spring的Java Config方式配置dubbo（马金凯）<br>在Dubbo协议中支持基于Jackson的json序列化（Dylan）<br>在Spring AOP代理过的对象上支持dubbo annotation配置（Dylan）<br>修正Dubbo管理界面中没有consumer时出现空指针异常（马金凯）<br>修正@Reference annotation中protocol设置不起作用的bug（沈理）<br>修正@Reference annotation放在setter方法上即会出错的bug（Dylan）<br>依赖</p>
-<p>从dubbox-2.8.4开始，所有依赖库的使用方式将和dubbo原来的一样：即如果要使用REST、Kyro、FST、Jackson等功能，需要用户自行手工添加相关的依赖。例如：<br>REST风格远程调用</p>
-<dependency><br>    <groupid>org.jboss.resteasy</groupid><br>    <artifactid>resteasy-jaxrs</artifactid><br>    <version>3.0.7.Final</version><br></dependency><br><dependency><br>    <groupid>org.jboss.resteasy</groupid><br>    <artifactid>resteasy-client</artifactid><br>    <version>3.0.7.Final</version><br></dependency><br><dependency><br>    <groupid>javax.validation</groupid><br>    <artifactid>validation-api</artifactid><br>    <version>1.0.0.GA</version><br></dependency>
-
-<!-- 如果要使用json序列化 -->
-<dependency><br>    <groupid>org.jboss.resteasy</groupid><br>    <artifactid>resteasy-jackson-provider</artifactid><br>    <version>3.0.7.Final</version><br></dependency>
-
-<!-- 如果要使用xml序列化 -->
-<dependency><br>    <groupid>org.jboss.resteasy</groupid><br>    <artifactid>resteasy-jaxb-provider</artifactid><br>    <version>3.0.7.Final</version><br></dependency>
-
-<!-- 如果要使用netty server -->
-<dependency><br>    <groupid>org.jboss.resteasy</groupid><br>    <artifactid>resteasy-netty</artifactid><br>    <version>3.0.7.Final</version><br></dependency>
-
-<!-- 如果要使用Sun HTTP server -->
-<dependency><br>    <groupid>org.jboss.resteasy</groupid><br>    <artifactid>resteasy-jdk-http</artifactid><br>    <version>3.0.7.Final</version><br></dependency>
-
-<!-- 如果要使用tomcat server -->
-<p><dependency><br>    <groupid>org.apache.tomcat.embed</groupid><br>    <artifactid>tomcat-embed-core</artifactid><br>    <version>8.0.11</version><br></dependency></p>
-<p><dependency><br>    <groupid>org.apache.tomcat.embed</groupid><br>    <artifactid>tomcat-embed-logging-juli</artifactid><br>    <version>8.0.11</version><br></dependency><br>Kyro序列化</p>
-<p><dependency><br>    <groupid>com.esotericsoftware.kryo</groupid><br>    <artifactid>kryo</artifactid><br>    <version>2.24.0</version><br></dependency></p>
-<p><dependency><br>    <groupid>de.javakaffee</groupid><br>    <artifactid>kryo-serializers</artifactid><br>    <version>0.26</version><br></dependency><br>FST序列化</p>
-<p><dependency><br>    <groupid>de.ruedigermoeller</groupid><br>    <artifactid>fst</artifactid><br>    <version>1.55</version><br></dependency><br>Jackson序列化</p>
-<p><dependency><br>    <groupid>com.fasterxml.jackson.core</groupid><br>    <artifactid>jackson-core</artifactid><br>    <version>2.3.3</version><br></dependency></p>
-<p><dependency><br>    <groupid>com.fasterxml.jackson.core</groupid><br>    <artifactid>jackson-databind</artifactid><br>    <version>2.3.3</version><br></dependency><br>FAQ（暂存）</p>
-<p>Dubbox需要什么版本的JDK？</p>
-<p>目前最好在JDK 1.7以上运行<br>Dubbo REST的服务能和Dubbo注册中心、监控中心集成吗？</p>
-<p>可以的，而且是自动集成的，也就是你在dubbo中开发的所有REST服务都会自动注册到服务册中心和监控中心，可以通过它们做管理。<br>但是，只有当REST的消费端也是基于dubbo的时候，注册中心中的许多服务治理操作才能完全起作用。而如果消费端是非dubbo的，自然不受注册中心管理，所以其中很多操作是不会对消费端起作用的。<br>Dubbo REST中如何实现负载均衡和容错（failover）？</p>
-<p>如果dubbo REST的消费端也是dubbo的，则Dubbo REST和其他dubbo远程调用协议基本完全一样，由dubbo框架透明的在消费端做load balance、failover等等。<br>如果dubbo REST的消费端是非dubbo的，甚至是非java的，则最好配置服务提供端的软负载均衡机制，目前可考虑用LVS、HAProxy、 Nginx等等对HTTP请求做负载均衡。<br>JAX-RS中重载的方法能够映射到同一URL地址吗？</p>
-<p><a href="http://stackoverflow.com/questions/17196766/can-resteasy-choose-method-based-on-query-params" target="_blank" rel="external">http://stackoverflow.com/questions/17196766/can-resteasy-choose-method-based-on-query-params</a><br>JAX-RS中作POST的方法能够接收多个参数吗？</p>
-<p><a href="http://stackoverflow.com/questions/5553218/jax-rs-post-multiple-objects" target="_blank" rel="external">http://stackoverflow.com/questions/5553218/jax-rs-post-multiple-objects</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/soa/">soa</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Venus-唯品会分布式框架" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/28/Venus-唯品会分布式框架/" class="article-date">
-  	<time datetime="2016-04-28T09:25:23.000Z" itemprop="datePublished">2016-04-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/28/Venus-唯品会分布式框架/">Venus----唯品会分布式框架</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://wiki.hexnova.com/display/Venus/HOME" target="_blank" rel="external">http://wiki.hexnova.com/display/Venus/HOME</a></p>
-<p> HOME</p>
-<p>附件：1<br>被Struct添加，被Struct最后更新于2015-Aug-26  (查看更改)<br>Venus（New Version：3.2.14） 是什么？</p>
-<p>它是由(Venus service framework)+服务路由产品（Venus-Bus）+服务注册中心(Venus-Registry) 组合而成，提供远程服务。它着 开发简单、高性能、高并发能力 的服务端框架。<br>客户端与服务端之间的通讯对开发人员完全透明<br>他跟目前我们经常用到的框架：axis、CXF、Hessian WebService、Jboss Remoting等框架类似。<br>系统功能目标：<br>提供高性能的服务通讯框架<br>具备性能监控（可以清晰的看到每个服务执行的时间、过长可以通过监控告警出去）<br>具备流量控制（每个服务每个时刻的调用次数、每天的峰值情况、）<br>访问控制（服务的授权控制）<br>提供可选择性服务数据缓存（cache支持，key采用表达式，由框架提供缓存支持，而不需要编写任何cache相关的代码）<br>提供框架进行再次研发能力，提供interceptor、validator等接口。<br>提供高性能的服务总线（Venus-Bus），能够轻易接入高性能的服务总线。（Venus-Bus项目支持，针对该venus的协议，以后接入服务总线轻而易举）<br>开发方面：<br>服务接口定义清晰(接口、参数、校验、以及服务鉴权)<br>自动生成接口文档，以方便阅读接口声明<br>客户端框架快速开发、提供多种语言版本的客户端<br>提供3种服务调用方式（同步、异步、回调）<br>服务端框架提供多种协议提供服务，而不需要做额外的开发<br>    语言支持情况<br>目前客户端SDK暂时只有java、PHP语言版本<br>服务端面向java语言<br>java 语言开发例子<br>演讲稿下载</p>
-<p>Venus演讲稿.pdf<br>开发人员的关注点</p>
-<ol>
-<li>如何服务化</li>
-</ol>
-<p>采用接口与实现分离，服务接口是一种契约，他与我们开发web Service类似。<br>java开发语言：采用对程序员友好的接口申明形式，开发人员不需要关心客户端与服务端之间的传输协议。<br>其他语言：可以通过该框架提供自定义协议或者Http协议（http协议即将在2.1.0版本release出来）进行交互</p>
-<ol>
-<li>服务接口定制</li>
-</ol>
-<p>定义服务接口<br>接口参数命名<br>定义参数校验规则<br>Java语言服务接口尽量不要依赖其他项目. 接口层面只需要接口相关的参数对象类与服务类<br>异常定义</p>
-<ol>
-<li><p>接口参数校验</p>
-</li>
-<li><p>提供3种交互方式</p>
-<p>请求应答模式：普通的request、response，一般用于接口有返回值<br>异步请求模式：通常用于接口无返回值，客户端并不关心服务器的处理结果，也不用关心服务器处理多少时间<br>异步回调模式：接口无返回值，处理通常消化大量时间，需要服务端通知处理结果的业务接口<br>源代码：</p>
-</li>
-</ol>
-<p>demo 的svn 地址：svn://svn.hexnova.com/venus/venus-helloworld/trunk<br>框架svn地址： svn://svn.hexnova.com/venus/venus-framework/trunk<br>svn的用户名：guest<br>svn密码：guest<br>Maven Repository</p>
-<p><repository><id>hexnova-open</id><url><a href="http://maven.hexnova.com/nexus/content/groups/hexnova-open" target="_blank" rel="external">http://maven.hexnova.com/nexus/content/groups/hexnova-open</a></url><releases><enabled>true</enabled><updatepolicy>never</updatepolicy></releases><snapshots><enabled>true</enabled><updatepolicy>always</updatepolicy></snapshots></repository><br>目前版本情况：</p>
-<p>trunk是最新开发版本，会不停有新东西进入<br>稳定版本: 3.2.14<br>最新版本:3.2.14<br>版本发布Blog地址： <a href="http://wiki.hexnova.com/pages/viewrecentblogposts.action?key=Venus" target="_blank" rel="external">http://wiki.hexnova.com/pages/viewrecentblogposts.action?key=Venus</a><br>开发人员与blog</p>
-<p>日志</p>
-<p>日志: Venus 3.2.12 Release 创建：<br>Struct<br>2014-Sep-05<br>Venus<br>日志: Venus 3.2.10 Release 创建：<br>Struct<br>2014-Jun-25<br>Venus<br>日志: Venus 3.2.3 Released 创建：<br>Struct<br>2014-Feb-19<br>Venus<br>日志: Venus 3.0.9 Released 创建：<br>Struct<br>2013-Dec-25<br>Venus<br>日志: Venus 3.0.6 Released 创建：<br>Struct<br>2013-Nov-22<br>Venus<br>日志: Venus 3.0.4 Released 创建：<br>Struct<br>2013-Nov-14<br>Venus<br>日志: Venus 3.0.3 Released 创建：<br>Struct<br>2013-Oct-25<br>Venus<br>日志: Venus 3.0.2 Released 创建：<br>Struct<br>2013-Oct-21<br>Venus<br>日志: Venus 3.0.1 Released 创建：<br>Struct<br>2013-Oct-14<br>Venus<br>日志: Venus 2.3.0 Released 创建：<br>Struct<br>2012-Oct-08<br>Venus<br>日志: Venus 2.2.7 Released 创建：<br>Struct<br>2012-Sep-24<br>Venus<br>日志: Venus 2.2.6 Released 创建：<br>Struct<br>2012-Jun-28<br>Venus<br>日志: Venus 2.2.3 Released 创建：<br>Struct<br>2012-May-21<br>Venus<br>日志: Venus 2.0.4 Released 创建：<br>Struct<br>2012-Mar-31<br>Venus<br>日志: Venus 2.0.3 Released 创建：<br>Struct<br>2012-Mar-23<br>Venus<br>日志: Venus 2.0.1 Released 创建：<br>Struct<br>2012-Jan-02<br>Venus<br>日志: Venus 1.3.0 Released 创建：<br>Struct<br>2011-Dec-07<br>Venus<br>日志: Venus 1.2.0 Released 创建：<br>Struct<br>2011-Dec-01<br>Venus<br>日志: Venus 1.1.0 Released 创建：<br>Struct<br>2011-Nov-28<br>Venus</p>
-<p>研发人员列表</p>
-<p>昵称    角色    职责    开源社区    目前供职于<br>Struct    Member    负责架构设计、通信框架研发、服务框架研发    Hexnova    上海汽车工业集团<br>Daisy    Member    对象数据序列化、服务接口数据校验、服务框架研发    Hexnova    </p>
-<p>Sunng    Member    服务框架研发    Hexnova    </p>
-<p>Yuanjian Yi    Member<br>PHP客户端开发    Hexnova<br>上海由你网络科技有限公司<br>huawei    Member<br>服务注册中心    Hexnova </p>
-<p>样例：</p>
-<p>简单的接口例子：HelloService.java<br>HelloService接口例子<br>package com.meidusa.venus.hello.api;</p>
-<p>import com.meidusa.venus.annotations.Endpoint;<br>import com.meidusa.venus.annotations.Param;<br>import com.meidusa.venus.annotations.Service;<br>import com.meidusa.venus.notify.InvocationListener;</p>
-<p>/**</p>
-<ul>
-<li>Service framework的 HelloService 接口例子.<p></p></li>
-<li>支持3种调用方式：<p></p></li>
-<li></li><li> 请求应答模式：普通的request、response，一般用于接口有返回值</li>
-<li></li><li> 异步请求模式：通常用于接口无返回值，客户端并不关心服务器的处理结果，也不用关心服务器处理多少时间</li>
-<li></li><li> 异步回调模式：接口无返回值，处理通常消化大量时间，需要服务端通知处理结果的业务接口</li><br>*
-<li><p>@author Struct<br><em>
-</em>/<br>@Service(name=”HelloService”,version=1)<br>publicinterface HelloService {</p>
-<p> /**</p>
-<ul>
-<li>无返回结果的服务调用，支持回调方式，该服务在通讯层面上为异步调用</li>
-<li>@param name</li>
-<li>@param invocationListener 客户端的回调接口<br>*/<br>@Endpoint(name=”sayHelloWithCallbak”)<br>publicabstract void sayHello(@Param(name=”name”) String name,<pre><code>@Param(name=&quot;callback&quot;) InvocationListener&lt;Hello&gt; invocationListener);
-</code></pre>/**</li>
-<li>无返回结果的服务调用，支持同步或者异步调用,</li>
-<li>该接口申明：同步，并且接口申明异常</li>
-<li><p>@param name<br>*/<br>@Endpoint(name=”sayHello”,async=false)<br>publicabstract void sayHello(@Param(name=”name”) String name) throws HelloNotFoundException;</p>
-<p>/**</p>
-</li>
-<li>无返回结果的服务调用，支持同步或者异步调用，无异常申明</li>
-<li>@param name<br>*/<br>@Endpoint(name=”sayAsyncHello”,async=true)<br>publicabstract void sayAsyncHello(@Param(name=”name”) String name);</li>
-</ul>
-</li>
-</ul>
-<pre><code>/**
- * 有返回结果的服务调用，该接口只能支持同步调用
- * @param name
- * @return
- */
-@Endpoint(name=&quot;getHello&quot;,timeWait=10000)
-publicabstract Hello getHello(@Param(name=&quot;name&quot;) String name);
-</code></pre><p>}<br>客户端TestCase编写<br>客户端TestCase<br>package com.meidusa.venus.hello.client;</p>
-<p>import java.util.concurrent.CountDownLatch;</p>
-<p>import org.junit.Test;<br>import org.junit.runner.RunWith;<br>import org.springframework.beans.factory.annotation.Autowired;<br>import org.springframework.test.context.ContextConfiguration;<br>import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;</p>
-<p>import com.meidusa.venus.exception.CodedException;<br>import com.meidusa.venus.hello.api.Hello;<br>import com.meidusa.venus.hello.api.HelloNotFoundException;<br>import com.meidusa.venus.hello.api.HelloService;<br>import com.meidusa.venus.notify.InvocationListener;</p>
-<p>@RunWith(SpringJUnit4ClassRunner.class)<br>@ContextConfiguration(locations=”classpath:/applicationContext-helloworld-client.xml”)<br>public class TestHelloService {</p>
+public static void main(String[] args) {
+    SpringApplication.run(RibbonApplication.class, args);
+}
+</code></pre><p>}<br>创建ConsumerController来消费COMPUTE-SERVICE的add服务。通过直接RestTemplate来调用服务，计算10 + 20的值。</p>
+<p>@RestController<br>public class ConsumerController {</p>
 <pre><code>@Autowired
-private HelloService helloService;
+RestTemplate restTemplate;
 
-@Test
-public void saySync(){
-    System.out.println(helloService.getHello(&quot;jack&quot;));
+@RequestMapping(value = &quot;/add&quot;, method = RequestMethod.GET)
+public String add() {
+    return restTemplate.getForEntity(&quot;http://COMPUTE-SERVICE/add?a=10&amp;b=20&quot;, String.class).getBody();
 }
+</code></pre><p>}<br>application.properties中配置eureka服务注册中心</p>
+<p>spring.application.name=ribbon-consumer<br>server.port=3333</p>
+<p>eureka.client.serviceUrl.defaultZone=<a href="http://localhost:1111/eureka/" target="_blank" rel="external">http://localhost:1111/eureka/</a><br>启动该应用，并访问两次：<a href="http://localhost:3333/add" target="_blank" rel="external">http://localhost:3333/add</a></p>
+<p>然后，打开compute-service的两个服务提供方，分别输出了类似下面的日志内容：</p>
+<p>端口为2222服务提供端的日志：<br>2016-06-02 11:16:26.787  INFO 90014 — [io-2222-exec-10] com.didispace.web.ComputeController      : /add, host:192.168.21.101, service_id:compute-service, result:30<br>端口为2223服务提供端的日志：<br>2016-06-02 11:19:41.241  INFO 90122 — [nio-2223-exec-1] com.didispace.web.ComputeController      : /add, host:192.168.21.101, service_id:compute-service, result:30<br>可以看到，之前启动的两个compute-service服务端分别被调用了一次。到这里，我们已经通过Ribbon在客户端已经实现了对服务调用的均衡负载。</p>
+<p>完整示例可参考：Chapter9-1-2/eureka-ribbon</p>
+<p>Feign<br>Feign是一个声明式的Web Service客户端，它使得编写Web Serivce客户端变得更加简单。我们只需要使用Feign来创建一个接口并用注解来配置它既可完成。它具备可插拔的注解支持，包括Feign注解和JAX-RS注解。Feign也支持可插拔的编码器和解码器。Spring Cloud为Feign增加了对Spring MVC注解的支持，还整合了Ribbon和Eureka来提供均衡负载的HTTP客户端实现。</p>
+<p>下面，通过一个例子来展现Feign如何方便的声明对上述computer-service服务的定义和调用。</p>
+<p>创建一个Spring Boot工程，配置pom.xml，将上述的配置中的ribbon依赖替换成feign的依赖即可，具体如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&lt;parent&gt;  </span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.3.5.RELEASE&lt;/version&gt;</span><br><span class="line">    &lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;</span><br><span class="line">&lt;/parent&gt;</span><br><span class="line"></span><br><span class="line">&lt;dependencies&gt;  </span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-cloud-starter-feign&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-cloud-starter-eureka&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;</span><br><span class="line">        &lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">&lt;/dependencies&gt;</span><br><span class="line"></span><br><span class="line">&lt;dependencyManagement&gt;  </span><br><span class="line">    &lt;dependencies&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;Brixton.RELEASE&lt;/version&gt;</span><br><span class="line">        &lt;type&gt;pom&lt;/type&gt;</span><br><span class="line">        &lt;scope&gt;import&lt;/scope&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;/dependencies&gt;</span><br><span class="line">&lt;/dependencyManagement&gt;</span><br></pre></td></tr></table></figure></p>
+<p>在应用主类中通过@EnableFeignClients注解开启Feign功能，具体如下：</p>
+<p>@SpringBootApplication<br>@EnableDiscoveryClient<br>@EnableFeignClients<br>public class FeignApplication {</p>
+<pre><code>public static void main(String[] args) {
+    SpringApplication.run(FeignApplication.class, args);
+}
+</code></pre><p>}<br>定义compute-service服务的接口，具体如下：</p>
+<p>@FeignClient(“compute-service”)<br>public interface ComputeClient {</p>
+<pre><code>@RequestMapping(method = RequestMethod.GET, value = &quot;/add&quot;)
+Integer add(@RequestParam(value = &quot;a&quot;) Integer a, @RequestParam(value = &quot;b&quot;) Integer b);
+</code></pre><p>}<br>使用@FeignClient(“compute-service”)注解来绑定该接口对应compute-service服务<br>通过Spring MVC的注解来配置compute-service服务下的具体实现。<br>在web层中调用上面定义的ComputeClient，具体如下：</p>
+<p>@RestController<br>public class ConsumerController {</p>
+<pre><code>@Autowired
+ComputeClient computeClient;
+
+@RequestMapping(value = &quot;/add&quot;, method = RequestMethod.GET)
+public Integer add() {
+    return computeClient.add(10, 20);
+}
+</code></pre><p>}<br>application.properties中不用变，指定eureka服务注册中心即可，如：</p>
+<p>spring.application.name=feign-consumer<br>server.port=3333</p>
+<p>eureka.client.serviceUrl.defaultZone=<a href="http://localhost:1111/eureka/" target="_blank" rel="external">http://localhost:1111/eureka/</a><br>启动该应用，访问几次：<a href="http://localhost:3333/add" target="_blank" rel="external">http://localhost:3333/add</a></p>
+<p>再观察日志，可以得到之前使用Ribbon时一样的结果，对服务提供方实现了均衡负载。</p>
+<p>这一节我们通过Feign以接口和注解配置的方式，轻松实现了对compute-service服务的绑定，这样我们就可以在本地应用中像本地服务一下的调用它，并且做到了客户端均衡负载。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-SpringCloud构建微服务架构1——服务注册与发现" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/15/SpringCloud构建微服务架构1——服务注册与发现/" class="article-date">
+  	<time datetime="2016-06-15T09:34:53.000Z" itemprop="datePublished">2016-06-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/15/SpringCloud构建微服务架构1——服务注册与发现/">SpringCloud构建微服务架构1——服务注册与发现</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Spring Cloud构建微服务架构（一）——服务注册与发现<br>2016年05月31日 标签：Spring Cloud, Spring Boot, Netflix, Eureka<br>Spring Cloud简介<br>Spring Cloud是一个基于Spring Boot实现的云应用开发工具，它为基于JVM的云应用开发中的配置管理、服务发现、断路器、智能路由、微代理、控制总线、全局锁、决策竞选、分布式会话和集群状态管理等操作提供了一种简单的开发方式。</p>
+<p>Spring Cloud包含了多个子项目（针对分布式系统中涉及的多个不同开源产品），比如：Spring Cloud Config、Spring Cloud Netflix、Spring Cloud CloudFoundry、Spring Cloud AWS、Spring Cloud Security、Spring Cloud Commons、Spring Cloud Zookeeper、Spring Cloud CLI等项目。</p>
+<p>微服务架构<br>“微服务架构”在这几年非常的火热，以至于关于微服务架构相关的产品社区也变得越来越活跃（比如：netflix、dubbo），Spring Cloud也因Spring社区的强大知名度和影响力也被广大架构师与开发者备受关注。</p>
+<p>那么什么是“微服务架构”呢？简单的说，微服务架构就是将一个完整的应用从数据存储开始垂直拆分成多个不同的服务，每个服务都能独立部署、独立维护、独立扩展，服务与服务间通过诸如RESTful API的方式互相调用。</p>
+<p>对于“微服务架构”，大家在互联网可以搜索到很多相关的介绍和研究文章来进行学习和了解。也可以阅读始祖Martin Fowler的《Microservices》，本文不做更多的介绍和描述。</p>
+<p>服务注册与发现<br>在简单介绍了Spring Cloud和微服务架构之后，下面回归本文的主旨内容，如何使用Spring Cloud搭建服务注册与发现模块。</p>
+<p>这里我们会用到Spring Cloud Netflix，该项目是Spring Cloud的子项目之一，主要内容是对Netflix公司一系列开源产品的包装，它为Spring Boot应用提供了自配置的Netflix OSS整合。通过一些简单的注解，开发者就可以快速的在应用中配置一下常用模块并构建庞大的分布式系统。它主要提供的模块包括：服务发现（Eureka），断路器（Hystrix），智能路有（Zuul），客户端负载均衡（Ribbon）等。</p>
+<p>所以，我们这里的核心内容就是服务发现模块：Eureka。下面我们动手来做一些尝试。</p>
+<p>创建“服务注册中心”<br>创建一个基础的Spring Boot工程，并在pom.xml中引入需要的依赖内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;parent&gt;  </span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.3.5.RELEASE&lt;/version&gt;</span><br><span class="line">    &lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;</span><br><span class="line">&lt;/parent&gt;</span><br><span class="line"></span><br><span class="line">&lt;dependencies&gt;  </span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;</span><br><span class="line">    &lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-cloud-starter-eureka-server&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">&lt;/dependencies&gt;</span><br><span class="line"></span><br><span class="line">&lt;dependencyManagement&gt;  </span><br><span class="line">    &lt;dependencies&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;Brixton.RELEASE&lt;/version&gt;</span><br><span class="line">        &lt;type&gt;pom&lt;/type&gt;</span><br><span class="line">        &lt;scope&gt;import&lt;/scope&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;/dependencies&gt;</span><br><span class="line">&lt;/dependencyManagement&gt;</span><br></pre></td></tr></table></figure></p>
+<p>通过@EnableEurekaServer注解启动一个服务注册中心提供给其他应用进行对话。这一步非常的简单，只需要在一个普通的Spring Boot应用中添加这个注解就能开启此功能，比如下面的例子：</p>
+<p>@EnableEurekaServer<br>@SpringBootApplication<br>public class Application {</p>
+<pre><code>public static void main(String[] args) {
+    new SpringApplicationBuilder(Application.class).web(true).run(args);
+}
+</code></pre><p>}<br>在默认设置下，该服务注册中心也会将自己作为客户端来尝试注册它自己，所以我们需要禁用它的客户端注册行为，只需要在application.properties中问增加如下配置：</p>
+<p>server.port=1111</p>
+<p>eureka.client.register-with-eureka=false<br>eureka.client.fetch-registry=false<br>eureka.client.serviceUrl.defaultZone=<a href="http://localhost:${server.port}/eureka/" target="_blank" rel="external">http://localhost:${server.port}/eureka/</a><br>为了与后续要进行注册的服务区分，这里将服务注册中心的端口通过server.port属性设置为1111。</p>
+<p>启动工程后，访问：<a href="http://localhost:1111/" target="_blank" rel="external">http://localhost:1111/</a></p>
+<p>可以看到下面的页面，其中还没有发现任何服务</p>
+<p>alt</p>
+<p>该工程可参见：Chapter9-1-1/eureka-server</p>
+<p>创建“服务提供方”<br>下面我们创建提供服务的客户端，并向服务注册中心注册自己。</p>
+<p>假设我们有一个提供计算功能的微服务模块，我们实现一个RESTful API，通过传入两个参数a和b，最后返回a + b的结果。</p>
+<p>首先，创建一个基本的Spring Boot应用，在pom.xml中，加入如下配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;parent&gt;  </span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.3.5.RELEASE&lt;/version&gt;</span><br><span class="line">    &lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;</span><br><span class="line">&lt;/parent&gt;</span><br><span class="line"></span><br><span class="line">&lt;dependencies&gt;  </span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;</span><br><span class="line">    &lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-cloud-starter-eureka&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">&lt;/dependencies&gt;</span><br><span class="line"></span><br><span class="line">&lt;dependencyManagement&gt;  </span><br><span class="line">    &lt;dependencies&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;Brixton.RELEASE&lt;/version&gt;</span><br><span class="line">        &lt;type&gt;pom&lt;/type&gt;</span><br><span class="line">        &lt;scope&gt;import&lt;/scope&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;/dependencies&gt;</span><br><span class="line">&lt;/dependencyManagement&gt;</span><br></pre></td></tr></table></figure></p>
+<p>其次，实现/add请求处理接口，通过DiscoveryClient对象，在日志中打印出服务实例的相关内容。</p>
+<p>@RestController<br>public class ComputeController {</p>
+<pre><code>private final Logger logger = Logger.getLogger(getClass());
+
+@Autowired
+private DiscoveryClient client;
+
+@RequestMapping(value = &quot;/add&quot; ,method = RequestMethod.GET)
+public Integer add(@RequestParam Integer a, @RequestParam Integer b) {
+    ServiceInstance instance = client.getLocalServiceInstance();
+    Integer r = a + b;
+    logger.info(&quot;/add, host:&quot; + instance.getHost() + &quot;, service_id:&quot; + instance.getServiceId() + &quot;, result:&quot; + r);
+    return r;
+}
+</code></pre><p>}<br>最后在主类中通过加上@EnableDiscoveryClient注解，该注解能激活Eureka中的DiscoveryClient实现，才能实现Controller中对服务信息的输出。</p>
+<p>@EnableDiscoveryClient<br>@SpringBootApplication<br>public class ComputeServiceApplication {</p>
+<pre><code>public static void main(String[] args) {
+    new SpringApplicationBuilder(ComputeServiceApplication.class).web(true).run(args);
+}
+</code></pre><p>}<br>我们在完成了服务内容的实现之后，再继续对application.properties做一些配置工作，具体如下：</p>
+<p>spring.application.name=compute-service</p>
+<p>server.port=2222</p>
+<p>eureka.client.serviceUrl.defaultZone=<a href="http://localhost:1111/eureka/" target="_blank" rel="external">http://localhost:1111/eureka/</a><br>通过spring.application.name属性，我们可以指定微服务的名称后续在调用的时候只需要使用该名称就可以进行服务的访问。</p>
+<p>eureka.client.serviceUrl.defaultZone属性对应服务注册中心的配置内容，指定服务注册中心的位置。</p>
+<p>为了在本机上测试区分服务提供方和服务注册中心，使用server.port属性设置不同的端口。</p>
+<p>启动该工程后，再次访问：<a href="http://localhost:1111/" target="_blank" rel="external">http://localhost:1111/</a></p>
+<p>可以看到，我们定义的服务被注册了。</p>
+<p><img src="http://blog.didispace.com/content/images/2016/05/QQ--20160531221940.png"></p>
+<p>该工程可参见：Chapter9-1-1/compute-service</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-SpringBoot中的事务管理" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/15/SpringBoot中的事务管理/" class="article-date">
+  	<time datetime="2016-06-15T09:33:05.000Z" itemprop="datePublished">2016-06-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/15/SpringBoot中的事务管理/">SpringBoot中的事务管理</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Spring Boot中的事务管理<br>2016年05月27日 标签：Spring Boot, 事务, Transactional<br>什么是事务？<br>我们在开发企业应用时，对于业务人员的一个操作实际是对数据读写的多步操作的结合。由于数据操作在顺序执行的过程中，任何一步操作都有可能发生异常，异常会导致后续操作无法完成，此时由于业务逻辑并未正确的完成，之前成功操作数据的并不可靠，需要在这种情况下进行回退。</p>
+<p>事务的作用就是为了保证用户的每一个操作都是可靠的，事务中的每一步操作都必须成功执行，只要有发生异常就回退到事务开始未进行操作的状态。</p>
+<p>事务管理是Spring框架中最为常用的功能之一，我们在使用Spring Boot开发应用时，大部分情况下也都需要使用事务。</p>
+<p>快速入门<br>在Spring Boot中，当我们使用了spring-boot-starter-jdbc或spring-boot-starter-data-jpa依赖的时候，框架会自动默认分别注入DataSourceTransactionManager或JpaTransactionManager。所以我们不需要任何额外配置就可以用@Transactional注解进行事务的使用。</p>
+<p>我们以之前实现的《用spring-data-jpa访问数据库》的示例Chapter3-2-2作为基础工程进行事务的使用常识。</p>
+<p>在该样例工程中（若对该数据访问方式不了解，可先阅读该文章），我们引入了spring-data-jpa，并创建了User实体以及对User的数据访问对象UserRepository，在ApplicationTest类中实现了使用UserRepository进行数据读写的单元测试用例，如下：</p>
+<p>@RunWith(SpringJUnit4ClassRunner.class)<br>@SpringApplicationConfiguration(Application.class)<br>public class ApplicationTests {</p>
+<pre><code>@Autowired
+private UserRepository userRepository;
 
 @Test
-public void testSyncWithException(){
-    try {
-        helloService.sayHello(&quot;jack&quot;);
-    } catch (HelloNotFoundException e) {
-        System.out.println(&quot;throw an user defined HelloNotFoundException&quot;);
+public void test() throws Exception {
+
+    // 创建10条记录
+    userRepository.save(new User(&quot;AAA&quot;, 10));
+    userRepository.save(new User(&quot;BBB&quot;, 20));
+    userRepository.save(new User(&quot;CCC&quot;, 30));
+    userRepository.save(new User(&quot;DDD&quot;, 40));
+    userRepository.save(new User(&quot;EEE&quot;, 50));
+    userRepository.save(new User(&quot;FFF&quot;, 60));
+    userRepository.save(new User(&quot;GGG&quot;, 70));
+    userRepository.save(new User(&quot;HHH&quot;, 80));
+    userRepository.save(new User(&quot;III&quot;, 90));
+    userRepository.save(new User(&quot;JJJ&quot;, 100));
+
+    // 省略后续的一些验证操作
+}
+</code></pre><p>}<br>可以看到，在这个单元测试用例中，使用UserRepository对象连续创建了10个User实体到数据库中，下面我们人为的来制造一些异常，看看会发生什么情况。</p>
+<p>通过定义User的name属性长度为5，这样通过创建时User实体的name属性超长就可以触发异常产生。</p>
+<p>@Entity<br>public class User {</p>
+<pre><code>@Id
+@GeneratedValue
+private Long id;
+
+@Column(nullable = false, length = 5)
+private String name;
+
+@Column(nullable = false)
+private Integer age;
+
+// 省略构造函数、getter和setter
+</code></pre><p>}<br>修改测试用例中创建记录的语句，将一条记录的name长度超过5，如下：name为HHHHHHHHH的User对象将会抛出异常。</p>
+<p>// 创建10条记录<br>userRepository.save(new User(“AAA”, 10));<br>userRepository.save(new User(“BBB”, 20));<br>userRepository.save(new User(“CCC”, 30));<br>userRepository.save(new User(“DDD”, 40));<br>userRepository.save(new User(“EEE”, 50));<br>userRepository.save(new User(“FFF”, 60));<br>userRepository.save(new User(“GGG”, 70));<br>userRepository.save(new User(“HHHHHHHHHH”, 80));<br>userRepository.save(new User(“III”, 90));<br>userRepository.save(new User(“JJJ”, 100));<br>执行测试用例，可以看到控制台中抛出了如下异常，name字段超长：</p>
+<p>2016-05-27 10:30:35.948  WARN 2660 — [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1406, SQLState: 22001<br>2016-05-27 10:30:35.948 ERROR 2660 — [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : Data truncation: Data too long for column ‘name’ at row 1<br>2016-05-27 10:30:35.951  WARN 2660 — [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 1406, SQLState: HY000<br>2016-05-27 10:30:35.951  WARN 2660 — [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : Data too long for column ‘name’ at row 1</p>
+<p>org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; nested exception is org.hibernate.exception.DataException: could not execute statement<br>此时查数据库中，创建了name从AAA到GGG的记录，没有HHHHHHHHHH、III、JJJ的记录。而若这是一个希望保证完整性操作的情况下，AAA到GGG的记录希望能在发生异常的时候被回退，这时候就可以使用事务让它实现回退，做法非常简单，我们只需要在test函数上添加@Transactional注解即可。</p>
+<p>@Test<br>@Transactional<br>public void test() throws Exception {</p>
+<pre><code>// 省略测试内容
+</code></pre><p>}<br>再来执行该测试用例，可以看到控制台中输出了回滚日志（Rolled back transaction for test context），</p>
+<p>2016-05-27 10:35:32.210  WARN 5672 — [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1406, SQLState: 22001<br>2016-05-27 10:35:32.210 ERROR 5672 — [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : Data truncation: Data too long for column ‘name’ at row 1<br>2016-05-27 10:35:32.213  WARN 5672 — [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 1406, SQLState: HY000<br>2016-05-27 10:35:32.213  WARN 5672 — [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : Data too long for column ‘name’ at row 1<br>2016-05-27 10:35:32.221  INFO 5672 — [           main] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test context [DefaultTestContext@1d7a715 testClass = ApplicationTests, testInstance = com.didispace.ApplicationTests@95a785, testMethod = test@ApplicationTests, testException = org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; nested exception is org.hibernate.exception.DataException: could not execute statement, mergedContextConfiguration = [MergedContextConfiguration@11f39f9 testClass = ApplicationTests, locations = ‘{}’, classes = ‘{class com.didispace.Application}’, contextInitializerClasses = ‘[]’, activeProfiles = ‘{}’, propertySourceLocations = ‘{}’, propertySourceProperties = ‘{}’, contextLoader = ‘org.springframework.boot.test.SpringApplicationContextLoader’, parent = [null]]].</p>
+<p>org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; nested exception is org.hibernate.exception.DataException: could not execute statement<br>再看数据库中，User表就没有AAA到GGG的用户数据了，成功实现了自动回滚。</p>
+<p>这里主要通过单元测试演示了如何使用@Transactional注解来声明一个函数需要被事务管理，通常我们单元测试为了保证每个测试之间的数据独立，会使用@Rollback注解让每个单元测试都能在结束时回滚。而真正在开发业务逻辑时，我们通常在service层接口中使用@Transactional来对各个业务逻辑进行事务管理的配置，例如：</p>
+<p>public interface UserService {</p>
+<pre><code>@Transactional
+User login(String name, String password);
+</code></pre><p>}<br>事务详解<br>上面的例子中我们使用了默认的事务配置，可以满足一些基本的事务需求，但是当我们项目较大较复杂时（比如，有多个数据源等），这时候需要在声明事务时，指定不同的事务管理器。对于不同数据源的事务管理配置可以见《Spring Boot多数据源配置与使用》中的设置。在声明事务时，只需要通过value属性指定配置的事务管理器名即可，例如：@Transactional(value=”transactionManagerPrimary”)。</p>
+<p>除了指定不同的事务管理器之后，还能对事务进行隔离级别和传播行为的控制，下面分别详细解释：</p>
+<p>　隔离级别<br>隔离级别是指若干个并发的事务之间的隔离程度，与我们开发时候主要相关的场景包括：脏读取、重复读、幻读。</p>
+<p>我们可以看org.springframework.transaction.annotation.Isolation枚举类中定义了五个表示隔离级别的值：</p>
+<p>public enum Isolation {<br>    DEFAULT(-1),<br>    READ_UNCOMMITTED(1),<br>    READ_COMMITTED(2),<br>    REPEATABLE_READ(4),<br>    SERIALIZABLE(8);<br>}<br>DEFAULT：这是默认值，表示使用底层数据库的默认隔离级别。对大部分数据库而言，通常这值就是：READ_COMMITTED。<br>READ_UNCOMMITTED：该隔离级别表示一个事务可以读取另一个事务修改但还没有提交的数据。该级别不能防止脏读和不可重复读，因此很少使用该隔离级别。<br>READ_COMMITTED：该隔离级别表示一个事务只能读取另一个事务已经提交的数据。该级别可以防止脏读，这也是大多数情况下的推荐值。<br>REPEATABLE_READ：该隔离级别表示一个事务在整个过程中可以多次重复执行某个查询，并且每次返回的记录都相同。即使在多次查询之间有新增的数据满足该查询，这些新增的记录也会被忽略。该级别可以防止脏读和不可重复读。<br>SERIALIZABLE：所有的事务依次逐个执行，这样事务之间就完全不可能产生干扰，也就是说，该级别可以防止脏读、不可重复读以及幻读。但是这将严重影响程序的性能。通常情况下也不会用到该级别。<br>指定方法：通过使用isolation属性设置，例如：</p>
+<p>@Transactional(isolation = Isolation.DEFAULT)<br>传播行为<br>所谓事务的传播行为是指，如果在开始当前事务之前，一个事务上下文已经存在，此时有若干选项可以指定一个事务性方法的执行行为。</p>
+<p>我们可以看org.springframework.transaction.annotation.Propagation枚举类中定义了6个表示传播行为的枚举值：</p>
+<p>public enum Propagation {<br>    REQUIRED(0),<br>    SUPPORTS(1),<br>    MANDATORY(2),<br>    REQUIRES_NEW(3),<br>    NOT_SUPPORTED(4),<br>    NEVER(5),<br>    NESTED(6);<br>}<br>REQUIRED：如果当前存在事务，则加入该事务；如果当前没有事务，则创建一个新的事务。<br>SUPPORTS：如果当前存在事务，则加入该事务；如果当前没有事务，则以非事务的方式继续运行。<br>MANDATORY：如果当前存在事务，则加入该事务；如果当前没有事务，则抛出异常。<br>REQUIRES_NEW：创建一个新的事务，如果当前存在事务，则把当前事务挂起。<br>NOT_SUPPORTED：以非事务方式运行，如果当前存在事务，则把当前事务挂起。<br>NEVER：以非事务方式运行，如果当前存在事务，则抛出异常。<br>NESTED：如果当前存在事务，则创建一个事务作为当前事务的嵌套事务来运行；如果当前没有事务，则该取值等价于REQUIRED。<br>指定方法：通过使用propagation属性设置，例如：</p>
+<p>@Transactional(propagation = Propagation.REQUIRED)</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-SpringBoot中使用log4j实现http请求日志入mongodb" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/15/SpringBoot中使用log4j实现http请求日志入mongodb/" class="article-date">
+  	<time datetime="2016-06-15T09:31:55.000Z" itemprop="datePublished">2016-06-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/15/SpringBoot中使用log4j实现http请求日志入mongodb/">SpringBoot中使用log4j实现http请求日志入mongodb</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Spring Boot中使用log4j实现http请求日志入mongodb<br>2016年05月25日 标签：Spring Boot, mongodb, log4j<br>之前在《使用AOP统一处理Web请求日志》一文中介绍了如何使用AOP统一记录web请求日志。基本思路是通过aop去切web层的controller实现，获取每个http的内容并通过log4j将日志内容写到应用服务器的文件系统中。</p>
+<p>但是当我们在集群中部署应用之后，应用请求的日志被分散记录在了不同应用服务器的文件系统上，这样分散的存储并不利于我们对日志内容的检索。解决日志分散问题的方案多种多样，本文思路以在《使用AOP统一处理Web请求日志》一文的基础之上，扩展log4j实现将日志写入MongoDB。</p>
+<p>准备工作<br>可以先拿Chapter4-2-4工程为基础，进行后续的实验改造。该工程实现了一个简单的REST接口，一个对web层的切面，并在web层切面前后记录http请求的日志内容。</p>
+<p>通过自定义appender实现<br>思路：log4j提供的输出器实现自Appender接口，要自定义appender输出到MongoDB，只需要继承AppenderSkeleton类，并实现几个方法即可完成。</p>
+<p>引入mongodb的驱动<br>在pom.xml中引入下面依赖</p>
+<p><dependency><br>    <groupid>org.mongodb</groupid><br>    <artifactid>mongodb-driver</artifactid><br>    <version>3.2.2</version><br></dependency><br>实现MongoAppender<br>编写MongoAppender类继承AppenderSkeleton，实现如下：</p>
+<p>public class MongoAppender  extends AppenderSkeleton {</p>
+<pre><code>private MongoClient mongoClient;
+private MongoDatabase mongoDatabase;
+private MongoCollection&lt;BasicDBObject&gt; logsCollection;
+
+private String connectionUrl;
+private String databaseName;
+private String collectionName;
+
+@Override
+protected void append(LoggingEvent loggingEvent) {
+
+    if(mongoDatabase == null) {
+        MongoClientURI connectionString = new MongoClientURI(connectionUrl);
+        mongoClient = new MongoClient(connectionString);
+        mongoDatabase = mongoClient.getDatabase(databaseName);
+        logsCollection = mongoDatabase.getCollection(collectionName, BasicDBObject.class);
     }
-}
+    logsCollection.insertOne((BasicDBObject) loggingEvent.getMessage());
 
-@Test
-public void testAsync(){
-    helloService.sayAsyncHello(&quot;jack&quot;);
-}
-
-@Test
-public void testCallback() throws Exception{
-    //为了让回调完成，采用countDownLatch计数器方式，避免testcase主线程运行完成而回调未结束的问题
-</code></pre><p>final CountDownLatch latch = new CountDownLatch(1);</p>
-<pre><code>              //在正常的使用的代码中这个类需要单实例，避免过多的callback listener导致内存问题
-                  InvocationListener&lt;Hello&gt; listener = new InvocationListener&lt;Hello&gt;() {
-        public void callback(Hello myobject) {
-            System.out.println(&quot; async call back result=&quot;+myobject);
-            latch.countDown();
-        }
-
-        @Override
-        public void onException(Exception e) {
-            if(e instanceof CodedException){
-                CodedException exception = (CodedException) e;
-                System.out.println(&quot; async call back error:&quot;+exception.getErrorCode()+&quot;,message=&quot;+exception.getMessage());
-            }else{
-                System.out.println(&quot; async call back message=&quot;+e.getMessage());
-            }
-            latch.countDown();
-
-        }
-    };
-
-    helloService.sayHello(&quot;jack&quot;,listener);
-    latch.await();
-}
-</code></pre><p>}<br>服务端的实现<br>服务端对HelloService的简单实现<br>package com.meidusa.venus.hello.impl;</p>
-<p>import java.math.BigDecimal;<br>import java.util.HashMap;<br>import java.util.Map;</p>
-<p>import com.meidusa.venus.hello.api.Hello;<br>import com.meidusa.venus.hello.api.HelloNotFoundException;<br>import com.meidusa.venus.hello.api.HelloService;<br>import com.meidusa.venus.notify.InvocationListener;</p>
-<p>public class DefaultHelloService implements HelloService {<br>    privateString greeting;<br>    publicString getGreeting() {<br>        return greeting;<br>    }</p>
-<pre><code>public void setGreeting(String greeting) {
-    this.greeting = greeting;
-}
-public Hello getHello(String name) {
-    Hello hello = new Hello();
-    hello.setName(name);
-    hello.setGreeting(greeting);
-    Map&lt;String,Object&gt; map = new HashMap&lt;String,Object&gt;();
-    hello.setMap(map);
-    map.put(&quot;1&quot;, 1);
-    map.put(&quot;2&quot;, newLong(2));
-    map.put(&quot;3&quot;, newInteger(3));
-    hello.setBigDecimal(new BigDecimal(&quot;1.341241233412&quot;));
-    return hello;
-}
-
-public void sayHello(String name)  throws HelloNotFoundException {
-    thrownew HelloNotFoundException(name +&quot; not found&quot;);
 }
 
 @Override
-public void sayAsyncHello(String name) {
-    System.out.println(&quot;method sayAsyncHello invoked&quot;);
-}
-
-public void sayHello(String name,
-        InvocationListener&lt;Hello&gt; invocationListener) {
-    Hello hello = new Hello();
-    hello.setName(name);
-    hello.setGreeting(greeting);
-    Map&lt;String,Object&gt; map = new HashMap&lt;String,Object&gt;();
-    hello.setMap(map);
-    map.put(&quot;1&quot;, 1);
-    map.put(&quot;2&quot;, newLong(2));
-    map.put(&quot;3&quot;, newInteger(3));
-
-    if(invocationListener != null){
-        invocationListener.callback(hello);
+public void close() {
+    if(mongoClient != null) {
+        mongoClient.close();
     }
-
 }
-</code></pre><p>}<br>最近的更新</p>
-<p>Go语言客户端 go-venus-plugin<br>commented by deephex<br>Jan 22<br>Go语言客户端 go-venus-plugin<br>updated by Struct<br>(view change)<br>Jan 15</p>
-<ol>
-<li>各种客户端简单使用<br>updated by Struct<br>(view change)<br>Jan 15<br>go-venus-plugin.zip<br>attached by Struct<br>Jan 15<br>go-venus-plugin.zip<br>attached by Struct<br>Jan 15<br>JAVA语言客户端<br>commented by 匿名用户<br>2015-Oct-14<br>HOME<br>commented by wangzhenjun<br>2015-Oct-08<br>HOME<br>updated by Struct<br>(view change)<br>2015-Aug-26<br>JAVA语言客户端<br>commented by 匿名用户<br>2015-Aug-10<br>后端处理线程设置<br>updated by Struct<br>(view change)<br>2015-Jul-29<br>. Venus Http协议<br>updated by Struct<br>(view change)<br>2015-Jun-29<br>venus-http-adaptor-3.2.13-distribution.zip<br>attached by Struct<br>2015-Jun-29<br>JAVA语言客户端<br>updated by Struct<br>(view change)<br>2015-Jun-11<br>HOME<br>commented by zhuo<br>2015-Feb-14<br>Venus 3.2.12 Release<br>commented by sunstar_s<br>2015-Jan-14<br>Venus Eclipse Plugin发布<br>commented by 匿名用户<br>2015-Jan-10<br>Venus Eclipse Plugin发布<br>commented by 匿名用户<br>2015-Jan-05<br>HOME<br>commented by 匿名用户<br>2014-Nov-06<br>HOME<br>commented by 匿名用户<br>2014-Nov-05<br>Venus 3.2.12 Release<br>created by Struct<br>2014-Sep-05<br>More </li>
-</ol>
-<p>Navigate space</p>
-<ol>
-<li>各种客户端简单使用</li>
-<li>高级使用指南</li>
-<li>Architecture</li>
-<li>协议以及交互序列图介绍</li>
-<li>性能测试工具–Service-benchmark</li>
-<li>性能测试(单客户端)</li>
-<li><p>极限测试(多客户端)<br>FAQ<br>Venus Eclipse Plugin发布<br>二、其他语言客户端<br>子页面 (10) </p>
-<p>隐藏子页面  |  页面重排<br>页面: 1. 各种客户端简单使用<br>页面: 2. 高级使用指南<br>页面: 3. Architecture<br>页面: 4. 协议以及交互序列图介绍<br>页面: 5. 性能测试工具–Service-benchmark<br>页面: 6. 性能测试(单客户端)<br>页面: 7. 极限测试(多客户端)<br>页面: FAQ<br>页面: Venus Eclipse Plugin发布<br>页面: 二、其他语言客户端 </p>
-</li>
-</ol>
+
+@Override
+public boolean requiresLayout() {
+    return false;
+}
+
+// 省略getter和setter
+</code></pre><p>}<br>定义MongoDB的配置参数，可通过log4j.properties配置：</p>
+<p>connectionUrl：连接mongodb的串<br>databaseName：数据库名<br>collectionName：集合名<br>定义MongoDB的连接和操作对象，根据log4j.properties配置的参数初始化：</p>
+<p>mongoClient：mongodb的连接客户端<br>mongoDatabase：记录日志的数据库<br>logsCollection：记录日志的集合<br>重写append函数：</p>
+<p>根据log4j.properties中的配置创建mongodb连接<br>LoggingEvent提供getMessage()函数来获取日志消息<br>往配置的记录日志的collection中插入日志消息<br>重写close函数：关闭mongodb的</p>
+<p>配置log4j.properties<br>设置名为mongodb的logger：</p>
+<p>记录INFO级别日志<br>appender实现为com.didispace.log.MongoAppende<br>mongodb连接地址：mongodb://localhost:27017<br>mongodb数据库名：logs<br>mongodb集合名：logs_request<br>log4j.logger.mongodb=INFO, mongodb  </p>
+<h1 id="mongodb输出"><a href="#mongodb输出" class="headerlink" title="mongodb输出"></a>mongodb输出</h1><p>log4j.appender.mongodb=com.didispace.log.MongoAppender<br>log4j.appender.mongodb.connectionUrl=mongodb://localhost:27017<br>log4j.appender.mongodb.databaseName=logs<br>log4j.appender.mongodb.collectionName=logs_request<br>切面中使用mongodb logger<br>修改后的代码如下，主要做了以下几点修改：</p>
+<p>logger取名为mongodb的<br>通过getBasicDBObject函数从HttpServletRequest和JoinPoint对象中获取请求信息，并组装成BasicDBObject<br>getHeadersInfo函数从HttpServletRequest中获取header信息<br>通过logger.info()，输出BasicDBObject对象的信息到mongodb<br>@Aspect<br>@Order(1)<br>@Component<br>public class WebLogAspect {</p>
+<pre><code>private Logger logger = Logger.getLogger(&quot;mongodb&quot;);
+
+@Pointcut(&quot;execution(public * com.didispace.web..*.*(..))&quot;)
+public void webLog(){}
+
+@Before(&quot;webLog()&quot;)
+public void doBefore(JoinPoint joinPoint) throws Throwable {
+    // 获取HttpServletRequest
+    ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+    HttpServletRequest request = attributes.getRequest();
+    // 获取要记录的日志内容
+    BasicDBObject logInfo = getBasicDBObject(request, joinPoint);
+    logger.info(logInfo);
+}
+
+
+private BasicDBObject getBasicDBObject(HttpServletRequest request, JoinPoint joinPoint) {
+    // 基本信息
+    BasicDBObject r = new BasicDBObject();
+    r.append(&quot;requestURL&quot;, request.getRequestURL().toString());
+    r.append(&quot;requestURI&quot;, request.getRequestURI());
+    r.append(&quot;queryString&quot;, request.getQueryString());
+    r.append(&quot;remoteAddr&quot;, request.getRemoteAddr());
+    r.append(&quot;remoteHost&quot;, request.getRemoteHost());
+    r.append(&quot;remotePort&quot;, request.getRemotePort());
+    r.append(&quot;localAddr&quot;, request.getLocalAddr());
+    r.append(&quot;localName&quot;, request.getLocalName());
+    r.append(&quot;method&quot;, request.getMethod());
+    r.append(&quot;headers&quot;, getHeadersInfo(request));
+    r.append(&quot;parameters&quot;, request.getParameterMap());
+    r.append(&quot;classMethod&quot;, joinPoint.getSignature().getDeclaringTypeName() + &quot;.&quot; + joinPoint.getSignature().getName());
+    r.append(&quot;args&quot;, Arrays.toString(joinPoint.getArgs()));
+    return r;
+}
+
+private Map&lt;String, String&gt; getHeadersInfo(HttpServletRequest request) {
+    Map&lt;String, String&gt; map = new HashMap&lt;&gt;();
+    Enumeration headerNames = request.getHeaderNames();
+    while (headerNames.hasMoreElements()) {
+        String key = (String) headerNames.nextElement();
+        String value = request.getHeader(key);
+        map.put(key, value);
+    }
+    return map;
+}
+</code></pre><p>}<br>完整示例：Chapter4-2-5</p>
+<p>其他补充<br>上述内容主要提供一个思路去实现自定义日志的输出和管理。我们可以通过jdbc实现日志记录到mongodb，也可以通过spring-data-mongo来记录到mongodb，当然我们也可以输出到其他数据库，或者输出到消息队列等待其他后续处理等。</p>
+<p>对于日志记录到mongodb，也可以直接使用log4mongo实现更为方便快捷。</p>
 
       
     </div>
@@ -877,7 +815,7 @@ public void sayHello(String name,
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/soa/">soa</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
 	</div>
 
       
@@ -899,11 +837,11 @@ public void sayHello(String name,
 
 
   
-    <article id="post-新浪开源分布式框架-motan" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-SpringBoot中使用AOP统一处理Web请求日志" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/28/新浪开源分布式框架-motan/" class="article-date">
-  	<time datetime="2016-04-28T09:24:27.000Z" itemprop="datePublished">2016-04-28</time>
+      <a href="/2016/06/15/SpringBoot中使用AOP统一处理Web请求日志/" class="article-date">
+  	<time datetime="2016-06-15T09:30:47.000Z" itemprop="datePublished">2016-06-15</time>
 </a>
     </div>
   
@@ -916,7 +854,7 @@ public void sayHello(String name,
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/28/新浪开源分布式框架-motan/">新浪开源分布式框架--motan</a>
+      <a class="article-title" href="/2016/06/15/SpringBoot中使用AOP统一处理Web请求日志/">SpringBoot中使用AOP统一处理Web请求日志</a>
     </h1>
   
 
@@ -925,71 +863,80 @@ public void sayHello(String name,
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>开源地址 <a href="https://github.com/weibocom/motan/wiki/zh_quickstart" target="_blank" rel="external">https://github.com/weibocom/motan/wiki/zh_quickstart</a></p>
-<p>zh_quickstart</p>
-<p>axb edited this page 2 days ago · 2 revisions<br> Pages 8</p>
-<p>Documents</p>
-<p>Overview<br>Quick Start<br>User Guide(Preparing)<br>Develop Guide(Preparing)<br>FAQ<br>中文文档</p>
-<p>概述<br>快速入门<br>用户指南<br>开发指南(准备中)<br>常见问题<br>Clone this wiki locally</p>
-<p> Clone in Desktop<br>快速入门<br>简单调用示例<br>集群调用示例<br>使用Consul作为注册中心<br>使用ZooKeeper作为注册中心<br>快速入门中会给出一些基本使用场景下的配置方式，更详细的使用文档请参考用户指南.<br>如果要执行快速入门介绍中的例子，你需要:<br>JDK 1.7或更高版本。<br>java依赖管理工具，如Maven或Gradle。<br>简单调用示例</p>
-<p>在pom中增加依赖</p>
-<dependency><br>    <groupid>com.weibo</groupid><br>    <artifactid>motan-core</artifactid><br>    <version>0.0.1</version><br></dependency><br><dependency><br>    <groupid>com.weibo</groupid><br>    <artifactid>motan-transport-netty</artifactid><br>    <version>0.0.1</version><br></dependency>
+        <p>Spring Boot中使用AOP统一处理Web请求日志<br>2016年05月20日 标签：Spring Boot<br>AOP为Aspect Oriented Programming的缩写，意为：面向切面编程，通过预编译方式和运行期动态代理实现程序功能的统一维护的一种技术。AOP是Spring框架中的一个重要内容，它通过对既有程序定义一个切入点，然后在其前后切入不同的执行内容，比如常见的有：打开数据库连接/关闭数据库连接、打开事务/关闭事务、记录日志等。基于AOP不会破坏原来程序逻辑，因此它可以很好的对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。</p>
+<p>下面主要讲两个内容，一个是如何在Spring Boot中引入Aop功能，二是如何使用Aop做切面去统一处理Web请求的日志。</p>
+<p>以下所有操作基于chapter4-2-2工程进行。</p>
+<p>准备工作<br>因为需要对web请求做切面来记录日志，所以先引入web模块，并创建一个简单的hello请求的处理。</p>
+<p>pom.xml中引入web模块</p>
+<p><dependency><br>    <groupid>org.springframework.boot</groupid><br>    <artifactid>spring-boot-starter-web</artifactid><br></dependency><br>实现一个简单请求处理：通过传入name参数，返回“hello xxx”的功能。<br>@RestController<br>public class HelloController {</p>
+<pre><code>@RequestMapping(value = &quot;/hello&quot;, method = RequestMethod.GET)
+@ResponseBody
+public String hello(@RequestParam String name) {
+    return &quot;Hello &quot; + name;
+}
+</code></pre><p>}<br>下面，我们可以对上面的/hello请求，进行切面日志记录。</p>
+<p>引入AOP依赖<br>在Spring Boot中引入AOP就跟引入其他模块一样，非常简单，只需要在pom.xml中加入如下依赖：</p>
+<p><dependency><br>    <groupid>org.springframework.boot</groupid><br>    <artifactid>spring-boot-starter-aop</artifactid><br></dependency><br>在完成了引入AOP依赖包后，一般来说并不需要去做其他配置。也许在Spring中使用过注解配置方式的人会问是否需要在程序主类中增加@EnableAspectJAutoProxy来启用，实际并不需要。</p>
+<p>可以看下面关于AOP的默认配置属性，其中spring.aop.auto属性默认是开启的，也就是说只要引入了AOP依赖后，默认已经增加了@EnableAspectJAutoProxy。</p>
+<h1 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h1><p>spring.aop.auto=true # Add @EnableAspectJAutoProxy.<br>spring.aop.proxy-target-class=false # Whether subclass-based (CGLIB) proxies are to be created (true) as<br> opposed to standard Java interface-based proxies (false).<br>而当我们需要使用CGLIB来实现AOP的时候，需要配置spring.aop.proxy-target-class=true，不然默认使用的是标准Java的实现。</p>
+<p>实现Web层的日志切面<br>实现AOP的切面主要有以下几个要素：</p>
+<p>使用@Aspect注解将一个java类定义为切面类<br>使用@Pointcut定义一个切入点，可以是一个规则表达式，比如下例中某个package下的所有函数，也可以是一个注解等。<br>根据需要在切入点不同位置的切入内容<br>使用@Before在切入点开始处切入内容<br>使用@After在切入点结尾处切入内容<br>使用@AfterReturning在切入点return内容之后切入内容（可以用来对处理返回值做一些加工处理）<br>使用@Around在切入点前后切入内容，并自己控制何时执行切入点自身的内容<br>使用@AfterThrowing用来处理当切入内容部分抛出异常之后的处理逻辑<br>@Aspect<br>@Component<br>public class WebLogAspect {</p>
+<pre><code>private Logger logger = Logger.getLogger(getClass());
 
-<!-- only needed for spring-based features -->
-<p><dependency><br>    <groupid>com.weibo</groupid><br>    <artifactid>motan-springsupport</artifactid><br>    <version>0.0.1</version><br></dependency></p>
-<p><dependency><br>    <groupid>org.springframework</groupid><br>    <artifactid>spring-context</artifactid><br>    <version>4.2.4.RELEASE</version><br></dependency><br>为调用方和服务方创建接口。<br>src/main/java/quickstart/FooService.java<br>package quickstart;</p>
-<p>publicinterfaceFooService {<br>    public String hello(String name);<br>}<br>实现服务方逻辑。<br>src/main/java/quickstart/FooServiceImpl.java<br>package quickstart;</p>
-<p>import org.springframework.context.ApplicationContext;<br>import org.springframework.context.support.ClassPathXmlApplicationContext;</p>
-<p>publicclassFooServiceImplimplementsFooService {</p>
-<pre><code>public String hello(String name) {
-    System.out.println(name +&quot; invoked rpc service&quot;);
-    return&quot;hello &quot;+ name;
+@Pointcut(&quot;execution(public * com.didispace.web..*.*(..))&quot;)
+public void webLog(){}
+
+@Before(&quot;webLog()&quot;)
+public void doBefore(JoinPoint joinPoint) throws Throwable {
+    // 接收到请求，记录请求内容
+    ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+    HttpServletRequest request = attributes.getRequest();
+
+    // 记录下请求内容
+    logger.info(&quot;URL : &quot; + request.getRequestURL().toString());
+    logger.info(&quot;HTTP_METHOD : &quot; + request.getMethod());
+    logger.info(&quot;IP : &quot; + request.getRemoteAddr());
+    logger.info(&quot;CLASS_METHOD : &quot; + joinPoint.getSignature().getDeclaringTypeName() + &quot;.&quot; + joinPoint.getSignature().getName());
+    logger.info(&quot;ARGS : &quot; + Arrays.toString(joinPoint.getArgs()));
+
 }
 
-publicstaticvoidmain(String[] args) throws InterruptedException {
-    ApplicationContext applicationContext =new ClassPathXmlApplicationContext(&quot;classpath:motan_server.xml&quot;);
-    System.out.println(&quot;server start...&quot;);
+@AfterReturning(returning = &quot;ret&quot;, pointcut = &quot;webLog()&quot;)
+public void doAfterReturning(Object ret) throws Throwable {
+    // 处理完请求，返回内容
+    logger.info(&quot;RESPONSE : &quot; + ret);
 }
-</code></pre><p>}<br>src/main/resources/motan_server.xml<br>&lt;?xml version=”1.0” encoding=”UTF-8”?&gt;</p>
-<beansxmlns="http: www.springframework.org="" schema="" beans"xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:motan="http://api.weibo.com/schema/motan" xsi:schemalocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd   http://api.weibo.com/schema/motan http://api.weibo.com/schema/motan.xsd">
+</code></pre><p>}<br>可以看上面的例子，通过@Pointcut定义的切入点为com.didispace.web包下的所有函数（对web层所有请求处理做切入点），然后通过@Before实现，对请求内容的日志记录（本文只是说明过程，可以根据需要调整内容），最后通过@AfterReturning记录请求返回的对象。</p>
+<p>通过运行程序并访问：<a href="http://localhost:8080/hello?name=didi，可以获得下面的日志输出" target="_blank" rel="external">http://localhost:8080/hello?name=didi，可以获得下面的日志输出</a></p>
+<p>2016-05-19 13:42:13,156  INFO WebLogAspect:41 - URL : <a href="http://localhost:8080/hello" target="_blank" rel="external">http://localhost:8080/hello</a><br>2016-05-19 13:42:13,156  INFO WebLogAspect:42 - HTTP_METHOD : <a href="http://localhost:8080/hello" target="_blank" rel="external">http://localhost:8080/hello</a><br>2016-05-19 13:42:13,157  INFO WebLogAspect:43 - IP : 0:0:0:0:0:0:0:1<br>2016-05-19 13:42:13,160  INFO WebLogAspect:44 - CLASS_METHOD : com.didispace.web.HelloController.hello<br>2016-05-19 13:42:13,160  INFO WebLogAspect:45 - ARGS : [didi]<br>2016-05-19 13:42:13,170  INFO WebLogAspect:52 - RESPONSE:Hello didi<br>优化：AOP切面中的同步问题<br>在WebLogAspect切面中，分别通过doBefore和doAfterReturning两个独立函数实现了切点头部和切点返回后执行的内容，若我们想统计请求的处理时间，就需要在doBefore处记录时间，并在doAfterReturning处通过当前时间与开始处记录的时间计算得到请求处理的消耗时间。</p>
+<p>那么我们是否可以在WebLogAspect切面中定义一个成员变量来给doBefore和doAfterReturning一起访问呢？是否会有同步问题呢？</p>
+<p>的确，直接在这里定义基本类型会有同步问题，所以我们可以引入ThreadLocal对象，像下面这样进行记录：</p>
+<p>@Aspect<br>@Component<br>public class WebLogAspect {</p>
+<pre><code>private Logger logger = Logger.getLogger(getClass());
 
-<pre><code>&lt;!-- service implemention bean --&gt;
-&lt;beanid=&quot;serviceImpl&quot;class=&quot;quickstart.FooServiceImpl&quot; /&gt;
-&lt;!-- exporting service by motan --&gt;
-&lt;motan:serviceinterface=&quot;quickstart.FooService&quot;ref=&quot;serviceImpl&quot;export=&quot;8002&quot; /&gt;
-</code></pre><p><br>执行FooServiceImpl类中的main函数将会启动motan服务，并监听8002端口.<br>实现服务调用方。<br>src/main/resources/motan_client.xml<br>&lt;?xml version=”1.0” encoding=”UTF-8”?&gt;</p>
-<beansxmlns="http: www.springframework.org="" schema="" beans"="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:motan="http://api.weibo.com/schema/motan" xsi:schemalocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd   http://api.weibo.com/schema/motan http://api.weibo.com/schema/motan.xsd">
+ThreadLocal&lt;Long&gt; startTime = new ThreadLocal&lt;&gt;();
 
-<pre><code>&lt;!-- reference to the remote service --&gt;
-&lt;motan:refererid=&quot;remoteService&quot;interface=&quot;quickstart.FooService&quot;directUrl=&quot;localhost:8002&quot;/&gt;
-</code></pre><p><br>src/main/java/quickstart/Client.java<br>package quickstart;</p>
-<p>import org.springframework.context.ApplicationContext;<br>import org.springframework.context.support.ClassPathXmlApplicationContext;</p>
-<p>publicclassClient {</p>
-<pre><code>publicstaticvoidmain(String[] args) throws InterruptedException {
-    ApplicationContext ctx =new ClassPathXmlApplicationContext(&quot;classpath:motan_client.xml&quot;);
-    FooService service = (FooService) ctx.getBean(&quot;remoteService&quot;);
-    System.out.println(service.hello(&quot;motan&quot;));
+@Pointcut(&quot;execution(public * com.didispace.web..*.*(..))&quot;)
+public void webLog(){}
+
+@Before(&quot;webLog()&quot;)
+public void doBefore(JoinPoint joinPoint) throws Throwable {
+    startTime.set(System.currentTimeMillis());
+
+    // 省略日志记录内容
 }
-</code></pre><p>}<br>执行Client类中的main函数将执行一次远程调用，并输出结果。<br>集群调用示例</p>
-<p>在集群环境下使用motan需要依赖外部服务发现组件，目前支持consul或zookeeper。<br>使用Consul作为注册中心</p>
-<p>Consul安装与启动</p>
-<p>安装（官方文档）</p>
-<h1 id="这里以linux为例"><a href="#这里以linux为例" class="headerlink" title="这里以linux为例"></a>这里以linux为例</h1><p>wget <a href="https://releases.hashicorp.com/consul/0.6.4/consul_0.6.4_linux_amd64.zip" target="_blank" rel="external">https://releases.hashicorp.com/consul/0.6.4/consul_0.6.4_linux_amd64.zip</a><br>unzip consul_0.6.4_linux_amd64.zip<br>sudo mv consul /bin<br>启动（官方文档）</p>
-<p>测试环境启动：<br>consul agent -dev<br>ui后台 <a href="http://localhost:8500/ui" target="_blank" rel="external">http://localhost:8500/ui</a><br>motan-Consul配置</p>
-<p>在server和client中添加motan-registry-consul依赖</p>
-<p><dependency><br>    <groupid>com.weibo</groupid><br>    <artifactid>motan-registry-consul</artifactid><br>    <version>0.0.1</version><br></dependency><br>在server和client的配置文件中分别增加consul registry定义。</p>
-<p><motan:registryregprotocol="consul"name="my_consul"address="127.0.0.1:8500"><br>在motan client及server配置改为通过registry服务发现。<br>client<br>    <motan:refererid="remoteservice"interface="quickstart.fooservice"registry="my_consul"><br>server<br>    <motan:serviceinterface="quickstart.fooservice"ref="serviceimpl"registry="my_consul"export="8002"><br>server程序启动后，需要显式调用心跳开关，注册到consul。<br>MotanSwitcherUtil.setSwitcher(ConsulConstants.NAMING_PROCESS_HEARTBEAT_SWITCHER, true)<br>进入ui后台查看服务是否正常提供调用<br>启动client，调用服务<br>使用ZooKeeper作为注册中心</motan:serviceinterface="quickstart.fooservice"ref="serviceimpl"registry="my_consul"export="8002"></motan:refererid="remoteservice"interface="quickstart.fooservice"registry="my_consul"></motan:registryregprotocol="consul"name="my_consul"address="127.0.0.1:8500"></p>
-<p>ZooKeeper安装与启动(官方文档)</p>
-<p>单机版安装与启动<br>wget <a href="http://mirrors.cnnic.cn/apache/zookeeper/zookeeper-3.4.8/zookeeper-3.4.8.tar.gz" target="_blank" rel="external">http://mirrors.cnnic.cn/apache/zookeeper/zookeeper-3.4.8/zookeeper-3.4.8.tar.gz</a><br>tar zxvf zookeeper-3.4.8.tar.gz</p>
-<p>cd zookeeper-3.4.8/conf/<br>cp zoo_sample.cfg zoo.cfg</p>
-<p>cd ../<br>sh bin/zkServer.sh start<br>motan-ZooKeeper配置</p>
-<p>在server和client中添加motan-registry-zookeeper依赖</p>
-<p><dependency><br>    <groupid>com.weibo</groupid><br>    <artifactid>motan-registry-zookeeper</artifactid><br>    <version>0.0.1</version><br></dependency><br>在server和client的配置文件中分别增加zookeeper registry定义。<br>zookeeper为单节点</p>
-<p><motan:registryregprotocol="zookeeper"name="my_zookeeper"address="127.0.0.1:2181"><br>zookeeper多节点集群</motan:registryregprotocol="zookeeper"name="my_zookeeper"address="127.0.0.1:2181"></p>
-<p><motan:registryregprotocol="zookeeper"name="my_zookeeper"address="127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183"><br>在motan client及server配置改为通过registry服务发现。<br>client</motan:registryregprotocol="zookeeper"name="my_zookeeper"address="127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183"></p>
-<p><motan:refererid="remoteservice"interface="quickstart.fooservice"registry="my_zookeeper"><br>server</motan:refererid="remoteservice"interface="quickstart.fooservice"registry="my_zookeeper"></p>
-<p><motan:serviceinterface="quickstart.fooservice"ref="serviceimpl"registry="my_zookeeper"export="8002"><br>启动client，调用服务</motan:serviceinterface="quickstart.fooservice"ref="serviceimpl"registry="my_zookeeper"export="8002"></p>
-</beansxmlns="http:></beansxmlns="http:>
+
+@AfterReturning(returning = &quot;ret&quot;, pointcut = &quot;webLog()&quot;)
+public void doAfterReturning(Object ret) throws Throwable {
+    // 处理完请求，返回内容
+    logger.info(&quot;RESPONSE : &quot; + ret);
+    logger.info(&quot;SPEND TIME : &quot; + (System.currentTimeMillis() - startTime.get()));
+}
+</code></pre><p>}<br>优化：AOP切面的优先级<br>由于通过AOP实现，程序得到了很好的解耦，但是也会带来一些问题，比如：我们可能会对Web层做多个切面，校验用户，校验头信息等等，这个时候经常会碰到切面的处理顺序问题。</p>
+<p>所以，我们需要定义每个切面的优先级，我们需要@Order(i)注解来标识切面的优先级。i的值越小，优先级越高。假设我们还有一个切面是CheckNameAspect用来校验name必须为didi，我们为其设置@Order(10)，而上文中WebLogAspect设置为@Order(5)，所以WebLogAspect有更高的优先级，这个时候执行顺序是这样的：</p>
+<p>在@Before中优先执行@Order(5)的内容，再执行@Order(10)的内容<br>在@After和@AfterReturning中优先执行@Order(10)的内容，再执行@Order(5)的内容<br>所以我们可以这样子总结：</p>
+<p>在切入点前的操作，按order的值由小到大执行<br>在切入点后的操作，按order的值由大到小执行<br>本文完整示例Chapter4-2-4</p>
+
       
     </div>
     
@@ -997,7 +944,7 @@ publicstaticvoidmain(String[] args) throws InterruptedException {
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/soa/">soa</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
 	</div>
 
       
@@ -1019,11 +966,11 @@ publicstaticvoidmain(String[] args) throws InterruptedException {
 
 
   
-    <article id="tomcat并发优化--tomcat-Tomcat的四种基于HTTP协议的Connector性能比较" class="article article-type-tomcat并发优化--tomcat" itemscope itemprop="blogPost">
+    <article id="post-SpringBoot中对log4j进行多环境不同日志级别的控制" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/28/Tomcat的四种基于HTTP协议的Connector性能比较/" class="article-date">
-  	<time datetime="2016-04-28T09:23:26.000Z" itemprop="datePublished">2016-04-28</time>
+      <a href="/2016/06/15/SpringBoot中对log4j进行多环境不同日志级别的控制/" class="article-date">
+  	<time datetime="2016-06-15T09:29:54.000Z" itemprop="datePublished">2016-06-15</time>
 </a>
     </div>
   
@@ -1036,7 +983,7 @@ publicstaticvoidmain(String[] args) throws InterruptedException {
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/28/Tomcat的四种基于HTTP协议的Connector性能比较/">Tomcat的四种基于HTTP协议的Connector性能比较</a>
+      <a class="article-title" href="/2016/06/15/SpringBoot中对log4j进行多环境不同日志级别的控制/">SpringBoot中对log4j进行多环境不同日志级别的控制</a>
     </h1>
   
 
@@ -1045,32 +992,18 @@ publicstaticvoidmain(String[] args) throws InterruptedException {
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Tomcat 6 支持 NIO – Tomcat的四种基于HTTP协议的Connector性能比较</p>
-<p>Tomcat从5.5版本开始，支持以下四种Connector的配置分别为：</p>
-<!--基于NIO的http协议的Connector 性能最好--->
-<connector port="8081" protocol="org.apache.coyote.http11.Http11NioProtocol" connectiontimeout="20000" redirectport="8443">
+        <p>Spring Boot中对log4j进行多环境不同日志级别的控制<br>2016年05月19日 标签：Spring Boot<br>之前介绍了在《Spring boot中使用log4j记录日志》，仅通过log4j.properties对日志级别进行控制，对于需要多环境部署的环境不是很方便，可能我们在开发环境大部分模块需要采用DEBUG级别，在测试环境可能需要小部分采用DEBUG级别，而在生产环境时我们又希望采用INFO级别。这个时候，我们要自己手工编辑log4j.properties文件来调整日志级别，不论在版本库中默认保存哪个环境的级别设定，都会增加其他环境使用人员的工作量，虽然很细微，但是手工修改总不是一件很好的选择，难免会发现修改后误提交等问题。</p>
+<p>那么，有没有办法对于开发人员、运维人员都不需要改变源代码实现不同环境的不同日志级别呢?</p>
+<p>是否还记得之前在《Spring Boot属性配置文件详解》一文中，提到的关于Spring Boot多环境的配置以及属性文件中的参数引用？若没有了解过相关内容，建议先阅读该文后继续此篇内容。</p>
+<p>尝试改造<br>先以chapter4-2-2工程作为基础工程，我们来进行多环境配置的改造。</p>
+<p>创建多环境配置文件<br>application-dev.properties：开发环境<br>application-test.properties：测试环境<br>application-prod.properties：生产环境<br>application.properties中添加属性：spring.profiles.active=dev（默认激活application-dev.properties配置）<br>application-dev.properties和application-test.properties配置文件中添加日志级别定义：logging.level.com.didispace=DEBUG<br>application-prod.properties配置文件中添加日志级别定义：logging.level.com.didispace=INFO<br>通过上面的定义，根据logging.level.com.didispace在不同环境的配置文件中定义了不同的级别，但是我们已经把日志交给了log4j管理，看看我们log4j.properties中对com.didispace包下的日志定义是这样的，固定定义了DEBUG级别，并输出到名为didifile定义的appender中。</p>
+<h1 id="LOG4J配置"><a href="#LOG4J配置" class="headerlink" title="LOG4J配置"></a>LOG4J配置</h1><p>log4j.category.com.didispace=DEBUG, didifile</p>
+<h1 id="com-didispace下的日志输出"><a href="#com-didispace下的日志输出" class="headerlink" title="com.didispace下的日志输出"></a>com.didispace下的日志输出</h1><p>log4j.appender.didifile=org.apache.log4j.DailyRollingFileAppender<br>log4j.appender.didifile.file=logs/my.log<br>log4j.appender.didifile.DatePattern=’.’yyyy-MM-dd<br>log4j.appender.didifile.layout=org.apache.log4j.PatternLayout<br>log4j.appender.didifile.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss,SSS} %5p %c{1}:%L —- %m%n<br>那么，要如何动态的改变这个DEBUG级别呢？在《Spring Boot属性配置文件详解》中还提到了关于配置文件中参数的引用。我们需要将DEBUG替换成application-{profile}.properties配置文件中定义logging.level.com.didispace即可，所以配置变为如下内容：</p>
+<h1 id="LOG4J配置-1"><a href="#LOG4J配置-1" class="headerlink" title="LOG4J配置"></a>LOG4J配置</h1><p>log4j.category.com.didispace=${logging.level.com.didispace}, didifile</p>
+<h1 id="com-didispace下的日志输出-1"><a href="#com-didispace下的日志输出-1" class="headerlink" title="com.didispace下的日志输出"></a>com.didispace下的日志输出</h1><p>log4j.appender.didifile=org.apache.log4j.DailyRollingFileAppender<br>log4j.appender.didifile.file=logs/my.log<br>log4j.appender.didifile.DatePattern=’.’yyyy-MM-dd<br>log4j.appender.didifile.layout=org.apache.log4j.PatternLayout<br>log4j.appender.didifile.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss,SSS} %5p %c{1}:%L —- %m%n<br>到这里我们已经完成了所有配置工作，我们可以通过运行单元测试，然后看my.log文件中输出的日志内容。通过修改默认的application-dev.properties配置的日志级别为INFO，再运行单元测试的DEBUG内容是否被输出到了my.log中验证参数是否被正确引用了。</p>
+<p>对于不同环境的使用人员也不需要改变代码或打包文件，只需要通过执行命令中参加参数即可，比如我想采用生产环境的级别，那么我可以这样运行应用：</p>
+<p>java -jar xxx.jar –spring.profiles.active=prod</p>
 
-<!--tomcat默认http协议的Connector 性能最差-->
-<connector port="8081" protocol="HTTP/1.1" connectiontimeout="20000" redirectport="8443">
-
-<!--http连接池协议的Connector   性能差- ->   
-<Connector executor="tomcatThreadPool" port="8081" protocol="HTTP/1.1"connectionTimeout="20000"redirectPort="8443" />
-
-<!--基于NIO链接池协议的Connector 性能较好-->
-<connector executor="tomcatThreadPool" port="8081" protocol="org.apache.coyote.http11.Http11NioProtocol" connectiontimeout="20000" redirectport="8443">
-
-<p>我们姑且把上面四种Connector按照顺序命名为 NIO, HTTP, POOL, NIOP</p>
-<p>为了不让其他因素影响测试结果，我们只对一个很简单的jsp页面进行测试，这个页面仅仅是输出一个Hello World。假设地址是 <a href="http://tomcat1/test.jsp" target="_blank" rel="external">http://tomcat1/test.jsp</a></p>
-<p>我们依次对四种Connector进行测试，测试的客户端在另外一台机器上用ab命令来完成，测试命令为： ab -c 900 -n 2000<a href="http://tomcat1/test.jsp，最终的测试结果如下表所示(单位:平均每秒处理的请求数)：" target="_blank" rel="external">http://tomcat1/test.jsp，最终的测试结果如下表所示(单位:平均每秒处理的请求数)：</a></p>
-<p>NIO    HTTP    POOL    NIOP<br>281     65     208     365<br>666     66     110     398<br>692     65     66     263<br>256     63     94     459<br>440     67     145     363</p>
-<p>由这五组数据不难看出，HTTP的性能是很稳定，但是也是最差的，而这种方式就是Tomcat的默认配置。NIO方式波动很大，但没有低于280 的，NIOP是在NIO的基础上加入线程池，可能是程序处理更复杂了，因此性能不见得比NIO强；而POOL方式则波动很大，测试期间和HTTP方式一样，不时有停滞。</p>
-<p>由于linux的内核默认限制了最大打开文件数目是1024，因此此次并发数控制在900。</p>
-<p>尽管这一个结果在实际的网站中因为各方面因素导致，可能差别没这么大，例如受限于数据库的性能等等的问题。但对我们在部署网站应用时还是具有参考价值的。</p>
-<p>这个可以利用apache server的 ab测试<br>C:\Program Files (x86)\Apache Software Foundation\Apache2.2\bin&gt;ab -n2000 -c100 <a href="http://localhost:8080/" target="_blank" rel="external">http://localhost:8080/</a></p>
-<p>或者</p>
-<p>C:\Program Files (x86)\Apache Software Foundation\Apache2.2\bin&gt;ab -n2000 -c100 -w <a href="http://localhost:8080/" target="_blank" rel="external">http://localhost:8080/</a> &gt;c:/a.html</p>
-<p>-n 代表请求数<br>-c 代表并发数<br>-w 输出到</p>
-</connector></connector></connector>
       
     </div>
     
@@ -1078,7 +1011,7 @@ publicstaticvoidmain(String[] args) throws InterruptedException {
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tomcat/">tomcat</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
 	</div>
 
       
@@ -1100,11 +1033,11 @@ publicstaticvoidmain(String[] args) throws InterruptedException {
 
 
   
-    <article id="post-solr-query" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Springboot中使用log4j记录日志" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/28/solr-query/" class="article-date">
-  	<time datetime="2016-04-28T09:22:43.000Z" itemprop="datePublished">2016-04-28</time>
+      <a href="/2016/06/15/Springboot中使用log4j记录日志/" class="article-date">
+  	<time datetime="2016-06-15T09:29:08.000Z" itemprop="datePublished">2016-06-15</time>
 </a>
     </div>
   
@@ -1117,7 +1050,7 @@ publicstaticvoidmain(String[] args) throws InterruptedException {
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/28/solr-query/">solr-query</a>
+      <a class="article-title" href="/2016/06/15/Springboot中使用log4j记录日志/">Springboot中使用log4j记录日志</a>
     </h1>
   
 
@@ -1126,41 +1059,18 @@ publicstaticvoidmain(String[] args) throws InterruptedException {
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一. Query参数 </p>
-<ol>
-<li><p>CoreQueryParam查询的参数<br>1) q: 查询字符串，必须的。<br>2) q.op: 覆盖schema.xml的defaultOperator（有空格时用”AND”还是用”OR”操作逻辑），一般默认指定。<br>3) df: 默认的查询字段，一般默认指定。<br>4) qt: query type，指定查询使用的Query Handler，默认为“standard”。<br>5) wt: writer type。指定查询输出结构格式，默认为“xml”。在solrconfig.xml中定义了查询输出格式：xml、json、python、ruby、php、phps、custom。<br>6) echoHandler：是否在查询结果中显示使用的Query Handler名称。<br>7) echoParams：是否显示查询参数。none：不显示；explicit：只显示查询参数；all：所有，包括在solrconfig.xml定义的Query Handler参数。<br>8) indent - 返回的结果是否缩进，默认关闭，用 indent=true|on 开启，一般调试json,php,phps,ruby输出才有必要用这个参数。<br>9) version - 查询语法的版本，建议不使用它，由服务器指定默认值。 </p>
-</li>
-<li><p>CommonQueryParameters<br>1) sort：排序，格式：sort=<field name="">+<desc|asc>[,<field name="">+<desc|asc>]„ 。<br>示例：（inStock desc, price asc）表示先 “inStock” 降序, 再 “price” 升序，默认是相关性降序。。<br>2) start：用于分页定义结果起始记录数，默认为0。<br>3) rows：用于分页定义结果每页返回记录数，默认为10。<br>4) fq：filter query。使用Filter Query可以充分利用Filter Query Cache，提高检索性能。作用：在q查询符合结果中同时是fq查询符合的，<br>例如：q=mm&amp;fq=date_time:[20081001 TO 20091031]，找关键字mm，并且date_time是20081001到20091031之间的。<br>5) fl：field list。指定返回结果字段。以空格“ ”或逗号“,”分隔。<br>6) debugQuery：设置返回结果是否显示Debug信息。<br>7) explainOther：设置当debugQuery=true时，显示其他的查询说明。<br>8) defType：设置查询解析器名称。<br>9) timeAllowed：设置查询超时时间。<br>10) omitHeader：设置是否忽略查询结果返回头信息，默认为“false”。 </desc|asc></field></desc|asc></field></p>
-</li>
-</ol>
-<p>二. 查询语法 </p>
-<ol>
-<li>匹配所有文档：<em>:</em> </li>
-<li><p>强制、阻止和可选查询：<br>1) Mandatory：查询结果中必须包括的(for example, only entry name containing the word make) Solr/Lucene Statement：+make, +make +up ,+make +up +kiss<br>2) prohibited：(for example, all documents except those with word believe) Solr/Lucene Statement：+make +up -kiss 3) optional：Solr/Lucene Statement：+make +up kiss </p>
-</li>
-<li><p>布尔操作：AND、OR和NOT布尔操作（必须大写）与Mandatory、optional和prohibited相似。<br>1) make AND up ＝ +make +up :AND左右两边的操作都是mandatory<br>2) make || up ＝ make OR up＝make up :OR左右两边的操作都是optional<br>3) +make +up NOT kiss ＝ +make +up –kiss<br>4) make AND up OR french AND Kiss不可以达到期望的结果，因为AND两边的操作都是mandatory的。  </p>
-</li>
-<li><p>子表达式查询（子查询）：可以使用“()”构造子查询。<br>For ex：(make AND up) OR (french AND Kiss) </p>
-</li>
-<li><p>子表达式查询中阻止查询的限制：<br>For ex:make (-up):只能取得make的查询结果；要使用make (-up <em>:</em>)查询make或者不包括up的结果。  </p>
-</li>
-<li>多字段fields查询：通过字段名加上分号的方式（fieldName:query）来进行查询<br>For ex：entryNm:make AND entryId:3cdc86e8e0fb4da8ab17caed42f6760c  </li>
-<li>通配符查询（wildCard Query）：<br>1) 通配符？和<em>：“</em>”表示匹配任意字符；“？”表示匹配出现的位置。<br>For ex：ma?<em>（ma后面的一个位置匹配），ma??</em>(ma后面两个位置都匹配)<br>2) 查询字符必须要小写：+Ma +be<strong>可以搜索到结果；+Ma +Be</strong>没有搜索结果<br>3) 查询速度较慢，尤其是通配符在首位：主要原因一是需要迭代查询字段中的每个term，判断是否匹配；二是匹配上的term被加到内部的查询，当terms数量达到1024的时候，查询会失败。<br>4) Solr中默认通配符不能出现在首位（可以修改QueryParser，设置 setAllowLeadingWildcard为true）<br>5) set setAllowLeadingWildcard to true. </li>
-<li>模糊查询、相似查询：不是精确的查询，通过对查询的字段进行重新插入、删除和转换来取得得分较高的查询解决（由Levenstein Distance Algorithm算法支持）。<br>1) 一般模糊查询：for ex：make-believ~<br>2) 门槛模糊查询：对模糊查询可以设置查询门槛，门槛是0~1之间的数值，门槛<br>越高表面相似度越高。For ex：make-believ~0.5、make-believ~0.8、make-believ~0.9  </li>
-<li><p>范围查询（Range Query）：Lucene支持对数字、日期甚至文本的范围查询。结束的范围可以使用“<em>”通配符。<br>For ex：<br>1) 日期范围（ISO-8601 时间GMT）：sa_type:2 AND a_begin_date:[1990-01-01T00:00:00.000Z TO 1999-12-31T24:59:99.999Z]<br>2) 数字：salary:[2000 TO </em>] 3) 文本：entryNm:[a TO a] </p>
-</li>
-<li><p>日期匹配：YEAR, MONTH, DAY, DATE (synonymous with DAY) HOUR, MINUTE, SECOND, MILLISECOND, and MILLI (synonymous with MILLISECOND)可以被标志成日期。<br>For ex：<br>1) r_event_date:[<em> TO NOW-2YEAR]：2年前的现在这个时间<br>2) r_event_date:[</em> TO NOW/DAY-2YEAR]：2年前前一天的这个时间 </p>
-</li>
-</ol>
-<p>三. 函数查询（Function Query）<br>函数查询 可以利用 numeric域的值 或者 与域相关的的某个特定的值的函数，来对文档进行评分。 </p>
-<ol>
-<li><p>使用函数查询的方法<br>这里主要有三种方法可以使用函数查询，这三种s方法都是通过solr http接口的。<br>1) 使用FunctionQParserPlugin。ie: q={!func}log(foo)<br>2) 使用“<em>val</em>”内嵌方法内嵌在正常的solr查询表达式中。即，将函数查询写在 q这个参数中，这时候，我们使用“<em>val</em>”将函数与其他的查询加以区别。 ie：entryNm:make &amp;&amp; <em>val</em>:ord(entryNm)<br>3) 使用dismax中的bf参数使用明确为函数查询的参数，比如说dismax中的bf（boost function）这个参数。  注意：bf这个参数是可以接受多个函数查询的，它们之间用空格隔开，它们还可以带上权重。所以，当我们使用bf这个参数的时候，我们必须保证单个函数中是没有空格出现的，不然程序有可能会以为是两个函数。<br>For ex：<br>q=dismax&amp;bf=”ord(popularity)^0.5 recip(rord(price),1,1000,1000)^0.3   2. 函数的格式（Function Query Syntax) 目前，function query 并不支持 a+b 这样的形式，我们得把它写成一个方法形式，这就是 sum(a,b). </p>
-</li>
-<li><p>使用函数查询注意事项<br>1) 用于函数查询的field必须是被索引的；<br>2) 字段不可以是多值的（multi-value） </p>
-</li>
-<li><p>可以利用的函数 （available function）<br>1) constant：支持有小数点的常量； 例如：1.5 ；SolrQuerySyntax:<em>val</em>:1.5<br>2) fieldvalue：这个函数将会返回numeric field的值，这个域必须是indexd的，非multiValued的。格式很简单，就是该域的名字。如果这个域中没有这样的值，那么将会返回0。<br>3) ord：对于一个域，它所有的值都将会按照字典顺序排列，这个函数返回你要查询的那个特定的值在这个顺序中的排名。这个域，必须是非multiValued的，当没有值存在的时候，将返回0。例如：某个特定的域只能去三个值，“apple”、“banana”、“pear”，那么ord（“apple”）=1，ord（“banana”）=2，ord（“pear”）=3.需要注意的是，ord（）这个函数，依赖于值在索引中的位置，所以当有文档被删除、或者添加的时候，ord（）的值就会发生变化。当你使用MultiSearcher的时候，这个值也就是不定的了。<br>4) rord：这个函数将会返回与ord相对应的倒排序的排名。 格式: rord(myIndexedField)。<br>5) sum：这个函数的意思就显而易见啦，它就是表示“和”啦。格式：sum(x,1) 、sum(x,y)、 sum(sqrt(x),log(y),z,0.5)<br>6) product：product(x,y,…)将会返回多个函数的乘积。格式：product(x,2)、product(x,y)<br>7) div：div(x,y)表示x除以y的值，格式：div（1,x）、div(sum(x,100),max(y,1))<br>8) pow：pow表示幂值。pow(x,y) =x^y。例如：pow(x,0.5) 表示开方pow(x,log(y))<br>9) abs：abs(x)将返回表达式的绝对值。格式：abs(-5)、 abs(x)<br>10)  log：log(x)将会返回基数为10，x的对数。格式： log(x)、 log(sum(x,100))<br>11)  Sqrt：sqrt(x) 返回 一个数的平方根。格式：sqrt（2）、sqrt(sum(x,100))<br>12)  Map：如果 x&gt;=min,且x&lt;=max,那么map(x,min,max,target)=target.如果 x不在[min,max]这个区间内，那么map(x,min,max,target)=x.  格式：map(x,0,0,1)<br>13) Scale：scale(x,minTarget,maxTarget) 这个函数将会把x的值限制在[minTarget,maxTarget]范围内。 14) query ：query(subquery,default)将会返回给定subquery的分数，如果subquery与文档不匹配，那么将会返回默认值。任何的查询类型都是受支持的。可以通过引用的方式，也可以直接指定查询串。<br>例子：q=product(popularity, query({!dismax v=’solr rocks’}) 将会返回popularity和通过dismax 查询得到的分数的乘积。<br>q=product(popularity, query($qq)&amp;qq={!dismax}solr rocks 跟上一个例子的效果是一样的。不过这里使用的是引用的方式<br>q=product(popularity, query($qq,0.1)&amp;qq={!dismax}solr rocks 在前一个例子的基础上又加了一个默认值。<br>15)  linear： inear(x,m,c)表示 m<em>x+c ,其中m和c都是常量，x是一个变量也可以是一个函数。例如： linear(x,2,4)=2</em>x+4.<br>16) Recip：recip(x,m,a,b)=a/(m*x+b)其中，m、a、b是常量，x是变量或者一个函数。当a=b，并且x&gt;=0的时候，这个函数的最大值是1，值的大小随着x的增大而减小。例如：recip(rord(creationDate),1,1000,1000)<br>17) Max： max(x,c)将会返回一个函数和一个常量之间的最大值。 例如：max(myfield,0)</p>
-</li>
-</ol>
+        <p>Spring boot中使用log4j记录日志<br>2016年05月19日 标签：Spring Boot<br>之前在Spring Boot日志管理 一文中主要介绍了Spring Boot中默认日志工具（logback）的基本配置内容。对于很多习惯使用log4j的开发者，Spring Boot依然可以很好的支持，只是需要做一些小小的配置功能。</p>
+<p>引入log4j依赖<br>在创建Spring Boot工程时，我们引入了spring-boot-starter，其中包含了spring-boot-starter-logging，该依赖内容就是Spring Boot默认的日志框架Logback，所以我们在引入log4j之前，需要先排除该包的依赖，再引入log4j的依赖，就像下面这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;  </span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter&lt;/artifactId&gt;</span><br><span class="line">    &lt;exclusions&gt;</span><br><span class="line">        &lt;exclusion&gt; </span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-starter-logging&lt;/artifactId&gt;</span><br><span class="line">        &lt;/exclusion&gt;</span><br><span class="line">    &lt;/exclusions&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;dependency&gt;  </span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-log4j&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
+<p>配置log4j.properties<br>在引入了log4j依赖之后，只需要在src/main/resources目录下加入log4j.properties配置文件，就可以开始对应用的日志进行配置使用。</p>
+<p>控制台输出<br>通过如下配置，设定root日志的输出级别为INFO，appender为控制台输出stdout</p>
+<h1 id="LOG4J配置"><a href="#LOG4J配置" class="headerlink" title="LOG4J配置"></a>LOG4J配置</h1><p>log4j.rootCategory=INFO, stdout</p>
+<h1 id="控制台输出"><a href="#控制台输出" class="headerlink" title="控制台输出"></a>控制台输出</h1><p>log4j.appender.stdout=org.apache.log4j.ConsoleAppender<br>log4j.appender.stdout.layout=org.apache.log4j.PatternLayout<br>log4j.appender.stdout.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss,SSS} %5p %c{1}:%L - %m%n<br>输出到文件<br>在开发环境，我们只是输出到控制台没有问题，但是到了生产或测试环境，或许持久化日志内容，方便追溯问题原因。可以通过添加如下的appender内容，按天输出到不同的文件中去，同时还需要为log4j.rootCategory添加名为file的appender，这样root日志就可以输出到logs/all.log文件中了。</p>
+<p>#<br>log4j.rootCategory=INFO, stdout, file</p>
+<h1 id="root日志输出"><a href="#root日志输出" class="headerlink" title="root日志输出"></a>root日志输出</h1><p>log4j.appender.file=org.apache.log4j.DailyRollingFileAppender<br>log4j.appender.file.file=logs/all.log<br>log4j.appender.file.DatePattern=’.’yyyy-MM-dd<br>log4j.appender.file.layout=org.apache.log4j.PatternLayout<br>log4j.appender.file.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss,SSS} %5p %c{1}:%L - %m%n<br>分类输出<br>当我们日志量较多的时候，查找问题会非常困难，常用的手段就是对日志进行分类，比如：</p>
+<p>可以按不同package进行输出。通过定义输出到logs/my.log的appender，并对com.didispace包下的日志级别设定为DEBUG级别、appender设置为输出到logs/my.log的名为didifile的appender。</p>
+<h1 id="com-didispace包下的日志配置"><a href="#com-didispace包下的日志配置" class="headerlink" title="com.didispace包下的日志配置"></a>com.didispace包下的日志配置</h1><p>log4j.category.com.didispace=DEBUG, didifile</p>
+<h1 id="com-didispace下的日志输出"><a href="#com-didispace下的日志输出" class="headerlink" title="com.didispace下的日志输出"></a>com.didispace下的日志输出</h1><p>log4j.appender.didifile=org.apache.log4j.DailyRollingFileAppender<br>log4j.appender.didifile.file=logs/my.log<br>log4j.appender.didifile.DatePattern=’.’yyyy-MM-dd<br>log4j.appender.didifile.layout=org.apache.log4j.PatternLayout<br>log4j.appender.didifile.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss,SSS} %5p %c{1}:%L —- %m%n<br>可以对不同级别进行分类，比如对ERROR级别输出到特定的日志文件中，具体配置可以如下。<br>log4j.logger.error=errorfile  </p>
+<h1 id="error日志输出"><a href="#error日志输出" class="headerlink" title="error日志输出"></a>error日志输出</h1><p>log4j.appender.errorfile=org.apache.log4j.DailyRollingFileAppender<br>log4j.appender.errorfile.file=logs/error.log<br>log4j.appender.errorfile.DatePattern=’.’yyyy-MM-dd<br>log4j.appender.errorfile.Threshold = ERROR<br>log4j.appender.errorfile.layout=org.apache.log4j.PatternLayout<br>log4j.appender.errorfile.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss,SSS} %5p %c{1}:%L - %m%n<br>本文主要介绍如何在spring boot中引入log4j，以及一些基础用法，对于更多log4j的用法，还请参考log4j官方网站</p>
 
       
     </div>
@@ -1169,7 +1079,7 @@ publicstaticvoidmain(String[] args) throws InterruptedException {
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/solr/">solr</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
 	</div>
 
       
@@ -1191,11 +1101,11 @@ publicstaticvoidmain(String[] args) throws InterruptedException {
 
 
   
-    <article id="post-mysql跨数据库操作类似与oracle的dblink" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-SpringBoot中使用-Async实现异步调用" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/28/mysql跨数据库操作类似与oracle的dblink/" class="article-date">
-  	<time datetime="2016-04-28T09:21:31.000Z" itemprop="datePublished">2016-04-28</time>
+      <a href="/2016/06/15/SpringBoot中使用-Async实现异步调用/" class="article-date">
+  	<time datetime="2016-06-15T09:28:17.000Z" itemprop="datePublished">2016-06-15</time>
 </a>
     </div>
   
@@ -1208,7 +1118,7 @@ publicstaticvoidmain(String[] args) throws InterruptedException {
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/28/mysql跨数据库操作类似与oracle的dblink/">mysql跨数据库操作类似与oracle的dblink</a>
+      <a class="article-title" href="/2016/06/15/SpringBoot中使用-Async实现异步调用/">SpringBoot中使用@Async实现异步调用</a>
     </h1>
   
 
@@ -1217,18 +1127,96 @@ publicstaticvoidmain(String[] args) throws InterruptedException {
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>MySQL FEDERATED 存储引擎</p>
-<pre><code>MySQL中针对不同的功能需求提供了不同的存储引擎。所谓的存储引擎也就是MySQL下特定接口的具体实现。
-FEDERATED是其中一个专门针对远程数据库的实现。一般情况下在本地数据库中建表会在数据库目录中生成相应的表定义文件，并同时生成相应的数据文件。
-</code></pre><p>但通过FEDERATED引擎创建的表只是在本地有表定义文件，数据文件则存在于远程数据库中(这一点很重要)。<br>             通过这个引擎可以实现类似Oracle 下DBLINK的远程数据访问功能。<br>             使用show engines 命令查看数据库是否已支持FEDERATED引擎：</p>
-<pre><code>Support 的值有以下几个：
-</code></pre><p>YES    支持并开启<br>DEFAULT    支持并开启, 并且为默认引擎<br>NO    不支持<br>DISABLED    支持,但未开启</p>
-<p>可以看出MyISAM为当前默认的引擎。<br>                使用FEDERATED建表语句如下：<br>                CREATE TABLE (……) ENGINE =FEDERATED CONNECTION=’mysql://[name]:[pass]@[location]:[port]/[db-name]/[table-name]’<br>               创建成功后就可直接在本地查询相应的远程表了。<br>需要注意的几点：</p>
-<pre><code>1. 本地的表结构必须与远程的完全一样。
-2.远程数据库目前仅限MySQL
-3.不支持事务
-4.不支持表结构修改
-</code></pre>
+        <p>Spring Boot中使用@Async实现异步调用<br>2016年05月16日 标签：Spring Boot<br>什么是“异步调用”？</p>
+<p>“异步调用”对应的是“同步调用”，同步调用指程序按照定义顺序依次执行，每一行程序都必须等待上一行程序执行完成之后才能执行；异步调用指程序在顺序执行时，不等待异步调用的语句返回结果就执行后面的程序。</p>
+<p>同步调用<br>下面通过一个简单示例来直观的理解什么是同步调用：</p>
+<p>定义Task类，创建三个处理函数分别模拟三个执行任务的操作，操作消耗时间随机取（10秒内）<br>@Component<br>public class Task {</p>
+<pre><code>public static Random random =new Random();
+
+public void doTaskOne() throws Exception {
+    System.out.println(&quot;开始做任务一&quot;);
+    long start = System.currentTimeMillis();
+    Thread.sleep(random.nextInt(10000));
+    long end = System.currentTimeMillis();
+    System.out.println(&quot;完成任务一，耗时：&quot; + (end - start) + &quot;毫秒&quot;);
+}
+
+public void doTaskTwo() throws Exception {
+    System.out.println(&quot;开始做任务二&quot;);
+    long start = System.currentTimeMillis();
+    Thread.sleep(random.nextInt(10000));
+    long end = System.currentTimeMillis();
+    System.out.println(&quot;完成任务二，耗时：&quot; + (end - start) + &quot;毫秒&quot;);
+}
+
+public void doTaskThree() throws Exception {
+    System.out.println(&quot;开始做任务三&quot;);
+    long start = System.currentTimeMillis();
+    Thread.sleep(random.nextInt(10000));
+    long end = System.currentTimeMillis();
+    System.out.println(&quot;完成任务三，耗时：&quot; + (end - start) + &quot;毫秒&quot;);
+}
+</code></pre><p>}<br>在单元测试用例中，注入Task对象，并在测试用例中执行doTaskOne、doTaskTwo、doTaskThree三个函数。<br>@RunWith(SpringJUnit4ClassRunner.class)<br>@SpringApplicationConfiguration(classes = Application.class)<br>public class ApplicationTests {</p>
+<pre><code>@Autowired
+private Task task;
+
+@Test
+public void test() throws Exception {
+    task.doTaskOne();
+    task.doTaskTwo();
+    task.doTaskThree();
+}
+</code></pre><p>}<br>执行单元测试，可以看到类似如下输出：<br>开始做任务一<br>完成任务一，耗时：4256毫秒<br>开始做任务二<br>完成任务二，耗时：4957毫秒<br>开始做任务三<br>完成任务三，耗时：7173毫秒<br>任务一、任务二、任务三顺序的执行完了，换言之doTaskOne、doTaskTwo、doTaskThree三个函数顺序的执行完成。</p>
+<p>异步调用<br>上述的同步调用虽然顺利的执行完了三个任务，但是可以看到执行时间比较长，若这三个任务本身之间不存在依赖关系，可以并发执行的话，同步调用在执行效率方面就比较差，可以考虑通过异步调用的方式来并发执行。</p>
+<p>在Spring Boot中，我们只需要通过使用@Async注解就能简单的将原来的同步函数变为异步函数，Task类改在为如下模式：</p>
+<p>@Component<br>public class Task {</p>
+<pre><code>@Async
+public void doTaskOne() throws Exception {
+    // 同上内容，省略
+}
+
+@Async
+public void doTaskTwo() throws Exception {
+    // 同上内容，省略
+}
+
+@Async
+public void doTaskThree() throws Exception {
+    // 同上内容，省略
+}
+</code></pre><p>}<br>为了让@Async注解能够生效，还需要在Spring Boot的主程序中配置@EnableAsync，如下所示：</p>
+<p>@SpringBootApplication<br>@EnableAsync<br>public class Application {</p>
+<pre><code>public static void main(String[] args) {
+    SpringApplication.run(Application.class, args);
+}
+</code></pre><p>}<br>此时可以反复执行单元测试，您可能会遇到各种不同的结果，比如：</p>
+<p>没有任何任务相关的输出<br>有部分任务相关的输出<br>乱序的任务相关的输出<br>原因是目前doTaskOne、doTaskTwo、doTaskThree三个函数的时候已经是异步执行了。主程序在异步调用之后，主程序并不会理会这三个函数是否执行完成了，由于没有其他需要执行的内容，所以程序就自动结束了，导致了不完整或是没有输出任务相关内容的情况。</p>
+<p>注： @Async所修饰的函数不要定义为static类型，这样异步调用不会生效</p>
+<p>异步回调<br>为了让doTaskOne、doTaskTwo、doTaskThree能正常结束，假设我们需要统计一下三个任务并发执行共耗时多少，这就需要等到上述三个函数都完成调动之后记录时间，并计算结果。</p>
+<p>那么我们如何判断上述三个异步调用是否已经执行完成呢？我们需要使用Future<t>来返回异步调用的结果，就像如下方式改造doTaskOne函数：</t></p>
+<p>@Async<br>public Future<string> doTaskOne() throws Exception {<br>    System.out.println(“开始做任务一”);<br>    long start = System.currentTimeMillis();<br>    Thread.sleep(random.nextInt(10000));<br>    long end = System.currentTimeMillis();<br>    System.out.println(“完成任务一，耗时：” + (end - start) + “毫秒”);<br>    return new AsyncResult&lt;&gt;(“任务一完成”);<br>}<br>按照如上方式改造一下其他两个异步函数之后，下面我们改造一下测试用例，让测试在等待完成三个异步调用之后来做一些其他事情。</string></p>
+<p>@Test<br>public void test() throws Exception {</p>
+<pre><code>long start = System.currentTimeMillis();
+
+Future&lt;String&gt; task1 = task.doTaskOne();
+Future&lt;String&gt; task2 = task.doTaskTwo();
+Future&lt;String&gt; task3 = task.doTaskThree();
+
+while(true) {
+    if(task1.isDone() &amp;&amp; task2.isDone() &amp;&amp; task3.isDone()) {
+        // 三个任务都调用完成，退出循环等待
+        break;
+    }
+    Thread.sleep(1000);
+}
+
+long end = System.currentTimeMillis();
+
+System.out.println(&quot;任务全部完成，总耗时：&quot; + (end - start) + &quot;毫秒&quot;);
+</code></pre><p>}<br>看看我们做了哪些改变：</p>
+<p>在测试用例一开始记录开始时间<br>在调用三个异步函数的时候，返回Future<string>类型的结果对象<br>在调用完三个异步函数之后，开启一个循环，根据返回的Future<string>对象来判断三个异步函数是否都结束了。若都结束，就结束循环；若没有都结束，就等1秒后再判断。<br>跳出循环之后，根据结束时间 - 开始时间，计算出三个任务并发执行的总耗时。<br>执行一下上述的单元测试，可以看到如下结果：</string></string></p>
+<p>开始做任务一<br>开始做任务二<br>开始做任务三<br>完成任务三，耗时：37毫秒<br>完成任务二，耗时：3661毫秒<br>完成任务一，耗时：7149毫秒<br>任务全部完成，总耗时：8025毫秒<br>可以看到，通过异步调用，让任务一、二、三并发执行，有效的减少了程序的总运行时间。</p>
+
       
     </div>
     
@@ -1236,7 +1224,7 @@ FEDERATED是其中一个专门针对远程数据库的实现。一般情况下�
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/oracle/">oracle</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
 	</div>
 
       
@@ -1260,7 +1248,7 @@ FEDERATED是其中一个专门针对远程数据库的实现。一般情况下�
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>

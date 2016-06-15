@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>SpringBoot开发Web应用 | 菜菜的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Spring Boot开发Web应用2016年03月03日 标签：Spring BootSpring Boot快速入门中我们完成了一个简单的RESTful Service，体验了快速开发的特性。在留言中也有朋友提到如何把处理结果渲染到页面上。那么本篇就在上篇基础上介绍一下如何进行Web应用的开发。静态资源访问在我们开发Web应用的时候，需要引用大量的js、css、图片等静态资源。
+默认配置Spri">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot开发Web应用">
+<meta property="og:url" content="http://yoursite.com/2016/06/15/SpringBoot开发Web应用/index.html">
+<meta property="og:site_name" content="菜菜的博客">
+<meta property="og:description" content="Spring Boot开发Web应用2016年03月03日 标签：Spring BootSpring Boot快速入门中我们完成了一个简单的RESTful Service，体验了快速开发的特性。在留言中也有朋友提到如何把处理结果渲染到页面上。那么本篇就在上篇基础上介绍一下如何进行Web应用的开发。静态资源访问在我们开发Web应用的时候，需要引用大量的js、css、图片等静态资源。
+默认配置Spri">
+<meta property="og:updated_time" content="2016-06-15T09:48:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SpringBoot开发Web应用">
+<meta name="twitter:description" content="Spring Boot开发Web应用2016年03月03日 标签：Spring BootSpring Boot快速入门中我们完成了一个简单的RESTful Service，体验了快速开发的特性。在留言中也有朋友提到如何把处理结果渲染到页面上。那么本篇就在上篇基础上介绍一下如何进行Web应用的开发。静态资源访问在我们开发Web应用的时候，需要引用大量的js、css、图片等静态资源。
+默认配置Spri">
+  
+    <link rel="alternative" href="/atom.xml" title="菜菜的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/ccz.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">菜菜</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">菜菜的博客</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags">标签</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/javascript/" style="font-size: 13.33px;">javascript</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/memcached/" style="font-size: 10px;">memcached</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/oracle/" style="font-size: 10px;">oracle</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/soa/" style="font-size: 16.67px;">soa</a> <a href="/tags/solr/" style="font-size: 10px;">solr</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">菜菜</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/ccz.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">菜菜</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">菜菜的博客</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags">标签</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-SpringBoot开发Web应用" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/15/SpringBoot开发Web应用/" class="article-date">
+  	<time datetime="2016-06-15T09:12:41.000Z" itemprop="datePublished">2016-06-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SpringBoot开发Web应用
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Spring Boot开发Web应用<br>2016年03月03日 标签：Spring Boot<br>Spring Boot快速入门中我们完成了一个简单的RESTful Service，体验了快速开发的特性。在留言中也有朋友提到如何把处理结果渲染到页面上。那么本篇就在上篇基础上介绍一下如何进行Web应用的开发。<br>静态资源访问<br>在我们开发Web应用的时候，需要引用大量的js、css、图片等静态资源。</p>
+<p>默认配置<br>Spring Boot默认提供静态资源目录位置需置于classpath下，目录名需符合如下规则：</p>
+<p>/static<br>/public<br>/resources<br>/META-INF/resources<br>举例：我们可以在src/main/resources/目录下创建static，在该位置放置一个图片文件。启动程序后，尝试访问<a href="http://localhost:8080/D.jpg。如能显示图片，配置成功。" target="_blank" rel="external">http://localhost:8080/D.jpg。如能显示图片，配置成功。</a></p>
+<p>渲染Web页面<br>在之前的示例中，我们都是通过@RestController来处理请求，所以返回的内容为json对象。那么如果需要渲染html页面的时候，要如何实现呢？</p>
+<p>模板引擎<br>在动态HTML实现上Spring Boot依然可以完美胜任，并且提供了多种模板引擎的默认配置支持，所以在推荐的模板引擎下，我们可以很快的上手开发动态网站。</p>
+<p>Spring Boot提供了默认配置的模板引擎主要有以下几种：</p>
+<p>Thymeleaf<br>FreeMarker<br>Velocity<br>Groovy<br>Mustache<br>Spring Boot建议使用这些模板引擎，避免使用JSP，若一定要使用JSP将无法实现Spring Boot的多种特性，具体可见后文：支持JSP的配置</p>
+<p>当你使用上述模板引擎中的任何一个，它们默认的模板配置路径为：src/main/resources/templates。当然也可以修改这个路径，具体如何修改，可在后续各模板引擎的配置属性中查询并修改。</p>
+<p>Thymeleaf<br>Thymeleaf是一个XML/XHTML/HTML5模板引擎，可用于Web与非Web环境中的应用开发。它是一个开源的Java库，基于Apache License 2.0许可，由Daniel Fernández创建，该作者还是Java加密库Jasypt的作者。</p>
+<p>Thymeleaf提供了一个用于整合Spring MVC的可选模块，在应用开发中，你可以使用Thymeleaf来完全代替JSP或其他模板引擎，如Velocity、FreeMarker等。Thymeleaf的主要目标在于提供一种可被浏览器正确显示的、格式良好的模板创建方式，因此也可以用作静态建模。你可以使用它创建经过验证的XML与HTML模板。相对于编写逻辑或代码，开发者只需将标签属性添加到模板中即可。接下来，这些标签属性就会在DOM（文档对象模型）上执行预先制定好的逻辑。</p>
+<p>示例模板：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;table&gt;  </span><br><span class="line">  &lt;thead&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">      &lt;th th:text=&quot;#&#123;msgs.headers.name&#125;&quot;&gt;Name&lt;/td&gt;</span><br><span class="line">      &lt;th th:text=&quot;#&#123;msgs.headers.price&#125;&quot;&gt;Price&lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line">  &lt;/thead&gt;</span><br><span class="line">  &lt;tbody&gt;</span><br><span class="line">    &lt;tr th:each=&quot;prod : $&#123;allProducts&#125;&quot;&gt;</span><br><span class="line">      &lt;td th:text=&quot;$&#123;prod.name&#125;&quot;&gt;Oranges&lt;/td&gt;</span><br><span class="line">      &lt;td th:text=&quot;$&#123;#numbers.formatDecimal(prod.price,1,2)&#125;&quot;&gt;0.99&lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line">  &lt;/tbody&gt;</span><br><span class="line">&lt;/table&gt; </span><br><span class="line">``` </span><br><span class="line">可以看到Thymeleaf主要以属性的方式加入到html标签中，浏览器在解析html时，当检查到没有的属性时候会忽略，所以Thymeleaf的模板可以通过浏览器直接打开展现，这样非常有利于前后端的分离。</span><br><span class="line"></span><br><span class="line">在Spring Boot中使用Thymeleaf，只需要引入下面依赖，并在默认的模板路径src/main/resources/templates下编写模板文件即可完成。</span><br></pre></td></tr></table></figure></p>
+<p><dependency><br>    <groupid>org.springframework.boot</groupid><br>    <artifactid>spring-boot-starter-thymeleaf</artifactid><br></dependency><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">在完成配置之后，举一个简单的例子，在快速入门工程的基础上，举一个简单的示例来通过Thymeleaf渲染一个页面。</span><br><span class="line"></span><br><span class="line">@Controller</span><br><span class="line">public class HelloController &#123;</span><br><span class="line"></span><br><span class="line">    @RequestMapping(&quot;/&quot;)</span><br><span class="line">    public String index(ModelMap map) &#123;</span><br><span class="line">        // 加入一个属性，用来在模板中读取</span><br><span class="line">        map.addAttribute(&quot;host&quot;, &quot;http://blog.didispace.com&quot;);</span><br><span class="line">        // return模板文件的名称，对应src/main/resources/templates/index.html</span><br><span class="line">        return &quot;index&quot;;  </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>&lt;!DOCTYPE html&gt;  </p>
+<p><html>  </html></p>
+<p><head lang="en"><br>    <meta charset="UTF-8"><br>    <title></title><br></head>  </p>
+<p><body>  </body></p>
+<p></p><h1 th:text="${host}">Hello World</h1><br><br><br>```<br>如上页面，直接打开html页面展现Hello World，但是启动程序后，访问<a href="http://localhost:8080/，则是展示Controller中host的值：http://blog.didispace.com，做到了不破坏HTML自身内容的数据逻辑分离。" target="_blank" rel="external">http://localhost:8080/，则是展示Controller中host的值：http://blog.didispace.com，做到了不破坏HTML自身内容的数据逻辑分离。</a><p></p>
+<p>更多Thymeleaf的页面语法，还请访问Thymeleaf的官方文档查询使用。</p>
+<p>Thymeleaf的默认参数配置</p>
+<p>如有需要修改默认配置的时候，只需复制下面要修改的属性到application.properties中，并修改成需要的值，如修改模板文件的扩展名，修改默认的模板路径等。</p>
+<h1 id="Enable-template-caching"><a href="#Enable-template-caching" class="headerlink" title="Enable template caching."></a>Enable template caching.</h1><p>spring.thymeleaf.cache=true  </p>
+<h1 id="Check-that-the-templates-location-exists"><a href="#Check-that-the-templates-location-exists" class="headerlink" title="Check that the templates location exists."></a>Check that the templates location exists.</h1><p>spring.thymeleaf.check-template-location=true  </p>
+<h1 id="Content-Type-value"><a href="#Content-Type-value" class="headerlink" title="Content-Type value."></a>Content-Type value.</h1><p>spring.thymeleaf.content-type=text/html  </p>
+<h1 id="Enable-MVC-Thymeleaf-view-resolution"><a href="#Enable-MVC-Thymeleaf-view-resolution" class="headerlink" title="Enable MVC Thymeleaf view resolution."></a>Enable MVC Thymeleaf view resolution.</h1><p>spring.thymeleaf.enabled=true  </p>
+<h1 id="Template-encoding"><a href="#Template-encoding" class="headerlink" title="Template encoding."></a>Template encoding.</h1><p>spring.thymeleaf.encoding=UTF-8  </p>
+<h1 id="Comma-separated-list-of-view-names-that-should-be-excluded-from-resolution"><a href="#Comma-separated-list-of-view-names-that-should-be-excluded-from-resolution" class="headerlink" title="Comma-separated list of view names that should be excluded from resolution."></a>Comma-separated list of view names that should be excluded from resolution.</h1><p>spring.thymeleaf.excluded-view-names=  </p>
+<h1 id="Template-mode-to-be-applied-to-templates-See-also-StandardTemplateModeHandlers"><a href="#Template-mode-to-be-applied-to-templates-See-also-StandardTemplateModeHandlers" class="headerlink" title="Template mode to be applied to templates. See also StandardTemplateModeHandlers."></a>Template mode to be applied to templates. See also StandardTemplateModeHandlers.</h1><p>spring.thymeleaf.mode=HTML5  </p>
+<h1 id="Prefix-that-gets-prepended-to-view-names-when-building-a-URL"><a href="#Prefix-that-gets-prepended-to-view-names-when-building-a-URL" class="headerlink" title="Prefix that gets prepended to view names when building a URL."></a>Prefix that gets prepended to view names when building a URL.</h1><p>spring.thymeleaf.prefix=classpath:/templates/  </p>
+<h1 id="Suffix-that-gets-appended-to-view-names-when-building-a-URL"><a href="#Suffix-that-gets-appended-to-view-names-when-building-a-URL" class="headerlink" title="Suffix that gets appended to view names when building a URL."></a>Suffix that gets appended to view names when building a URL.</h1><p>spring.thymeleaf.suffix=.html  spring.thymeleaf.template-resolver-order= # Order of the template resolver in the chain. spring.thymeleaf.view-names= # Comma-separated list of view names that can be resolved.<br>支持JSP的配置<br>Spring Boot并不建议使用，但如果一定要使用，可以参考此工程作为脚手架：JSP支持</p>
+<p>Spring Boot教程完整案例</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/15/SpringBoot工程结构推荐/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          SpringBoot工程结构推荐
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/15/SpringBoot中使用SpringSecurity进行安全控制/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SpringBoot中使用SpringSecurity进行安全控制</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="SpringBoot开发Web应用" data-title="SpringBoot开发Web应用" data-url="http://yoursite.com/2016/06/15/SpringBoot开发Web应用/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 菜菜
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>SpringBoot属性配置文件详解 | 菜菜的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Spring Boot属性配置文件详解2016年05月05日 标签：Spring Boot相信很多人选择Spring Boot主要是考虑到它既能兼顾Spring的强大功能，还能实现快速开发的便捷。我们在Spring Boot使用过程中，最直观的感受就是没有了原来自己整合Spring应用时繁多的XML配置内容，替代它的是在pom.xml中引入模块化的Starter POMs，其中各个模块都有自己的默">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot属性配置文件详解">
+<meta property="og:url" content="http://yoursite.com/2016/06/15/SpringBoot属性配置文件详解/index.html">
+<meta property="og:site_name" content="菜菜的博客">
+<meta property="og:description" content="Spring Boot属性配置文件详解2016年05月05日 标签：Spring Boot相信很多人选择Spring Boot主要是考虑到它既能兼顾Spring的强大功能，还能实现快速开发的便捷。我们在Spring Boot使用过程中，最直观的感受就是没有了原来自己整合Spring应用时繁多的XML配置内容，替代它的是在pom.xml中引入模块化的Starter POMs，其中各个模块都有自己的默">
+<meta property="og:updated_time" content="2016-06-15T09:26:47.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SpringBoot属性配置文件详解">
+<meta name="twitter:description" content="Spring Boot属性配置文件详解2016年05月05日 标签：Spring Boot相信很多人选择Spring Boot主要是考虑到它既能兼顾Spring的强大功能，还能实现快速开发的便捷。我们在Spring Boot使用过程中，最直观的感受就是没有了原来自己整合Spring应用时繁多的XML配置内容，替代它的是在pom.xml中引入模块化的Starter POMs，其中各个模块都有自己的默">
+  
+    <link rel="alternative" href="/atom.xml" title="菜菜的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/ccz.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">菜菜</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">菜菜的博客</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags">标签</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/javascript/" style="font-size: 13.33px;">javascript</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/memcached/" style="font-size: 10px;">memcached</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/oracle/" style="font-size: 10px;">oracle</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/soa/" style="font-size: 16.67px;">soa</a> <a href="/tags/solr/" style="font-size: 10px;">solr</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">菜菜</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/ccz.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">菜菜</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">菜菜的博客</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags">标签</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-SpringBoot属性配置文件详解" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/15/SpringBoot属性配置文件详解/" class="article-date">
+  	<time datetime="2016-06-15T09:26:27.000Z" itemprop="datePublished">2016-06-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SpringBoot属性配置文件详解
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Spring Boot属性配置文件详解<br>2016年05月05日 标签：Spring Boot<br>相信很多人选择Spring Boot主要是考虑到它既能兼顾Spring的强大功能，还能实现快速开发的便捷。我们在Spring Boot使用过程中，最直观的感受就是没有了原来自己整合Spring应用时繁多的XML配置内容，替代它的是在pom.xml中引入模块化的Starter POMs，其中各个模块都有自己的默认配置，所以如果不是特殊应用场景，就只需要在application.properties中完成一些属性配置就能开启各模块的应用。</p>
+<p>在之前的各篇文章中都有提及关于application.properties的使用，主要用来配置数据库连接、日志相关配置等。除了这些配置内容之外，本文将具体介绍一些在application.properties配置中的其他特性和使用方法。</p>
+<p>自定义属性与加载<br>我们在使用Spring Boot的时候，通常也需要定义一些自己使用的属性，我们可以如下方式直接定义：</p>
+<p>com.didispace.blog.name=程序猿DD<br>com.didispace.blog.title=Spring Boot教程<br>然后通过@Value(“${属性名}”)注解来加载对应的配置属性，具体如下：</p>
+<p>@Component<br>public class BlogProperties {</p>
+<pre><code>@Value(&quot;${com.didispace.blog.name}&quot;)
+private String name;
+@Value(&quot;${com.didispace.blog.title}&quot;)
+private String title;
+
+// 省略getter和setter
+</code></pre><p>}<br>按照惯例，通过单元测试来验证BlogProperties中的属性是否已经根据配置文件加载了。</p>
+<p>@RunWith(SpringJUnit4ClassRunner.class)<br>@SpringApplicationConfiguration(Application.class)<br>public class ApplicationTests {</p>
+<pre><code>@Autowired
+private BlogProperties blogProperties;
+
+
+@Test
+public void getHello() throws Exception {
+    Assert.assertEquals(blogProperties.getName(), &quot;程序猿DD&quot;);
+    Assert.assertEquals(blogProperties.getTitle(), &quot;Spring Boot教程&quot;);
+}
+</code></pre><p>}<br>参数间的引用<br>在application.properties中的各个参数之间也可以直接引用来使用，就像下面的设置：</p>
+<p>com.didispace.blog.name=程序猿DD<br>com.didispace.blog.title=Spring Boot教程<br>com.didispace.blog.desc=${com.didispace.blog.name}正在努力写《${com.didispace.blog.title}》<br>com.didispace.blog.desc参数引用了上文中定义的name和title属性，最后该属性的值就是程序猿DD正在努力写《Spring Boot教程》。</p>
+<p>使用随机数<br>在一些情况下，有些参数我们需要希望它不是一个固定的值，比如密钥、服务端口等。Spring Boot的属性配置文件中可以通过${random}来产生int值、long值或者string字符串，来支持属性的随机值。</p>
+<h1 id="随机字符串"><a href="#随机字符串" class="headerlink" title="随机字符串"></a>随机字符串</h1><p>com.didispace.blog.value=${random.value}  </p>
+<h1 id="随机int"><a href="#随机int" class="headerlink" title="随机int"></a>随机int</h1><p>com.didispace.blog.number=${random.int}  </p>
+<h1 id="随机long"><a href="#随机long" class="headerlink" title="随机long"></a>随机long</h1><p>com.didispace.blog.bignumber=${random.long}  </p>
+<h1 id="10以内的随机数"><a href="#10以内的随机数" class="headerlink" title="10以内的随机数"></a>10以内的随机数</h1><p>com.didispace.blog.test1=${random.int(10)}  </p>
+<h1 id="10-20的随机数"><a href="#10-20的随机数" class="headerlink" title="10-20的随机数"></a>10-20的随机数</h1><p>com.didispace.blog.test2=${random.int[10,20]}<br>通过命令行设置属性值<br>相信使用过一段时间Spring Boot的用户，一定知道这条命令：java -jar xxx.jar –server.port=8888，通过使用–server.port属性来设置xxx.jar应用的端口为8888。</p>
+<p>在命令行运行时，连续的两个减号–就是对application.properties中的属性值进行赋值的标识。所以，java -jar xxx.jar –server.port=8888命令，等价于我们在application.properties中添加属性server.port=8888，该设置在样例工程中可见，读者可通过删除该值或使用命令行来设置该值来验证。</p>
+<p>通过命令行来修改属性值固然提供了不错的便利性，但是通过命令行就能更改应用运行的参数，那岂不是很不安全？是的，所以Spring Boot也贴心的提供了屏蔽命令行访问属性的设置，只需要这句设置就能屏蔽：SpringApplication.setAddCommandLineProperties(false)。</p>
+<p>多环境配置<br>我们在开发Spring Boot应用时，通常同一套程序会被应用和安装到几个不同的环境，比如：开发、测试、生产等。其中每个环境的数据库地址、服务器端口等等配置都会不同，如果在为不同环境打包时都要频繁修改配置文件的话，那必将是个非常繁琐且容易发生错误的事。</p>
+<p>对于多环境的配置，各种项目构建工具或是框架的基本思路是一致的，通过配置多份不同环境的配置文件，再通过打包命令指定需要打包的内容之后进行区分打包，Spring Boot也不例外，或者说更加简单。</p>
+<p>在Spring Boot中多环境配置文件名需要满足application-{profile}.properties的格式，其中{profile}对应你的环境标识，比如：</p>
+<p>application-dev.properties：开发环境<br>application-test.properties：测试环境<br>application-prod.properties：生产环境<br>至于哪个具体的配置文件会被加载，需要在application.properties文件中通过spring.profiles.active属性来设置，其值对应{profile}值。</p>
+<p>如：spring.profiles.active=test就会加载application-test.properties配置文件内容</p>
+<p>下面，以不同环境配置不同的服务端口为例，进行样例实验。</p>
+<p>针对各环境新建不同的配置文件application-dev.properties、application-test.properties、application-prod.properties</p>
+<p>在这三个文件均都设置不同的server.port属性，如：dev环境设置为1111，test环境设置为2222，prod环境设置为3333</p>
+<p>application.properties中设置spring.profiles.active=dev，就是说默认以dev环境设置</p>
+<p>测试不同配置的加载</p>
+<p>执行java -jar xxx.jar，可以观察到服务端口被设置为1111，也就是默认的开发环境（dev）<br>执行java -jar xxx.jar –spring.profiles.active=test，可以观察到服务端口被设置为2222，也就是测试环境的配置（test）<br>执行java -jar xxx.jar –spring.profiles.active=prod，可以观察到服务端口被设置为3333，也就是生产环境的配置（prod）<br>按照上面的实验，可以如下总结多环境的配置思路：</p>
+<p>application.properties中配置通用内容，并设置spring.profiles.active=dev，以开发环境为默认配置<br>application-{profile}.properties中配置各个环境不同的内容<br>通过命令行方式去激活不同环境的配置</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/15/SpringBoot中使用-Scheduled创建定时任务/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          SpringBoot中使用@Scheduled创建定时任务
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/15/SpringBoot中Web应用的统一异常处理/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SpringBoot中Web应用的统一异常处理</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="SpringBoot属性配置文件详解" data-title="SpringBoot属性配置文件详解" data-url="http://yoursite.com/2016/06/15/SpringBoot属性配置文件详解/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 菜菜
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

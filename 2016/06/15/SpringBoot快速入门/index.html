@@ -16,7 +16,7 @@ Spring Boot让我们的Spring应用变的更轻量化。比如：你">
 Spring Boot让我们的Spring应用变的更轻量化。比如：你">
 <meta property="og:image" content="http://blog.didispace.com/content/images/2016/02/chapter1-1.png">
 <meta property="og:image" content="http://blog.didispace.com/content/images/2016/02/chapter1-2.png">
-<meta property="og:updated_time" content="2016-06-15T09:08:57.000Z">
+<meta property="og:updated_time" content="2016-06-15T09:54:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot快速入门">
 <meta name="twitter:description" content="Spring Boot快速入门2016年02月26日 标签：Spring Boot简介在您第1次接触和学习Spring框架的时候，是否因为其繁杂的配置而退却了？在你第n次使用Spring框架的时候，是否觉得一堆反复黏贴的配置有一些厌烦？那么您就不妨来试试使用Spring Boot来让你更易上手，更简单快捷地构建Spring应用！
@@ -86,7 +86,7 @@ Spring Boot让我们的Spring应用变的更轻量化。比如：你">
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -125,7 +125,7 @@ Spring Boot让我们的Spring应用变的更轻量化。比如：你">
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/javascript/" style="font-size: 15px;">javascript</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/memcached/" style="font-size: 10px;">memcached</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/oracle/" style="font-size: 10px;">oracle</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/soa/" style="font-size: 20px;">soa</a> <a href="/tags/solr/" style="font-size: 10px;">solr</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+						<a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/javascript/" style="font-size: 13.33px;">javascript</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/memcached/" style="font-size: 10px;">memcached</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/oracle/" style="font-size: 10px;">oracle</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/soa/" style="font-size: 16.67px;">soa</a> <a href="/tags/solr/" style="font-size: 10px;">solr</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
 					</div>
 				</section>
 				
@@ -257,14 +257,8 @@ Spring Boot让我们的Spring应用变的更轻量化。比如：你">
 <p>通过上面步骤完成了基础项目的创建，如上图所示，Spring Boot的基础结构共三个文件（具体路径根据用户生成项目时填写的Group所有差异）：</p>
 <p>src/main/java下的程序入口：Chapter1Application<br>src/main/resources下的配置文件：application.properties<br>src/test/下的测试入口：Chapter1ApplicationTests<br>生成的Chapter1Application和Chapter1ApplicationTests类都可以直接运行来启动当前创建的项目，由于目前该项目未配合任何数据访问或Web模块，程序会在加载完Spring之后结束运行。</p>
 <p>引入Web模块<br>当前的pom.xml内容如下，仅引入了两个模块：</p>
-<p>spring-boot-starter：核心模块，包括自动配置支持、日志和YAML<br>spring-boot-starter-test：测试模块，包括JUnit、Hamcrest、Mockito</p>
-<p><dependencies><br>    <dependency><br>        <groupid>org.springframework.boot</groupid><br>        <artifactid>spring-boot-starter</artifactid><br>    </dependency></dependencies></p>
-<pre><code>&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
-    &lt;scope&gt;test&lt;/scope&gt;
-&lt;/dependency&gt;
-</code></pre><p><br>引入Web模块，需添加spring-boot-starter-web模块：</p>
+<p>spring-boot-starter：核心模块，包括自动配置支持、日志和YAML<br>spring-boot-starter-test：测试模块，包括JUnit、Hamcrest、Mockito<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;  </span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;</span><br><span class="line">        &lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">&lt;/dependencies&gt;</span><br></pre></td></tr></table></figure></p>
+<p>引入Web模块，需添加spring-boot-starter-web模块：</p>
 <pre><code>&lt;dependency&gt;
     &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
     &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
@@ -299,6 +293,15 @@ public void getHello() throws Exception {
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/06/15/Security进行安全控制-1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Security进行安全控制
+        
+      </div>
+    </a>
   
   
     <a href="/2016/06/12/各大平台免费接口/" id="article-nav-older" class="article-nav-link-wrap">

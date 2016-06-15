@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>springBoot多数据源配置与使用 | 菜菜的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Spring Boot多数据源配置与使用2016年03月28日 标签：Spring Boot之前在介绍使用JdbcTemplate和Spring-data-jpa时，都使用了单数据源。在单数据源的情况下，Spring Boot的配置非常简单，只需要在application.properties文件中配置连接参数即可。但是往往随着业务量发展，我们通常会进行数据库拆分或是引入其他数据库，从而我们需要配">
+<meta property="og:type" content="article">
+<meta property="og:title" content="springBoot多数据源配置与使用">
+<meta property="og:url" content="http://yoursite.com/2016/06/15/springBoot多数据源配置与使用/index.html">
+<meta property="og:site_name" content="菜菜的博客">
+<meta property="og:description" content="Spring Boot多数据源配置与使用2016年03月28日 标签：Spring Boot之前在介绍使用JdbcTemplate和Spring-data-jpa时，都使用了单数据源。在单数据源的情况下，Spring Boot的配置非常简单，只需要在application.properties文件中配置连接参数即可。但是往往随着业务量发展，我们通常会进行数据库拆分或是引入其他数据库，从而我们需要配">
+<meta property="og:updated_time" content="2016-06-15T09:43:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="springBoot多数据源配置与使用">
+<meta name="twitter:description" content="Spring Boot多数据源配置与使用2016年03月28日 标签：Spring Boot之前在介绍使用JdbcTemplate和Spring-data-jpa时，都使用了单数据源。在单数据源的情况下，Spring Boot的配置非常简单，只需要在application.properties文件中配置连接参数即可。但是往往随着业务量发展，我们通常会进行数据库拆分或是引入其他数据库，从而我们需要配">
+  
+    <link rel="alternative" href="/atom.xml" title="菜菜的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/ccz.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">菜菜</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">菜菜的博客</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags">标签</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/javascript/" style="font-size: 13.33px;">javascript</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/memcached/" style="font-size: 10px;">memcached</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/oracle/" style="font-size: 10px;">oracle</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/soa/" style="font-size: 16.67px;">soa</a> <a href="/tags/solr/" style="font-size: 10px;">solr</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">菜菜</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/ccz.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">菜菜</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">菜菜的博客</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags">标签</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-springBoot多数据源配置与使用" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/15/springBoot多数据源配置与使用/" class="article-date">
+  	<time datetime="2016-06-15T09:18:31.000Z" itemprop="datePublished">2016-06-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      springBoot多数据源配置与使用
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Spring Boot多数据源配置与使用<br>2016年03月28日 标签：Spring Boot<br>之前在介绍使用JdbcTemplate和Spring-data-jpa时，都使用了单数据源。在单数据源的情况下，Spring Boot的配置非常简单，只需要在application.properties文件中配置连接参数即可。但是往往随着业务量发展，我们通常会进行数据库拆分或是引入其他数据库，从而我们需要配置多个数据源，下面基于之前的JdbcTemplate和Spring-data-jpa例子分别介绍两种多数据源的配置方式。</p>
+<p>多数据源配置<br>创建一个Spring配置类，定义两个DataSource用来读取application.properties中的不同配置。如下例子中，主数据源配置为spring.datasource.primary开头的配置，第二数据源配置为spring.datasource.secondary开头的配置。</p>
+<p>@Configuration<br>public class DataSourceConfig {</p>
+<pre><code>@Bean(name = &quot;primaryDataSource&quot;)
+@Qualifier(&quot;primaryDataSource&quot;)
+@ConfigurationProperties(prefix=&quot;spring.datasource.primary&quot;)
+public DataSource primaryDataSource() {
+    return DataSourceBuilder.create().build();
+}
+
+@Bean(name = &quot;secondaryDataSource&quot;)
+@Qualifier(&quot;secondaryDataSource&quot;)
+@Primary
+@ConfigurationProperties(prefix=&quot;spring.datasource.secondary&quot;)
+public DataSource secondaryDataSource() {
+    return DataSourceBuilder.create().build();
+}
+</code></pre><p>}<br>对应的application.properties配置如下：</p>
+<p>spring.datasource.primary.url=jdbc:mysql://localhost:3306/test1<br>spring.datasource.primary.username=root<br>spring.datasource.primary.password=root<br>spring.datasource.primary.driver-class-name=com.mysql.jdbc.Driver</p>
+<p>spring.datasource.secondary.url=jdbc:mysql://localhost:3306/test2<br>spring.datasource.secondary.username=root<br>spring.datasource.secondary.password=root<br>spring.datasource.secondary.driver-class-name=com.mysql.jdbc.Driver<br>JdbcTemplate支持<br>对JdbcTemplate的支持比较简单，只需要为其注入对应的datasource即可，如下例子，在创建JdbcTemplate的时候分别注入名为primaryDataSource和secondaryDataSource的数据源来区分不同的JdbcTemplate。</p>
+<pre><code>@Bean(name = &quot;primaryJdbcTemplate&quot;)
+public JdbcTemplate primaryJdbcTemplate(
+        @Qualifier(&quot;primaryDataSource&quot;) DataSource dataSource) {
+    return new JdbcTemplate(dataSource);
+}
+
+@Bean(name = &quot;secondaryJdbcTemplate&quot;)
+public JdbcTemplate secondaryJdbcTemplate(
+        @Qualifier(&quot;secondaryDataSource&quot;) DataSource dataSource) {
+    return new JdbcTemplate(dataSource);
+}
+</code></pre><p>接下来通过测试用例来演示如何使用这两个针对不同数据源的JdbcTemplate。</p>
+<p>@RunWith(SpringJUnit4ClassRunner.class)<br>@SpringApplicationConfiguration(Application.class)<br>public class ApplicationTests {</p>
+<pre><code>@Autowired
+@Qualifier(&quot;primaryJdbcTemplate&quot;)
+protected JdbcTemplate jdbcTemplate1;
+
+@Autowired
+@Qualifier(&quot;secondaryJdbcTemplate&quot;)
+protected JdbcTemplate jdbcTemplate2;
+
+@Before
+public void setUp() {
+    jdbcTemplate1.update(&quot;DELETE  FROM  USER &quot;);
+    jdbcTemplate2.update(&quot;DELETE  FROM  USER &quot;);
+}
+
+@Test
+public void test() throws Exception {
+
+    // 往第一个数据源中插入两条数据
+    jdbcTemplate1.update(&quot;insert into user(id,name,age) values(?, ?, ?)&quot;, 1, &quot;aaa&quot;, 20);
+    jdbcTemplate1.update(&quot;insert into user(id,name,age) values(?, ?, ?)&quot;, 2, &quot;bbb&quot;, 30);
+
+    // 往第二个数据源中插入一条数据，若插入的是第一个数据源，则会主键冲突报错
+    jdbcTemplate2.update(&quot;insert into user(id,name,age) values(?, ?, ?)&quot;, 1, &quot;aaa&quot;, 20);
+
+    // 查一下第一个数据源中是否有两条数据，验证插入是否成功
+    Assert.assertEquals(&quot;2&quot;, jdbcTemplate1.queryForObject(&quot;select count(1) from user&quot;, String.class));
+
+    // 查一下第一个数据源中是否有两条数据，验证插入是否成功
+    Assert.assertEquals(&quot;1&quot;, jdbcTemplate2.queryForObject(&quot;select count(1) from user&quot;, String.class));
+
+}
+</code></pre><p>}<br>完整示例:Chapter3-2-3</p>
+<p>Spring-data-jpa支持<br>对于数据源的配置可以沿用上例中DataSourceConfig的实现。</p>
+<p>新增对第一数据源的JPA配置，注意两处注释的地方，用于指定数据源对应的Entity实体和Repository定义位置，用@Primary区分主数据源。</p>
+<p>@Configuration<br>@EnableTransactionManagement<br>@EnableJpaRepositories(<br>        entityManagerFactoryRef=”entityManagerFactoryPrimary”,<br>        transactionManagerRef=”transactionManagerPrimary”,<br>        basePackages= { “com.didispace.domain.p” }) //设置Repository所在位置<br>public class PrimaryConfig {</p>
+<pre><code>@Autowired @Qualifier(&quot;primaryDataSource&quot;)
+private DataSource primaryDataSource;
+
+@Primary
+@Bean(name = &quot;entityManagerPrimary&quot;)
+public EntityManager entityManager(EntityManagerFactoryBuilder builder) {
+    return entityManagerFactoryPrimary(builder).getObject().createEntityManager();
+}
+
+@Primary
+@Bean(name = &quot;entityManagerFactoryPrimary&quot;)
+public LocalContainerEntityManagerFactoryBean entityManagerFactoryPrimary (EntityManagerFactoryBuilder builder) {
+    return builder
+            .dataSource(primaryDataSource)
+            .properties(getVendorProperties(primaryDataSource))
+            .packages(&quot;com.didispace.domain.p&quot;) //设置实体类所在位置
+            .persistenceUnit(&quot;primaryPersistenceUnit&quot;)
+            .build();
+}
+
+@Autowired
+private JpaProperties jpaProperties;
+
+private Map&lt;String, String&gt; getVendorProperties(DataSource dataSource) {
+    return jpaProperties.getHibernateProperties(dataSource);
+}
+
+@Primary
+@Bean(name = &quot;transactionManagerPrimary&quot;)
+public PlatformTransactionManager transactionManagerPrimary(EntityManagerFactoryBuilder builder) {
+    return new JpaTransactionManager(entityManagerFactoryPrimary(builder).getObject());
+}
+</code></pre><p>}<br>新增对第二数据源的JPA配置，内容与第一数据源类似，具体如下：</p>
+<p>@Configuration<br>@EnableTransactionManagement<br>@EnableJpaRepositories(<br>        entityManagerFactoryRef=”entityManagerFactorySecondary”,<br>        transactionManagerRef=”transactionManagerSecondary”,<br>        basePackages= { “com.didispace.domain.s” }) //设置Repository所在位置<br>public class SecondaryConfig {</p>
+<pre><code>@Autowired @Qualifier(&quot;secondaryDataSource&quot;)
+private DataSource secondaryDataSource;
+
+@Bean(name = &quot;entityManagerSecondary&quot;)
+public EntityManager entityManager(EntityManagerFactoryBuilder builder) {
+    return entityManagerFactorySecondary(builder).getObject().createEntityManager();
+}
+
+@Bean(name = &quot;entityManagerFactorySecondary&quot;)
+public LocalContainerEntityManagerFactoryBean entityManagerFactorySecondary (EntityManagerFactoryBuilder builder) {
+    return builder
+            .dataSource(secondaryDataSource)
+            .properties(getVendorProperties(secondaryDataSource))
+            .packages(&quot;com.didispace.domain.s&quot;) //设置实体类所在位置
+            .persistenceUnit(&quot;secondaryPersistenceUnit&quot;)
+            .build();
+}
+
+@Autowired
+private JpaProperties jpaProperties;
+
+private Map&lt;String, String&gt; getVendorProperties(DataSource dataSource) {
+    return jpaProperties.getHibernateProperties(dataSource);
+}
+
+@Bean(name = &quot;transactionManagerSecondary&quot;)
+PlatformTransactionManager transactionManagerSecondary(EntityManagerFactoryBuilder builder) {
+    return new JpaTransactionManager(entityManagerFactorySecondary(builder).getObject());
+}
+</code></pre><p>}<br>完成了以上配置之后，主数据源的实体和数据访问对象位于：com.didispace.domain.p，次数据源的实体和数据访问接口位于：com.didispace.domain.s。</p>
+<p>分别在这两个package下创建各自的实体和数据访问接口</p>
+<p>主数据源下，创建User实体和对应的Repository接口<br>@Entity<br>public class User {</p>
+<pre><code>@Id
+@GeneratedValue
+private Long id;
+
+@Column(nullable = false)
+private String name;
+
+@Column(nullable = false)
+private Integer age;
+
+public User(){}
+
+public User(String name, Integer age) {
+    this.name = name;
+    this.age = age;
+}
+
+// 省略getter、setter
+</code></pre><p>}<br>public interface UserRepository extends JpaRepository<user, long=""> {</user,></p>
+<p>}<br>从数据源下，创建Message实体和对应的Repository接口<br>@Entity<br>public class Message {</p>
+<pre><code>@Id
+@GeneratedValue
+private Long id;
+
+@Column(nullable = false)
+private String name;
+
+@Column(nullable = false)
+private String content;
+
+public Message(){}
+
+public Message(String name, String content) {
+    this.name = name;
+    this.content = content;
+}
+
+// 省略getter、setter
+</code></pre><p>}<br>public interface MessageRepository extends JpaRepository<message, long=""> {</message,></p>
+<p>}<br>接下来通过测试用例来验证使用这两个针对不同数据源的配置进行数据操作。</p>
+<p>@RunWith(SpringJUnit4ClassRunner.class)<br>@SpringApplicationConfiguration(Application.class)<br>public class ApplicationTests {</p>
+<pre><code>@Autowired
+private UserRepository userRepository;
+@Autowired
+private MessageRepository messageRepository;
+
+@Test
+public void test() throws Exception {
+
+    userRepository.save(new User(&quot;aaa&quot;, 10));
+    userRepository.save(new User(&quot;bbb&quot;, 20));
+    userRepository.save(new User(&quot;ccc&quot;, 30));
+    userRepository.save(new User(&quot;ddd&quot;, 40));
+    userRepository.save(new User(&quot;eee&quot;, 50));
+
+    Assert.assertEquals(5, userRepository.findAll().size());
+
+    messageRepository.save(new Message(&quot;o1&quot;, &quot;aaaaaaaaaa&quot;));
+    messageRepository.save(new Message(&quot;o2&quot;, &quot;bbbbbbbbbb&quot;));
+    messageRepository.save(new Message(&quot;o3&quot;, &quot;cccccccccc&quot;));
+
+    Assert.assertEquals(3, messageRepository.findAll().size());
+
+}
+</code></pre><p>}<br>完整示例:Chapter3-2-4</p>
+<p>版权申明：署名-非商业性使用-禁止演绎 3.0 (CC BY-NC-ND 3.0)</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/15/SpringBoot日志管理/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          SpringBoot日志管理
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/15/SpringBoot中使用Spring-data-jpa让数据访问更简单更优雅/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SpringBoot中使用Spring-data-jpa让数据访问更简单更优雅</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="springBoot多数据源配置与使用" data-title="springBoot多数据源配置与使用" data-url="http://yoursite.com/2016/06/15/springBoot多数据源配置与使用/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 菜菜
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

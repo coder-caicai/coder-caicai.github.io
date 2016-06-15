@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>SpringBoot中使用AOP统一处理Web请求日志 | 菜菜的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Spring Boot中使用AOP统一处理Web请求日志2016年05月20日 标签：Spring BootAOP为Aspect Oriented Programming的缩写，意为：面向切面编程，通过预编译方式和运行期动态代理实现程序功能的统一维护的一种技术。AOP是Spring框架中的一个重要内容，它通过对既有程序定义一个切入点，然后在其前后切入不同的执行内容，比如常见的有：打开数据库连接/关">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot中使用AOP统一处理Web请求日志">
+<meta property="og:url" content="http://yoursite.com/2016/06/15/SpringBoot中使用AOP统一处理Web请求日志/index.html">
+<meta property="og:site_name" content="菜菜的博客">
+<meta property="og:description" content="Spring Boot中使用AOP统一处理Web请求日志2016年05月20日 标签：Spring BootAOP为Aspect Oriented Programming的缩写，意为：面向切面编程，通过预编译方式和运行期动态代理实现程序功能的统一维护的一种技术。AOP是Spring框架中的一个重要内容，它通过对既有程序定义一个切入点，然后在其前后切入不同的执行内容，比如常见的有：打开数据库连接/关">
+<meta property="og:updated_time" content="2016-06-15T09:31:17.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SpringBoot中使用AOP统一处理Web请求日志">
+<meta name="twitter:description" content="Spring Boot中使用AOP统一处理Web请求日志2016年05月20日 标签：Spring BootAOP为Aspect Oriented Programming的缩写，意为：面向切面编程，通过预编译方式和运行期动态代理实现程序功能的统一维护的一种技术。AOP是Spring框架中的一个重要内容，它通过对既有程序定义一个切入点，然后在其前后切入不同的执行内容，比如常见的有：打开数据库连接/关">
+  
+    <link rel="alternative" href="/atom.xml" title="菜菜的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/ccz.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">菜菜</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">菜菜的博客</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags">标签</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/javascript/" style="font-size: 13.33px;">javascript</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/memcached/" style="font-size: 10px;">memcached</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/oracle/" style="font-size: 10px;">oracle</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/soa/" style="font-size: 16.67px;">soa</a> <a href="/tags/solr/" style="font-size: 10px;">solr</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">菜菜</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/ccz.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">菜菜</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">菜菜的博客</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags">标签</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-SpringBoot中使用AOP统一处理Web请求日志" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/15/SpringBoot中使用AOP统一处理Web请求日志/" class="article-date">
+  	<time datetime="2016-06-15T09:30:47.000Z" itemprop="datePublished">2016-06-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SpringBoot中使用AOP统一处理Web请求日志
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Spring Boot中使用AOP统一处理Web请求日志<br>2016年05月20日 标签：Spring Boot<br>AOP为Aspect Oriented Programming的缩写，意为：面向切面编程，通过预编译方式和运行期动态代理实现程序功能的统一维护的一种技术。AOP是Spring框架中的一个重要内容，它通过对既有程序定义一个切入点，然后在其前后切入不同的执行内容，比如常见的有：打开数据库连接/关闭数据库连接、打开事务/关闭事务、记录日志等。基于AOP不会破坏原来程序逻辑，因此它可以很好的对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。</p>
+<p>下面主要讲两个内容，一个是如何在Spring Boot中引入Aop功能，二是如何使用Aop做切面去统一处理Web请求的日志。</p>
+<p>以下所有操作基于chapter4-2-2工程进行。</p>
+<p>准备工作<br>因为需要对web请求做切面来记录日志，所以先引入web模块，并创建一个简单的hello请求的处理。</p>
+<p>pom.xml中引入web模块</p>
+<p><dependency><br>    <groupid>org.springframework.boot</groupid><br>    <artifactid>spring-boot-starter-web</artifactid><br></dependency><br>实现一个简单请求处理：通过传入name参数，返回“hello xxx”的功能。<br>@RestController<br>public class HelloController {</p>
+<pre><code>@RequestMapping(value = &quot;/hello&quot;, method = RequestMethod.GET)
+@ResponseBody
+public String hello(@RequestParam String name) {
+    return &quot;Hello &quot; + name;
+}
+</code></pre><p>}<br>下面，我们可以对上面的/hello请求，进行切面日志记录。</p>
+<p>引入AOP依赖<br>在Spring Boot中引入AOP就跟引入其他模块一样，非常简单，只需要在pom.xml中加入如下依赖：</p>
+<p><dependency><br>    <groupid>org.springframework.boot</groupid><br>    <artifactid>spring-boot-starter-aop</artifactid><br></dependency><br>在完成了引入AOP依赖包后，一般来说并不需要去做其他配置。也许在Spring中使用过注解配置方式的人会问是否需要在程序主类中增加@EnableAspectJAutoProxy来启用，实际并不需要。</p>
+<p>可以看下面关于AOP的默认配置属性，其中spring.aop.auto属性默认是开启的，也就是说只要引入了AOP依赖后，默认已经增加了@EnableAspectJAutoProxy。</p>
+<h1 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h1><p>spring.aop.auto=true # Add @EnableAspectJAutoProxy.<br>spring.aop.proxy-target-class=false # Whether subclass-based (CGLIB) proxies are to be created (true) as<br> opposed to standard Java interface-based proxies (false).<br>而当我们需要使用CGLIB来实现AOP的时候，需要配置spring.aop.proxy-target-class=true，不然默认使用的是标准Java的实现。</p>
+<p>实现Web层的日志切面<br>实现AOP的切面主要有以下几个要素：</p>
+<p>使用@Aspect注解将一个java类定义为切面类<br>使用@Pointcut定义一个切入点，可以是一个规则表达式，比如下例中某个package下的所有函数，也可以是一个注解等。<br>根据需要在切入点不同位置的切入内容<br>使用@Before在切入点开始处切入内容<br>使用@After在切入点结尾处切入内容<br>使用@AfterReturning在切入点return内容之后切入内容（可以用来对处理返回值做一些加工处理）<br>使用@Around在切入点前后切入内容，并自己控制何时执行切入点自身的内容<br>使用@AfterThrowing用来处理当切入内容部分抛出异常之后的处理逻辑<br>@Aspect<br>@Component<br>public class WebLogAspect {</p>
+<pre><code>private Logger logger = Logger.getLogger(getClass());
+
+@Pointcut(&quot;execution(public * com.didispace.web..*.*(..))&quot;)
+public void webLog(){}
+
+@Before(&quot;webLog()&quot;)
+public void doBefore(JoinPoint joinPoint) throws Throwable {
+    // 接收到请求，记录请求内容
+    ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+    HttpServletRequest request = attributes.getRequest();
+
+    // 记录下请求内容
+    logger.info(&quot;URL : &quot; + request.getRequestURL().toString());
+    logger.info(&quot;HTTP_METHOD : &quot; + request.getMethod());
+    logger.info(&quot;IP : &quot; + request.getRemoteAddr());
+    logger.info(&quot;CLASS_METHOD : &quot; + joinPoint.getSignature().getDeclaringTypeName() + &quot;.&quot; + joinPoint.getSignature().getName());
+    logger.info(&quot;ARGS : &quot; + Arrays.toString(joinPoint.getArgs()));
+
+}
+
+@AfterReturning(returning = &quot;ret&quot;, pointcut = &quot;webLog()&quot;)
+public void doAfterReturning(Object ret) throws Throwable {
+    // 处理完请求，返回内容
+    logger.info(&quot;RESPONSE : &quot; + ret);
+}
+</code></pre><p>}<br>可以看上面的例子，通过@Pointcut定义的切入点为com.didispace.web包下的所有函数（对web层所有请求处理做切入点），然后通过@Before实现，对请求内容的日志记录（本文只是说明过程，可以根据需要调整内容），最后通过@AfterReturning记录请求返回的对象。</p>
+<p>通过运行程序并访问：<a href="http://localhost:8080/hello?name=didi，可以获得下面的日志输出" target="_blank" rel="external">http://localhost:8080/hello?name=didi，可以获得下面的日志输出</a></p>
+<p>2016-05-19 13:42:13,156  INFO WebLogAspect:41 - URL : <a href="http://localhost:8080/hello" target="_blank" rel="external">http://localhost:8080/hello</a><br>2016-05-19 13:42:13,156  INFO WebLogAspect:42 - HTTP_METHOD : <a href="http://localhost:8080/hello" target="_blank" rel="external">http://localhost:8080/hello</a><br>2016-05-19 13:42:13,157  INFO WebLogAspect:43 - IP : 0:0:0:0:0:0:0:1<br>2016-05-19 13:42:13,160  INFO WebLogAspect:44 - CLASS_METHOD : com.didispace.web.HelloController.hello<br>2016-05-19 13:42:13,160  INFO WebLogAspect:45 - ARGS : [didi]<br>2016-05-19 13:42:13,170  INFO WebLogAspect:52 - RESPONSE:Hello didi<br>优化：AOP切面中的同步问题<br>在WebLogAspect切面中，分别通过doBefore和doAfterReturning两个独立函数实现了切点头部和切点返回后执行的内容，若我们想统计请求的处理时间，就需要在doBefore处记录时间，并在doAfterReturning处通过当前时间与开始处记录的时间计算得到请求处理的消耗时间。</p>
+<p>那么我们是否可以在WebLogAspect切面中定义一个成员变量来给doBefore和doAfterReturning一起访问呢？是否会有同步问题呢？</p>
+<p>的确，直接在这里定义基本类型会有同步问题，所以我们可以引入ThreadLocal对象，像下面这样进行记录：</p>
+<p>@Aspect<br>@Component<br>public class WebLogAspect {</p>
+<pre><code>private Logger logger = Logger.getLogger(getClass());
+
+ThreadLocal&lt;Long&gt; startTime = new ThreadLocal&lt;&gt;();
+
+@Pointcut(&quot;execution(public * com.didispace.web..*.*(..))&quot;)
+public void webLog(){}
+
+@Before(&quot;webLog()&quot;)
+public void doBefore(JoinPoint joinPoint) throws Throwable {
+    startTime.set(System.currentTimeMillis());
+
+    // 省略日志记录内容
+}
+
+@AfterReturning(returning = &quot;ret&quot;, pointcut = &quot;webLog()&quot;)
+public void doAfterReturning(Object ret) throws Throwable {
+    // 处理完请求，返回内容
+    logger.info(&quot;RESPONSE : &quot; + ret);
+    logger.info(&quot;SPEND TIME : &quot; + (System.currentTimeMillis() - startTime.get()));
+}
+</code></pre><p>}<br>优化：AOP切面的优先级<br>由于通过AOP实现，程序得到了很好的解耦，但是也会带来一些问题，比如：我们可能会对Web层做多个切面，校验用户，校验头信息等等，这个时候经常会碰到切面的处理顺序问题。</p>
+<p>所以，我们需要定义每个切面的优先级，我们需要@Order(i)注解来标识切面的优先级。i的值越小，优先级越高。假设我们还有一个切面是CheckNameAspect用来校验name必须为didi，我们为其设置@Order(10)，而上文中WebLogAspect设置为@Order(5)，所以WebLogAspect有更高的优先级，这个时候执行顺序是这样的：</p>
+<p>在@Before中优先执行@Order(5)的内容，再执行@Order(10)的内容<br>在@After和@AfterReturning中优先执行@Order(10)的内容，再执行@Order(5)的内容<br>所以我们可以这样子总结：</p>
+<p>在切入点前的操作，按order的值由小到大执行<br>在切入点后的操作，按order的值由大到小执行<br>本文完整示例Chapter4-2-4</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/15/SpringBoot中使用log4j实现http请求日志入mongodb/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          SpringBoot中使用log4j实现http请求日志入mongodb
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/15/SpringBoot中对log4j进行多环境不同日志级别的控制/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SpringBoot中对log4j进行多环境不同日志级别的控制</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="SpringBoot中使用AOP统一处理Web请求日志" data-title="SpringBoot中使用AOP统一处理Web请求日志" data-url="http://yoursite.com/2016/06/15/SpringBoot中使用AOP统一处理Web请求日志/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 菜菜
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

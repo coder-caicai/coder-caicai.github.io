@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>SpringBoot中对log4j进行多环境不同日志级别的控制 | 菜菜的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Spring Boot中对log4j进行多环境不同日志级别的控制2016年05月19日 标签：Spring Boot之前介绍了在《Spring boot中使用log4j记录日志》，仅通过log4j.properties对日志级别进行控制，对于需要多环境部署的环境不是很方便，可能我们在开发环境大部分模块需要采用DEBUG级别，在测试环境可能需要小部分采用DEBUG级别，而在生产环境时我们又希望采用I">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot中对log4j进行多环境不同日志级别的控制">
+<meta property="og:url" content="http://yoursite.com/2016/06/15/SpringBoot中对log4j进行多环境不同日志级别的控制/index.html">
+<meta property="og:site_name" content="菜菜的博客">
+<meta property="og:description" content="Spring Boot中对log4j进行多环境不同日志级别的控制2016年05月19日 标签：Spring Boot之前介绍了在《Spring boot中使用log4j记录日志》，仅通过log4j.properties对日志级别进行控制，对于需要多环境部署的环境不是很方便，可能我们在开发环境大部分模块需要采用DEBUG级别，在测试环境可能需要小部分采用DEBUG级别，而在生产环境时我们又希望采用I">
+<meta property="og:updated_time" content="2016-06-15T09:30:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SpringBoot中对log4j进行多环境不同日志级别的控制">
+<meta name="twitter:description" content="Spring Boot中对log4j进行多环境不同日志级别的控制2016年05月19日 标签：Spring Boot之前介绍了在《Spring boot中使用log4j记录日志》，仅通过log4j.properties对日志级别进行控制，对于需要多环境部署的环境不是很方便，可能我们在开发环境大部分模块需要采用DEBUG级别，在测试环境可能需要小部分采用DEBUG级别，而在生产环境时我们又希望采用I">
+  
+    <link rel="alternative" href="/atom.xml" title="菜菜的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/ccz.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">菜菜</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">菜菜的博客</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags">标签</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/javascript/" style="font-size: 13.33px;">javascript</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/memcached/" style="font-size: 10px;">memcached</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/oracle/" style="font-size: 10px;">oracle</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/soa/" style="font-size: 16.67px;">soa</a> <a href="/tags/solr/" style="font-size: 10px;">solr</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">菜菜</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/ccz.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">菜菜</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">菜菜的博客</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags">标签</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-SpringBoot中对log4j进行多环境不同日志级别的控制" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/15/SpringBoot中对log4j进行多环境不同日志级别的控制/" class="article-date">
+  	<time datetime="2016-06-15T09:29:54.000Z" itemprop="datePublished">2016-06-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SpringBoot中对log4j进行多环境不同日志级别的控制
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Spring Boot中对log4j进行多环境不同日志级别的控制<br>2016年05月19日 标签：Spring Boot<br>之前介绍了在《Spring boot中使用log4j记录日志》，仅通过log4j.properties对日志级别进行控制，对于需要多环境部署的环境不是很方便，可能我们在开发环境大部分模块需要采用DEBUG级别，在测试环境可能需要小部分采用DEBUG级别，而在生产环境时我们又希望采用INFO级别。这个时候，我们要自己手工编辑log4j.properties文件来调整日志级别，不论在版本库中默认保存哪个环境的级别设定，都会增加其他环境使用人员的工作量，虽然很细微，但是手工修改总不是一件很好的选择，难免会发现修改后误提交等问题。</p>
+<p>那么，有没有办法对于开发人员、运维人员都不需要改变源代码实现不同环境的不同日志级别呢?</p>
+<p>是否还记得之前在《Spring Boot属性配置文件详解》一文中，提到的关于Spring Boot多环境的配置以及属性文件中的参数引用？若没有了解过相关内容，建议先阅读该文后继续此篇内容。</p>
+<p>尝试改造<br>先以chapter4-2-2工程作为基础工程，我们来进行多环境配置的改造。</p>
+<p>创建多环境配置文件<br>application-dev.properties：开发环境<br>application-test.properties：测试环境<br>application-prod.properties：生产环境<br>application.properties中添加属性：spring.profiles.active=dev（默认激活application-dev.properties配置）<br>application-dev.properties和application-test.properties配置文件中添加日志级别定义：logging.level.com.didispace=DEBUG<br>application-prod.properties配置文件中添加日志级别定义：logging.level.com.didispace=INFO<br>通过上面的定义，根据logging.level.com.didispace在不同环境的配置文件中定义了不同的级别，但是我们已经把日志交给了log4j管理，看看我们log4j.properties中对com.didispace包下的日志定义是这样的，固定定义了DEBUG级别，并输出到名为didifile定义的appender中。</p>
+<h1 id="LOG4J配置"><a href="#LOG4J配置" class="headerlink" title="LOG4J配置"></a>LOG4J配置</h1><p>log4j.category.com.didispace=DEBUG, didifile</p>
+<h1 id="com-didispace下的日志输出"><a href="#com-didispace下的日志输出" class="headerlink" title="com.didispace下的日志输出"></a>com.didispace下的日志输出</h1><p>log4j.appender.didifile=org.apache.log4j.DailyRollingFileAppender<br>log4j.appender.didifile.file=logs/my.log<br>log4j.appender.didifile.DatePattern=’.’yyyy-MM-dd<br>log4j.appender.didifile.layout=org.apache.log4j.PatternLayout<br>log4j.appender.didifile.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss,SSS} %5p %c{1}:%L —- %m%n<br>那么，要如何动态的改变这个DEBUG级别呢？在《Spring Boot属性配置文件详解》中还提到了关于配置文件中参数的引用。我们需要将DEBUG替换成application-{profile}.properties配置文件中定义logging.level.com.didispace即可，所以配置变为如下内容：</p>
+<h1 id="LOG4J配置-1"><a href="#LOG4J配置-1" class="headerlink" title="LOG4J配置"></a>LOG4J配置</h1><p>log4j.category.com.didispace=${logging.level.com.didispace}, didifile</p>
+<h1 id="com-didispace下的日志输出-1"><a href="#com-didispace下的日志输出-1" class="headerlink" title="com.didispace下的日志输出"></a>com.didispace下的日志输出</h1><p>log4j.appender.didifile=org.apache.log4j.DailyRollingFileAppender<br>log4j.appender.didifile.file=logs/my.log<br>log4j.appender.didifile.DatePattern=’.’yyyy-MM-dd<br>log4j.appender.didifile.layout=org.apache.log4j.PatternLayout<br>log4j.appender.didifile.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss,SSS} %5p %c{1}:%L —- %m%n<br>到这里我们已经完成了所有配置工作，我们可以通过运行单元测试，然后看my.log文件中输出的日志内容。通过修改默认的application-dev.properties配置的日志级别为INFO，再运行单元测试的DEBUG内容是否被输出到了my.log中验证参数是否被正确引用了。</p>
+<p>对于不同环境的使用人员也不需要改变代码或打包文件，只需要通过执行命令中参加参数即可，比如我想采用生产环境的级别，那么我可以这样运行应用：</p>
+<p>java -jar xxx.jar –spring.profiles.active=prod</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/15/SpringBoot中使用AOP统一处理Web请求日志/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          SpringBoot中使用AOP统一处理Web请求日志
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/15/Springboot中使用log4j记录日志/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Springboot中使用log4j记录日志</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="SpringBoot中对log4j进行多环境不同日志级别的控制" data-title="SpringBoot中对log4j进行多环境不同日志级别的控制" data-url="http://yoursite.com/2016/06/15/SpringBoot中对log4j进行多环境不同日志级别的控制/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 菜菜
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
